@@ -103,15 +103,15 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
                 {
                     navbarList.slice(3).map((ele, key) => {
                         return (
-                            <>
-                                <NavigationMenuItem key={key} className='bg-transparent text-lg '>
+                            <div key={key}>
+                                <NavigationMenuItem className='bg-transparent text-lg '>
                                     <Link href={`/${ele.toLowerCase()}`} legacyBehavior passHref>
                                         <NavigationMenuLink className={cn(isActive(`/${ele.toLowerCase()}`) && "font-bold")}>
                                             {ele.charAt(0).toUpperCase() + ele.slice(1)}
                                         </NavigationMenuLink>
                                     </Link>
                                 </NavigationMenuItem>
-                            </>
+                            </div>
                         )
                     })
                 }
