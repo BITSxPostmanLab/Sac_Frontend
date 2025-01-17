@@ -19,14 +19,13 @@ const Navbar = () => {
     "Contact",
   ];
   return (
-    <NavigationMenu className={cn("w-full h-24 bg-[#ebdcbc]  flex px-10 justify-between", pathname === "/home" ? "bg-opacity-60" : "")}>
+    <NavigationMenu className={cn("w-full h-20 bg-[#ebdcbc]  flex px-10 justify-between", pathname === "/home" ? "bg-opacity-60" : "")}>
       <div className="my-auto flex gap-4">
-
         <div>
           <Image src={"/sac-logo.jpeg"} alt="Sac-logo" width={65} height={65} />
         </div>
         <div className="">
-          <div className={cn("text-3xl")}>Student &apos;s Academic Cell</div>
+          <div className={cn("text-2xl")}>Student &apos;s Academic Cell</div>
           <div className="text-xl italic">BITS Pilani</div>
         </div>
       </div>
