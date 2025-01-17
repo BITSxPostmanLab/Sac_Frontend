@@ -12,7 +12,7 @@ const ProjectType = () => {
                 <div className='col-span-1 text-xl text-[#6a6c6e] my-auto'>
                     <div>Choosing SOP/LOP/DOP courses opens a gateway to fuel your passion for research, going beyond lectures under the guidance of experienced professors.</div>
                     <div className='mt-6'>Introducing our Comprehensive Document on Project Type Courses ! This isn’t just another piece of information; it’s your guide to approaching these project type courses with confidence. Delve into department-specific details as SAC has meticulously compiled information so that you can make informed decisions about your academic journey.</div>
-                    <Link href="https://drive.google.com/file/d/18BNXs66zjGK2_34EgjWXqUFLIoHjc6xT/view" className='text-blue-500 underline'><div className='mt-6'>Project Type Courses</div></Link>
+                    <Link href="https://sacbitspilani.wordpress.com/wp-content/uploads/2023/11/project-type-courses-sac.pdf" className='text-blue-500 underline'><div className='mt-6'>Project Type Courses</div></Link>
 
 
                 </div>
