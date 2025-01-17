@@ -11,6 +11,7 @@ import Handouts from '@/components/resources/handout'
 import SummerCourse from '@/components/resources/summer-courses'
 import ProjectType from '@/components/resources/project-type'
 import ResourceNavbar from '@/components/resources/r-nav'
+import SocialShare from '@/components/resources/share'
 const ResourcesPage = () => {
     return (
         <div className='w-full flex items-center justify-center'>
@@ -37,6 +38,7 @@ const ResourcesPage = () => {
                 </div>
                 <SummerCourse />
                 <Handouts />
+                <SocialShare />
             </div>
         </div>
     )
