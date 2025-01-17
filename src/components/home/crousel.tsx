@@ -1,23 +1,35 @@
 "use client";
+
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
 import { type CarouselApi } from "@/components/ui/carousel";
-import { ChevronLeft } from "lucide-react";
-import { ChevronRight } from "lucide-react";
+import Image from "next/image";
 
-const Crousel = () => {
+interface CarouselProps {
+  images: string[];
+  autoPlayInterval?: number;
+  className?: string;
+}
+
+const ImageCarousel: React.FC<CarouselProps> = ({
+  images,
+  autoPlayInterval = 3000,
+  className = "",
+}) => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  // Track current slide and handle events
   React.useEffect(() => {
-    if (!api) {
-      return;
-    }
+    if (!api) return;
 
     setCurrent(api.selectedScrollSnap());
 
@@ -26,45 +38,79 @@ const Crousel = () => {
     });
   }, [api]);
 
-  //   const handleSelect = (index: number) => {
-  //     api?.scrollTo(index);
-  //   };
+  // Auto-play functionality
+  React.useEffect(() => {
+    if (!api || isHovered) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, autoPlayInterval);
+
+    return () => clearInterval(interval);
+  }, [api, autoPlayInterval, isHovered]);
+
+  // Preload images for smoother transitions
+  React.useEffect(() => {
+    images.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, [images]);
+
   return (
-    <div className="py-10 relative w-full">
-      <Carousel setApi={setApi} className="w-full max-h-[90vh]">
+    <div
+      className={`relative w-full ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Carousel
+        setApi={setApi}
+        className="w-full"
+        opts={{
+          loop: true,
+          align: "start",
+          skipSnaps: false,
+        }}
+      >
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index}>
-              <div className="p-1">
-                <Card className="h-[90vh] w-full">
-                  <CardContent className="flex items-center justify-center h-full w-full">
-                    <Image
-                      src="/landing_image.png"
-                      alt="carousel-image"
-                      layout="fill"
-                      className="object-cover"
-                    />
-                  </CardContent>
-                </Card>
-              </div>
+          {images.map((imgSrc, index) => (
+            <CarouselItem key={index} className="md:basis-full">
+              <Card className="relative w-full h-[70vh] overflow-hidden">
+                <Image
+                  src={imgSrc}
+                  alt={`Slide ${index + 1}`}
+                  fill
+                  priority={index === 0}
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                  quality={90}
+                />
+              </Card>
             </CarouselItem>
           ))}
         </CarouselContent>
+
+        <CarouselPrevious className="left-4 bg-white/70 hover:bg-white/90 transition-all duration-200" />
+        <CarouselNext className="right-4 bg-white/70 hover:bg-white/90 transition-all duration-200" />
       </Carousel>
-      <div
-        onClick={() => api?.scrollTo(current - 1)}
-        className="absolute top-1/2 w-auto h-auto "
-      >
-        <ChevronLeft className="h-16 w-16" />
-      </div>
-      <div
-        onClick={() => api?.scrollTo(current + 1)}
-        className="absolute top-1/2 right-0"
-      >
-        <ChevronRight className="h-16 w-16" />
+
+      {/* Slide indicators */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => api?.scrollTo(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              current === index
+                ? "bg-white w-4"
+                : "bg-white/50 hover:bg-white/75"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
 };
 
-export default Crousel;
+export default ImageCarousel;
