@@ -34,6 +34,7 @@ const Navbar = () => {
         </div>
       </Link>
       <NavbarItems navbarList={navbarList} />
+
     </NavigationMenu>
   );
 };
