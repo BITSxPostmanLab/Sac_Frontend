@@ -38,7 +38,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
     "Competitive Programming Document",
   ];
   return (
-    <div>
+    <div className="hidden lg:block">
       <NavigationMenuList className="flex gap-10 ml-auto my-auto w-full">
         <NavigationMenuItem className="bg-transparent text-lg  ">
           <Link href="/home" legacyBehavior passHref>
@@ -116,3 +116,4 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
   );
 };
 export default NavbarItems;
+

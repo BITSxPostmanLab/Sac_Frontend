@@ -6,18 +6,43 @@ import StudyAbroad from "@/components/resources/study-abroad";
 import CompetitiveProgramming from "@/components/resources/competitive-programming";
 import MinorCourseDocument from "@/components/resources/minor-course";
 import Notion from "@/components/resources/notion";
-import Handouts from "@/components/resources/handout";
-import SummerCourse from "@/components/resources/summer-courses";
+
 import ProjectType from "@/components/resources/project-type";
 import ResourceNavbar from "@/components/resources/r-nav";
 import SocialShare from "@/components/resources/share";
+
+import { resources } from "@/resources_list";
+import SingularPost from "@/components/resources/singular-post";
+
 const ResourcesPage = () => {
   return (
     <div className="w-full flex items-center justify-center">
       <div className=" w-full max-w-[1000px] flex items-center flex-col justify-center">
         <ResourceNavbar />
         <div className="text-4xl">Resources</div>
-        <ProjectCourses />
+        <div className="w-full mt-10">
+          {
+            resources.map((ele) => {
+              return (
+                <Link href={`/resources/${ele.id}`}>
+                  <div className="w-full" >
+                    <div className='text-center text-3xl py-10'>{ele.title}</div>
+                    {ele.posts.map((ele, key) => {
+                      return (
+                        <div key={key}>
+                          <SingularPost imageUrl={ele.imageUrl} resourceLink={ele.resourceLink} paragraphs={ele.paragraphs} linkText={ele.linkText} />
+                        </div>
+                      )
+                    })}
+                  </div>
+                </Link>
+              )
+            })
+          }
+
+        </div>
+
+        {/* <ProjectCourses />
         <ProjectType />
         <StudyAbroad />
         <CompetitiveProgramming />
@@ -57,9 +82,8 @@ const ResourcesPage = () => {
             </Link>{" "}
             to know about electives.
           </div>
-        </div>
-        <SummerCourse />
-        <Handouts />
+        </div> */}
+
         <SocialShare />
       </div>
     </div>
@@ -67,3 +91,4 @@ const ResourcesPage = () => {
 };
 
 export default ResourcesPage;
+
