@@ -22,16 +22,16 @@ const Home = () => {
           objectFit="fill"
           layout="fill"
         />
-        <div className="z-10 absolute top-[40%] left-[10%]">
-          <div className="font-bold text-5xl pb-5">
+        <div className="z-10 absolute bottom-10 left-0 md:top-[40%] md:left-[10%] px-10">
+          <div className="font-bold text-3xl  md:text-5xl pb-5">
             Students&apos; <br />
             Academic Cell
           </div>
-          <Separator className="h-2 w-[140%] -ml-[20%] bg-black mb-5" />
-          <div className="text-center font-bold text-3xl">BITS Pilani</div>
+          <Separator className="h-1 md:h-2 w-[100%]  bg-black mb-5" />
+          <div className="text-center font-bold text-2xl md:text-3xl">BITS Pilani</div>
         </div>
       </div>
-      <div className="w-full max-w-[1440px] ">
+      <div className="w-full max-w-[1440px] md:px-10 px-5  ">
         <div className="text-4xl font-bold text-center py-10">
           About SAC, BITS Pilani
         </div>
@@ -46,3 +46,4 @@ const Home = () => {
 };
 
 export default Home;
+

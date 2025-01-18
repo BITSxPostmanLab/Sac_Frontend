@@ -28,7 +28,6 @@ export default function ImageCarouselMain() {
         })
     }, [api])
 
-
     const title = "Summer Intership Talk - 2024"
     const description = "On April 26, 1986, the Number Four RBMK reactor at the Chernobyl Nuclear Power Plant exploded and released radioactive material into the environment. The accident was caused by a flawed reactor design, inadequately trained personnel, and an attempt to shut down the reactor during a power surge. "
     const resources = ["resource1", "resource2", "resource3"]
@@ -58,7 +57,7 @@ export default function ImageCarouselMain() {
                 </div>
 
             </div>
-            <div className='pt-5 flex flex-col gap-5'>
+            <div className='pt-5 flex flex-col gap-3 line-clamp-4 overflow-y-hidden'>
                 <div className='text-4xl font-semibold whitespace-nowrap flex'>
                     <div>
                         {title}
@@ -68,7 +67,7 @@ export default function ImageCarouselMain() {
                     </div>
                 </div>
                 <p>{description}</p>
-                <div className='flex justify-between px-3'>
+                <div className='flex justify-between px-3 '>
                     {resources.map((ele, index) => {
                         return (
                             <div key={index} className='bg-[#d9d9d9] rounded-3xl py-2 px-10'>
@@ -77,8 +76,10 @@ export default function ImageCarouselMain() {
                         )
                     })}
                 </div>
+
             </div>
 
         </div>
     )
 }
+

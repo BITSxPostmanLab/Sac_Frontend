@@ -6,8 +6,8 @@ import React from "react";
 
 const MembersPage = () => {
   return (
-    <div className="w-full min-h-full bg-white p-10 grid grid-cols-5 space-x-10">
-      <div className="col-span-2 h-full bg-[#f2f2f2] rounded-xl">
+    <div className="w-full min-h-full bg-white p-10  grid grid-col-1 xl:grid-cols-5 space-x-10">
+      <div className="xl:col-span-2 h-full bg-[#f2f2f2] rounded-xl">
         <div className="w-fit py-5 px-10">
           <div className="text-2xl mb-[1px]">Leadership</div>
           <div>
@@ -16,8 +16,8 @@ const MembersPage = () => {
           <div className="mt-5">
             <Separator className="w-[150px] h-[2px] bg-black" />
           </div>
-          <div className="grid grid-cols-2 space-x-10 gap-10 text-left mt-10 pb-10 pr-3">
-            <LeardersProfile className="pl-10" />
+          <div className="grid grid-cols-1 md:grid-cols-2  gap-10 text-left mt-10 pb-10 pr-3">
+            <LeardersProfile className="" />
             <LeardersProfile />
 
             <LeardersProfile />
@@ -25,7 +25,7 @@ const MembersPage = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-3 h-full bg-[#f2f2f2] rounded-xl">
+      <div className="xl:col-span-3 h-full  w-full bg-[#f2f2f2] rounded-xl">
         <div className="w-fit py-5 px-10">
           <div className="text-2xl mb-[1px]">Members</div>
           <div>
@@ -35,7 +35,7 @@ const MembersPage = () => {
             <Separator className="w-[170%] h-[2px] bg-black" />
           </div>
         </div>
-        <div className="grid grid-cols-4 mt-3  ">
+        <div className="grid grid-cols-2 mt-3 lg:grid-cols-4 md:grid-cols-3  ">
           <MemberProfileComponent />
           <MemberProfileComponent />
           <MemberProfileComponent />
@@ -50,3 +50,4 @@ const MembersPage = () => {
 };
 
 export default MembersPage;
+

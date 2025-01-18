@@ -29,8 +29,8 @@ const Navbar = () => {
           <Image src={"/sac-logo.jpeg"} alt="Sac-logo" width={65} height={65} />
         </div>
         <div className="">
-          <div className={cn("text-2xl")}>Student &apos;s Academic Cell</div>
-          <div className="text-xl italic">BITS Pilani</div>
+          <div className=" text-xl sm:text-2xl">Student &apos;s Academic Cell</div>
+          <div className="text-lg sm:text-xl italic">BITS Pilani</div>
         </div>
       </Link>
       <NavbarItems navbarList={navbarList} />
@@ -38,3 +38,4 @@ const Navbar = () => {
   );
 };
 export default Navbar;
+

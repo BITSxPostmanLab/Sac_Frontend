@@ -15,7 +15,7 @@ const FilterParams = () => {
   const [currentParam, setCurrentParam] = useState(filterParams[0]);
 
   return (
-    <div className="flex gap-10 text-xl">
+    <div className="flex gap-10 text-xl p-5">
       {filterParams.map((ele, index) => {
         return (
           <Button
@@ -37,3 +37,4 @@ const FilterParams = () => {
 };
 
 export default FilterParams;
+

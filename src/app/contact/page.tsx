@@ -7,8 +7,8 @@ const ContactPage = () => {
   console.log("Hello world")
   const arr = ["this", "is"]
   return (
-    <div className=' flex w-full h-full bg-red-100'>
-      <div className='w-[40%] hidden md:block bg-[#d9d9d9] h-full text-5xl text-center place-content-center font-bold'>
+    <div className=' flex w-full min-h-full bg-[#d9d9d9]  '>
+      <div className='w-[40%]  hidden md:block bg-[#d9d9d9] h-full text-5xl text-center place-content-center font-bold my-auto'>
         <div>CONTACT</div>
         <div>US</div>
       </div>
@@ -22,7 +22,7 @@ const ContactPage = () => {
         <div className='text-center mt-10 text-lg'>
           Feel free to reach out to us for any query <br /> or collaboration
         </div>
-        <div className='flex flex-col gap-5 mt-8'>
+        <div className='flex flex-col gap-5 mt-8 mb-10'>
           <div>
             <FaMessage className='text-[#d7c99e] ' size={25} />
           </div>

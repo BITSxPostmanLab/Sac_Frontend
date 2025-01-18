@@ -11,8 +11,8 @@ const SingularPost = ({ imageUrl, paragraphs, resourceLink, linkText }: PostProp
 
     return (
         <div className='grid md:grid-cols-2 w-full mb-20 '>
-            <div className='w-fit md:ml-auto mx-auto mb-10'>
-                <Image src={imageUrl} alt="chronicles" height={1000} width={500} className='w-auto h-[500px] ml-auto pr-10' />
+            <div className='w-fit md:ml-auto mx-auto md:mx-0 mb-10'>
+                <Image src={imageUrl} alt="chronicles" height={1000} width={500} className='w-auto h-[500px] ml-auto' />
             </div>
             <div className=' px-10 col-span-1 text-xl text-[#6a6c6e] my-auto'>
                 {/* <div>Project Courses: Chronicles, offers in-depth accounts of students’ experiences working under specific professors in project-based courses. This resource highlights the expectations professors have from their students and provides detailed insights into the dynamics of these collaborations. By documenting these firsthand experiences, the Chronicles serve as a valuable guide for students to make informed decisions when selecting mentors and courses.</div>

@@ -24,18 +24,21 @@ const ResourcesPage = () => {
           {
             resources.map((ele) => {
               return (
-                <Link href={`/resources/${ele.id}`}>
-                  <div className="w-full" >
-                    <div className='text-center text-3xl py-10'>{ele.title}</div>
-                    {ele.posts.map((ele, key) => {
-                      return (
-                        <div key={key}>
+
+                <div className="w-full" >
+                  <div className='text-center text-3xl py-10'>{ele.title}</div>
+                  {ele.posts.map((ele, key) => {
+                    return (
+                      <div key={key}>
+                        <Link href={`/resources/${ele.postId}`}>
                           <SingularPost imageUrl={ele.imageUrl} resourceLink={ele.resourceLink} paragraphs={ele.paragraphs} linkText={ele.linkText} />
-                        </div>
-                      )
-                    })}
-                  </div>
-                </Link>
+                        </Link>
+                      </div>
+
+                    )
+                  })}
+                </div>
+
               )
             })
           }
@@ -86,7 +89,7 @@ const ResourcesPage = () => {
 
         <SocialShare />
       </div>
-    </div>
+    </div >
   );
 };
 
