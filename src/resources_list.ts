@@ -6,6 +6,7 @@ export const resources: ResourceType[] = [
     title: "Project Courses: Chronicles",
     posts: [
       {
+        postId: 101,
         imageUrl: "/resources/chronicles1.jpg",
         paragraphs: [
           "Project Courses: Chronicles, offers in-depth accounts of students' experiences working under specific professors in project-based courses. This resource highlights the expectations professors have from their students and provides detailed insights into the dynamics of these collaborations. By documenting these firsthand experiences, the Chronicles serve as a valuable guide for students to make informed decisions when selecting mentors and courses.",
@@ -16,6 +17,7 @@ export const resources: ResourceType[] = [
         linkText: "Project Courses Chronicles – Economics and Finance",
       },
       {
+        postId: 102,
         imageUrl: "/resources/project_csis.png",
         paragraphs: [
           "This is the 2nd Edition of our department-wise initiative, continuing with the Department of Computer Science & Information Systems",
@@ -25,6 +27,7 @@ export const resources: ResourceType[] = [
         linkText: "Project Courses Chronicles -CSIS",
       },
       {
+        postId: 103,
         imageUrl: "/resources/project_dom.png",
         paragraphs: [
           "This is the 2nd Edition of our department-wise initiative, continuing with the Department of Mathematics",
@@ -40,6 +43,7 @@ export const resources: ResourceType[] = [
     title: "Project Type Courses",
     posts: [
       {
+        postId: 201,
         imageUrl: "/resources/project_type.jpg",
         paragraphs: [
           "Choosing SOP/LOP/DOP courses opens a gateway to fuel your passion for research, going beyond lectures under the guidance of experienced professors.",
@@ -56,6 +60,7 @@ export const resources: ResourceType[] = [
     title: "Study Abroad Document",
     posts: [
       {
+        postId: 301,
         imageUrl: "/resources/study_abroad.png",
         paragraphs: [
           "The Study abroad document provides insightful information and a roadmap to students regarding off-campus thesis opportunities, masters abroad programmes, and exchange programmes. It highlights the advantages of conducting research abroad, allowing students to acquire a global perspective and broaden their academic horizons. With a concentration on fostering cross-cultural collaboration and intellectual development, this extensive resource serves as a valuable guide for students seeking academically enriching experiences abroad.",
@@ -71,6 +76,7 @@ export const resources: ResourceType[] = [
     title: "Competitive Programming Document",
     posts: [
       {
+        postId: 401,
         imageUrl: "/resources/compcode1.jpg",
         paragraphs: [
           "In this interview, we delve deep into the realm of Competitive Programming, exploring what it entails and who should consider venturing into this challenging yet rewarding field. This conversation is also beneficial for students eyeing summer internships (SI) and those aiming to enhance their coding skills for competitive scenarios like the ICPC.Anish also discusses a range of resources that can aid in mastering Data Structures and Algorithms (DSA) as well as excelling in Competitive Programming.This interview promises to be a comprehensive guide for anyone at any stage of their CP journey, packed with practical advice, resource recommendations, and personal anecdotes from one of the most accomplished coders of BITS Pilani.",
@@ -86,6 +92,7 @@ export const resources: ResourceType[] = [
     title: "Minor Courses Document",
     posts: [
       {
+        postId: 501,
         imageUrl: "/resources/minor.png",
         paragraphs: [
           "Minor programs in specific areas are being offered as options for integrated first-year students with the goal of encouraging them to add focus to their supplemental learning (outside of a major area) as well as recognizing and certifying knowledge obtained in an area that is outside of their major area.",
