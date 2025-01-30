@@ -43,6 +43,7 @@ const MembersPage = () => {
           <MemberProfileComponent />
           <MemberProfileComponent />
           <MemberProfileComponent />
+          <MemberProfileComponent />
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ const LeardersProfile = ({ className }: { className?: string }) => {
             </div>
             <div className='text-center mb-2'>Designation</div>
             <Separator className='w-[70px] bg-black h-[1px] mx-auto mb-5' />
-            <div>
+            <div className='text-center sm:text-left'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ex esse recusandae mollitia id tenetur molestias molestiae minus pariatur delectus est accusamus maiores vel facere, doloribus perferendis aut rem deleniti necessitatibus cupiditate! Harum aut provident nihil
             </div>
 
