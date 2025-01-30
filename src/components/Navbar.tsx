@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <NavigationMenu
       className={cn(
-        "w-full h-20 bg-[#ebdcbc]  flex px-10 justify-between",
+        "w-full h-20 bg-[#ebdcbc]  flex px-3 md:px-10 justify-between",
         pathname === "/home" ? "bg-opacity-60" : ""
       )}
     >
@@ -29,8 +29,8 @@ const Navbar = () => {
           <Image src={"/sac-logo.jpeg"} alt="Sac-logo" width={65} height={65} />
         </div>
         <div className="">
-          <div className=" text-xl sm:text-2xl">Student &apos;s Academic Cell</div>
-          <div className="text-lg sm:text-xl italic">BITS Pilani</div>
+          <div className=" text-lg sm:text-2xl">Student &apos;s Academic Cell</div>
+          <div className="text-sm sm:text-xl italic">BITS Pilani</div>
         </div>
       </Link>
       <NavbarItems navbarList={navbarList} />

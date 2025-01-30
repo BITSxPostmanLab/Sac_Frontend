@@ -21,7 +21,7 @@ const SingleResourcePage = async ({
 
   return (
     <div className="w-full flex justify-center min-h-screen">
-      <div className="min-h-full mt-10 max-w-[1000px]">
+      <div className="min-h-full mt-10 max-w-[1000px] px-3">
         <div className="mx-auto w-full">
           <SingularPost
             imageUrl={resource.imageUrl}
@@ -36,3 +36,4 @@ const SingleResourcePage = async ({
 };
 
 export default SingleResourcePage;
+

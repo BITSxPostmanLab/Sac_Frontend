@@ -61,7 +61,7 @@ export default function ImageCarouselVertical() {
 
             </div>
             <div className='pt-5 space-y-4'>
-                <div className=' text-2xl md:text-3xl font-semibold whitespace-nowrap flex'>
+                <div className=' text-xl md:text-3xl font-semibold whitespace-nowrap flex'>
                     <div className='line-clamp-1 '>
                         {title}
                     </div>
@@ -69,11 +69,11 @@ export default function ImageCarouselVertical() {
                         <MoveUpRight />
                     </div>
                 </div>
-                <p>{description}</p>
-                <div className='flex justify-between px-3'>
+                <p className='text-sm sm:text-base'>{description}</p>
+                <div className='flex justify-around lg:justify-between sm:px-3 '>
                     {resources.map((ele, index) => {
                         return (
-                            <div key={index} className='bg-[#d9d9d9] rounded-3xl py-2 px-5 md:px-10'>
+                            <div key={index} className='bg-[#d9d9d9] rounded-3xl py-2 px-4 text-sm sm:text-base sm:px-5 md:px-10'>
                                 {ele}
                             </div>
                         )

@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        footer: "1075px",
+        footer: "1110px",
       },
       colors: {
         background: "hsl(var(--background))",

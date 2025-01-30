@@ -17,7 +17,7 @@ export default function SocialShare() {
   };
 
   return (
-    <div className=" mr-auto space-y-4 p-4 pl-20 mb-20">
+    <div className=" mr-auto space-y-4 p-4 md:pl-20 mb-20">
       <div className="text-sm text-muted-foreground uppercase tracking-wide">
         Share this:
       </div>
@@ -44,7 +44,7 @@ export default function SocialShare() {
         </Button>
       </div>
 
-      <div className="pt-4 flex items-center gap-2 ">
+      <div className="pt-4 flex items-center gap-2 text-sm sm:text-base">
         <Button
           variant="ghost"
           size="sm"
@@ -57,3 +57,4 @@ export default function SocialShare() {
     </div>
   );
 }
+

@@ -17,7 +17,7 @@ import SingularPost from "@/components/resources/singular-post";
 const ResourcesPage = () => {
   return (
     <div className="w-full flex items-center justify-center">
-      <div className=" w-full max-w-[1000px] flex items-center flex-col justify-center">
+      <div className=" w-full max-w-[1000px] flex items-center flex-col justify-center px-3">
         <ResourceNavbar />
         <div className="text-4xl">Resources</div>
         <div className="w-full mt-10">
@@ -28,13 +28,15 @@ const ResourcesPage = () => {
                 {ele.posts.map((ele, key) => {
                   return (
                     <div key={key}>
-                      <Link href={`/resources/${ele.postId}`}>
-                        <SingularPost
-                          imageUrl={ele.imageUrl}
-                          resourceLink={ele.resourceLink}
-                          paragraphs={ele.paragraphs}
-                          linkText={ele.linkText}
-                        />
+                      <Link href={`/resources/${ele.postId}`} passHref>
+                        <div>
+                          <SingularPost
+                            imageUrl={ele.imageUrl}
+                            resourceLink={ele.resourceLink}
+                            paragraphs={ele.paragraphs}
+                            linkText={ele.linkText}
+                          />
+                        </div>
                       </Link>
                     </div>
                   );
@@ -93,3 +95,4 @@ const ResourcesPage = () => {
 };
 
 export default ResourcesPage;
+
