@@ -22,7 +22,7 @@ const Home = () => {
           objectFit="fill"
           layout="fill"
         />
-        <div className="z-10 absolute bottom-10 left-0 md:top-[40%] md:left-[10%] px-10">
+        <div className=" absolute bottom-10 left-0 md:top-[40%] md:left-[10%] px-10">
           <div className="font-bold text-3xl  md:text-5xl pb-5">
             Students&apos; <br />
             Academic Cell

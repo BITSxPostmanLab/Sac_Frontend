@@ -39,7 +39,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
   ];
   return (
     <div className="hidden lg:block">
-      <NavigationMenuList className="flex gap-10 ml-auto my-auto w-full">
+      <NavigationMenuList className="flex gap-6 xl:gap-10 ml-auto my-auto w-full ">
         <NavigationMenuItem className="bg-transparent text-lg  ">
           <Link href="/home" legacyBehavior passHref>
             <NavigationMenuLink
