@@ -116,4 +116,3 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
   );
 };
 export default NavbarItems;
-
