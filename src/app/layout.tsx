@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(inter.className, "w-full h-screen")}>
+    <html lang="en" className={cn(inter.className, "w-full h-screen")} suppressHydrationWarning={true}>
       <body
         className=" w-full h-screen"
       >

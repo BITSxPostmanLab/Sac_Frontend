@@ -46,47 +46,7 @@ const ResourcesPage = () => {
           })}
         </div>
 
-        {/* <ProjectCourses />
-        <ProjectType />
-        <StudyAbroad />
-        <CompetitiveProgramming />
-        <Notion />
-        <MinorCourseDocument />
-        <div className="">
-          <div className="text-3xl text-center mt-10">
-            Google Summer of Code, Q&A
-          </div>
-          <div>
-            <Image
-              src={"/resources/gsoc.png"}
-              alt="gsoc-image"
-              height={500}
-              width={500}
-              className="h-[250px] w-[250px] mx-auto mt-5"
-            />
-          </div>
-          <div className="text-xl text-center mt-8 mb-8 text-[#6a6e6c]">
-            <Link
-              href={
-                "https://sacbitspilani.wordpress.com/wp-content/uploads/2021/03/gsoc_qna_sac.pdf"
-              }
-            >
-              <span className="text-blue-500 underline ">GSoC QnA SAC</span>
-            </Link>
-          </div>
-        </div>
-        <div className="">
-          <div className="text-3xl text-center mt-10">Electives Reviews</div>
-          <div className="text-xl text-center mt-8 mb-8 text-[#6a6e6c]">
-            Click{" "}
-            <Link
-              href={"https://sacbitspilani.wordpress.com/elective-reviews/"}
-            >
-              <span className="text-blue-500 underline">here</span>
-            </Link>{" "}
-            to know about electives.
-          </div>
-        </div> */}
+
 
         <SocialShare />
       </div>
