@@ -1,11 +1,8 @@
 "use client"
 
 import React, { useState, useEffect } from "react";
-import SingularBlogPost from "@/components/blogs/singular-blog";
 import axios from "axios";
 import { BlogPostType } from "@/types";
-import { blogPosts } from "@/dummy_data";
-import Image from "next/image";
 import { CommentsSection } from "@/components/blogs/comments/comment-section";
 interface PageProps {
     params: Promise<{

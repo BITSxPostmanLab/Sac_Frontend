@@ -46,14 +46,14 @@ const Page = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto px-2 sm:px-4 py-2 sm:py-4">
       <Tabs defaultValue="2025" className="w-full" onValueChange={setActiveTab}>
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-5">
+        <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 gap-1 sm:gap-2">
           {[2025, 2024, 2023, 2022, 2021].map((year) => (
             <TabsTrigger
               key={year}
               value={year.toString()}
-              className="text-sm md:text-base"
+              className="text-xs sm:text-sm md:text-base px-1 py-1 sm:px-2 sm:py-2"
             >
               {year}
             </TabsTrigger>
@@ -61,12 +61,16 @@ const Page = () => {
         </TabsList>
         {Object.entries(yearData).map(([year, data]) => (
           <TabsContent key={year} value={year}>
-            <Card>
-              <CardHeader>
-                <CardTitle>{data.title}</CardTitle>
-                <CardDescription>{data.description}</CardDescription>
+            <Card className="mt-2 sm:mt-4">
+              <CardHeader className="p-3 sm:p-6">
+                <CardTitle className="text-lg sm:text-xl md:text-2xl">
+                  {data.title}
+                </CardTitle>
+                <CardDescription className="text-sm sm:text-base">
+                  {data.description}
+                </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-2 sm:p-4">
                 <ImageCarousel images={images} autoPlayInterval={5000} />
               </CardContent>
             </Card>
