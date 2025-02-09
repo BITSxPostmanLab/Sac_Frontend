@@ -4,7 +4,7 @@ import { FaPhone } from "react-icons/fa6";
 import { FaMessage } from "react-icons/fa6";
 
 const ContactPage = () => {
-  console.log("Hello world");
+
   // const arr = ["this", "is"]
   return (
     <div className=" flex w-full min-h-full bg-[#d9d9d9]  ">

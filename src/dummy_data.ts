@@ -1,7 +1,7 @@
 import { BlogPostType } from "./types";
 export const blogPosts: BlogPostType[] = [
   {
-    id: 1,
+    id: 4,
     title: "Understanding TypeScript",
     content: `TypeScript is a superset of JavaScript that adds static typing, making it easier to detect errors during development. 
       It was developed by Microsoft to address scalability issues in large JavaScript applications. With TypeScript, developers can 
@@ -163,58 +163,19 @@ export const blogPosts: BlogPostType[] = [
     updated_at: "2024-11-10T14:30:00.000Z",
     display_author_name: "Admin",
     comments_enabled: false,
-    comments: [
-      {
-        id: 1,
-        name: "Alice Johnson",
-        email: "alice@example.com",
-        post: 1,
-        content: "Great article! Very informative.",
-        parent: 0,
-        created_at: "2024-02-05T11:00:00Z",
-        is_approved: true,
-      },
-      {
-        id: 2,
-        name: "Bob Smith",
-        email: "bob@example.com",
-        post: 1,
-        content: "I agree with Alice. The explanations are clear.",
-        parent: 1,
-        created_at: "2024-02-05T11:30:00Z",
-        is_approved: true,
-      },
-      {
-        id: 3,
-        name: "Charlie Brown",
-        email: "charlie@example.com",
-        post: 1,
-        content: "Could you elaborate more on interfaces?",
-        parent: 0,
-        created_at: "2024-02-05T12:00:00Z",
-        is_approved: true,
-      },
-      {
-        id: 4,
-        name: "David Wilson",
-        email: "david@example.com",
-        post: 1,
-        content: "Interfaces are like contracts for your types...",
-        parent: 3,
-        created_at: "2024-02-05T12:30:00Z",
-        is_approved: true,
-      },
-      {
-        id: 5,
-        name: "Eve Anderson",
-        email: "eve@example.com",
-        post: 1,
-        content: "That's a great explanation, David!",
-        parent: 4,
-        created_at: "2024-02-05T13:00:00Z",
-        is_approved: true,
-      },
-    ],
+    comments: [],
+  },
+  {
+    id: 1,
+    title: "SAC pizzeria",
+    content:
+      "Unexpected events occurred when SAC went to pizzeria. What was supposed to be a fun casual drinking session with the people of SAC, turned into a rr by a 23 batch someone who can normally handle himself after getting drunk and he also did cry a little. Although he will not go through such a phase next pizzeria as he has realised he has not lost a gem indeed(reality check). You can maybe spot him in the picture below. Also here is the old sac website - https://sacbitspilani.wordpress.com/ (for checking if hyperlinks work). I was forced to write this.",
+    image: "/resources/minor.png",
+    created_at: "2025-02-08T16:12:01.428649Z",
+    updated_at: "2025-02-08T16:51:07.008260Z",
+    display_author_name: "Admin",
+    comments_enabled: true,
+    comments: [],
   },
   // Add similar expanded content for the remaining blog posts...
 ];

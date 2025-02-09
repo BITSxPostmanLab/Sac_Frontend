@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
@@ -21,7 +23,7 @@ export function Comment({ comment, level = 0, onReply }: CommentProps) {
     }
 
     return (
-        <div className={`${level > 0 ? "ml-6 mt-4" : "mt-4"}`}>
+        <div className={`${level > 0 ? "ml-10 mt-4" : "mt-4"}`}>
             <Card className="bg-white">
                 <CardContent className="p-4">
                     <div className="flex items-start gap-4">
@@ -30,7 +32,8 @@ export function Comment({ comment, level = 0, onReply }: CommentProps) {
                                 {comment.name
                                     .split(" ")
                                     .map((n) => n[0])
-                                    .join("")}
+                                    .join("")
+                                    .toUpperCase()}
                             </AvatarFallback>
                         </Avatar>
                         <div className="flex-1">

@@ -4,13 +4,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BlogPostType } from "@/types";
 import { CommentsSection } from "@/components/blogs/comments/comment-section";
+
 interface PageProps {
     params: Promise<{
         blogId: string
     }>
 }
 
-const SingleResourcePage: React.FC<PageProps> = ({ params }) => {
+const SingleResourcePage = ({ params }: PageProps) => {
     // Unwrap the params Promise using React.use()
     const resolvedParams = React.use(params);
     const { blogId } = resolvedParams;
@@ -20,13 +21,11 @@ const SingleResourcePage: React.FC<PageProps> = ({ params }) => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get("/api/getblogposts");
-                console.log(response.data);
-
-                const foundBlogPost = response.data.find(
-                    (post: BlogPostType) => post.id === parseInt(blogId)
-                );
-                setCurrentBlogPost(foundBlogPost || null);
+                const response = await axios.get("/api/getsingleblogpost", {
+                    params: { blogId }
+                });
+                console.log("here is the reponse", response.data)
+                setCurrentBlogPost(response.data as BlogPostType);
             } catch (e) {
                 console.log("There was some error", e);
             }
@@ -44,6 +43,7 @@ const SingleResourcePage: React.FC<PageProps> = ({ params }) => {
             </div>
         );
     }
+    console.log(currentBlogPost)
 
     return (
         <div className="w-full justify-center min-h-full">
@@ -70,9 +70,9 @@ const SingleResourcePage: React.FC<PageProps> = ({ params }) => {
                 </div>
 
             </div>
-            <div className="mt-8 not-prose">
+            <div className="mt-8 px-10">
                 {currentBlogPost.comments_enabled && currentBlogPost.comments && (
-                    <CommentsSection initialComments={currentBlogPost.comments} />
+                    <CommentsSection postId={Number(blogId)} />
                 )}
             </div>
         </div>

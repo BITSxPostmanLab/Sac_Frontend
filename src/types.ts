@@ -16,7 +16,7 @@ export type CommentType = {
   email: string | null;
   post: number;
   content: string;
-  parent: number;
+  parent: number | null;
   created_at: string;
   is_approved: boolean;
 };

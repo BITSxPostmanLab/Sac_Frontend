@@ -15,7 +15,7 @@ export function buildCommentTree(comments: CommentType[]) {
   // Second pass: Build the tree
   comments.forEach((comment) => {
     const commentWithReplies = commentMap.get(comment.id)!;
-    if (comment.parent === 0) {
+    if (comment.parent === null) {
       roots.push(commentWithReplies);
     } else {
       const parentComment = commentMap.get(comment.parent);
@@ -34,5 +34,7 @@ export function formatDate(dateString: string): string {
     year: "numeric",
     month: "short",
     day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
   });
 }

@@ -1,16 +1,16 @@
 "use client"
 
+import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 
 
-interface ReplyFormProps {
+interface NewCommentFormProps {
     onSubmit: (content: string) => void
-    onCancel: () => void
 }
 
-export function ReplyForm({ onSubmit, onCancel }: ReplyFormProps) {
+export function NewCommentForm({ onSubmit }: NewCommentFormProps) {
 
     const [content, setContent] = useState("")
 
@@ -18,26 +18,23 @@ export function ReplyForm({ onSubmit, onCancel }: ReplyFormProps) {
         e.preventDefault()
         if (content.trim()) {
             onSubmit(content)
-
             setContent("")
         }
     }
 
     return (
-        <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
+
             <Textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                placeholder="Write your reply..."
+                placeholder="Write your comment..."
                 className="w-full"
                 required
             />
-            <div className="flex justify-end space-x-2">
-                <Button type="button" variant="outline" onClick={onCancel}>
-                    Cancel
-                </Button>
+            <div className="flex justify-end">
                 <Button type="submit" disabled={!content.trim()}>
-                    Submit Reply
+                    Submit Comment
                 </Button>
             </div>
         </form>

@@ -15,7 +15,7 @@ const BlogsPage = () => {
 
             try {
                 const response = await axios.get("/api/getblogposts");
-                console.log(response.data)
+
                 setBlogPosts(response.data)
 
             } catch (e) {

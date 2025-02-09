@@ -28,8 +28,8 @@ const ContactUsForm = () => {
     },
   });
 
-  const onSubmitForm = (value: formSchemaType) => {
-    console.log(value);
+  const onSubmitForm = () => {
+
   };
   return (
     <Form {...form}>
@@ -118,3 +118,4 @@ const ContactUsForm = () => {
 };
 
 export default ContactUsForm;
+
