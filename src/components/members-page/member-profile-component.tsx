@@ -1,16 +1,27 @@
-import React from 'react'
-import Image from 'next/image'
-const MemberProfileComponent = () => {
-    return (
-        <div className='p-5 px-10'>
-            <Image src={"/sac-logo.jpeg"} alt="member_pfp" height={1000} width={1000} className='w-[90px] mx-auto rounded-full bg-slate-600' />
-            <div className='text-center mt-4 font-semibold'>
-                Random three word
-            </div>
-            <div className='text-center'>Designation</div>
-        </div>
-    )
-}
+import React from "react";
+import Image from "next/image";
+const MemberProfileComponent = ({
+  name,
+  designation,
+  imageUrl,
+}: {
+  name: string;
+  designation: string;
+  imageUrl: string;
+}) => {
+  return (
+    <div className="p-5 px-10">
+      <Image
+        src={imageUrl}
+        alt="member_pfp"
+        height={400}
+        width={400}
+        className="mx-auto rounded-full bg-slate-600 h-24 w-24 object-cover"
+      />
+      <div className="text-center mt-4 font-semibold">{name}</div>
+      <div className="text-center">{designation}</div>
+    </div>
+  );
+};
 
-export default MemberProfileComponent
-
+export default MemberProfileComponent;
