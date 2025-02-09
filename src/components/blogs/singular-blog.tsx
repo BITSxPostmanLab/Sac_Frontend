@@ -1,11 +1,43 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Image from "next/image";
-type PostProps = {
+
+interface SingularBlogPostProps {
   imageUrl: string;
-  content: string;
+  content: ReactNode | string;
   title: string;
-};
-const SingularBlogPost = ({ imageUrl, content, title }: PostProps) => {
+}
+
+const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
+  imageUrl,
+  content,
+  title,
+}) => {
+  const formatContent = (content: ReactNode | string) => {
+    if (typeof content === "string") {
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      const parts = content.split(urlRegex);
+
+      return parts.map((part, index) => {
+        if (part.match(urlRegex)) {
+          return (
+            <a
+              key={index}
+              href={part}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {part}
+            </a>
+          );
+        }
+        return part;
+      });
+    }
+    return content;
+  };
+
   return (
     <div className="grid md:grid-cols-3 w-full mb-20 max-h-[600px] overflow-y-hidden">
       <div className="w-fit md:ml-auto mx-auto md:mx-0 mb-10 mt-5">
@@ -32,7 +64,7 @@ const SingularBlogPost = ({ imageUrl, content, title }: PostProps) => {
             paddingRight: "10px",
           }}
         >
-          {content}
+          {formatContent(content)}
         </div>
       </div>
     </div>
