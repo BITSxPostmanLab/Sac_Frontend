@@ -44,8 +44,8 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
         <Image
           src={imageUrl}
           alt={title}
-          width={500}
-          height={500}
+          width={1000}
+          height={1000}
           className="w-auto min-h-[500px] ml-auto object-cover"
           priority
         />
@@ -54,7 +54,7 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
       <div className="px-5 sm:px-10 md:col-span-2 text-xl my-auto flex flex-col gap-5 h-full ">
         <div className="text-3xl font-semibold">{title}</div>
         <div
-          className="text-[#6a6c6e] overflow-y-hidden"
+          className="text-[#6a6c6e] overflow-y-hidden h-full"
           style={{
             maxHeight: "500px",
             WebkitMaskImage:
@@ -72,3 +72,4 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
 };
 
 export default SingularBlogPost;
+

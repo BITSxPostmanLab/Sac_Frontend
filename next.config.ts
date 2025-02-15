@@ -13,7 +13,12 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "drive.google.com",
         pathname: "/uc/**",
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "www.instagram.com",
+        pathname: "/uc/**",
+      },
     ],
     domains: ["images.unsplash.com", "plus.unsplash.com"],
   },

@@ -16,7 +16,7 @@ const MemberProfileComponent = ({
         alt="member_pfp"
         height={400}
         width={400}
-        className="mx-auto rounded-full bg-slate-600 h-24 w-24 object-cover"
+        className="mx-auto rounded-full object-cover object-top bg-slate-600 h-24 w-24 "
       />
       <div className="text-center mt-4 font-semibold">{name}</div>
       <div className="text-center">{designation}</div>
@@ -25,3 +25,4 @@ const MemberProfileComponent = ({
 };
 
 export default MemberProfileComponent;
+

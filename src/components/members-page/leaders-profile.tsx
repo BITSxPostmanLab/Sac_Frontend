@@ -22,7 +22,7 @@ const LeardersProfile = ({
         alt="member_pfp"
         height={1000}
         width={1000}
-        className="w-[250px] h-[250px] mx-auto rounded-xl bg-slate-600 object-contain"
+        className="w-[250px] h-[250px] mx-auto rounded-xl object-contain"
       />
       <div className="text-center mt-4 font-semibold">{name}</div>
       <div className="text-center mb-2">{designation}</div>
@@ -35,3 +35,4 @@ const LeardersProfile = ({
 };
 
 export default LeardersProfile;
+

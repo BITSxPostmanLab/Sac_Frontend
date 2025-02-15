@@ -81,7 +81,7 @@ const ImageCarousel: React.FC<CarouselProps> = ({
                   alt={`Slide ${index + 1}`}
                   fill
                   priority={index === 0}
-                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  className=" transition-transform duration-500 hover:scale-105 object-contain"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                   quality={90}
                 />
@@ -100,11 +100,10 @@ const ImageCarousel: React.FC<CarouselProps> = ({
           <button
             key={index}
             onClick={() => api?.scrollTo(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              current === index
-                ? "bg-white w-4"
-                : "bg-white/50 hover:bg-white/75"
-            }`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${current === index
+              ? "bg-white w-4"
+              : "bg-white/50 hover:bg-white/75"
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
@@ -114,3 +113,4 @@ const ImageCarousel: React.FC<CarouselProps> = ({
 };
 
 export default ImageCarousel;
+
