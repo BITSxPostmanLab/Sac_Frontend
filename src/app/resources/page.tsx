@@ -1,5 +1,6 @@
+'use client';
+
 import React from "react";
-import Link from "next/link";
 // import Image from "next/image";
 // import ProjectCourses from "@/components/resources/project-courses";
 // import StudyAbroad from "@/components/resources/study-abroad";
@@ -28,16 +29,13 @@ const ResourcesPage = () => {
                 {ele.posts.map((ele, key) => {
                   return (
                     <div key={key}>
-                      <Link href={`/resources/${ele.postId}`} passHref>
-                        <div>
-                          <SingularPost
-                            imageUrl={ele.imageUrl}
-                            resourceLink={ele.resourceLink}
-                            paragraphs={ele.paragraphs}
-                            linkText={ele.linkText}
-                          />
-                        </div>
-                      </Link>
+                      <SingularPost
+                        imageUrl={ele.imageUrl}
+                        resourceLink={ele.resourceLink}
+                        paragraphs={ele.paragraphs}
+                        linkText={ele.linkText}
+                        postId={ele.postId}
+                      />
                     </div>
                   );
                 })}

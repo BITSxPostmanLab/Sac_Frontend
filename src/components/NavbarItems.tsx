@@ -61,10 +61,13 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
             <NavigationMenuContent className="absolute -left-1/2 top-14 flex justify-center">
               <div className="w-[300px] bg-[#edd299] relative">
                 {eventList.map((ele, key) => {
+                  const path = ele.toLowerCase().replace(/ /g, '-');
                   return (
-                    <div key={key} className="p-2">
-                      {ele}
-                    </div>
+                    <Link href={`/events/${path}`} key={key}>
+                      <div className="p-2 cursor-pointer hover:bg-[#e6c27c] transition-colors">
+                        {ele}
+                      </div>
+                    </Link>
                   );
                 })}
                 <div className="bg-[#edd299] clip-path-triangle w-7 h-5 absolute left-[20%] -top-5"></div>
@@ -83,10 +86,13 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
           <NavigationMenuContent className="absolute -left-1/2 top-[64px] flex justify-center">
             <div className="w-[300px] bg-[#edd299] relative">
               {resourceList.map((ele, key) => {
+                const path = ele.toLowerCase().replace(/ /g, '-');
                 return (
-                  <div key={key} className="p-2">
-                    {ele}
-                  </div>
+                  <Link href={`/resources/${path}`} key={key}>
+                    <div className="p-2 cursor-pointer hover:bg-[#e6c27c] transition-colors">
+                      {ele}
+                    </div>
+                  </Link>
                 );
               })}
               <div className="bg-[#edd299] clip-path-triangle w-7 h-5 absolute left-[32%] -top-5"></div>
@@ -97,7 +103,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
         {navbarList.slice(3).map((ele, key) => {
           return (
             <div key={key}>
-              <NavigationMenuItem className="bg-transparent text-lg ">
+              <NavigationMenuItem className="bg-transparent text-lg cursor-pointer">
                 <Link href={`/${ele.toLowerCase()}`} legacyBehavior passHref>
                   <NavigationMenuLink
                     className={cn(

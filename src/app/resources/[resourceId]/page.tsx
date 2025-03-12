@@ -28,6 +28,7 @@ const SingleResourcePage = async ({
             resourceLink={resource.resourceLink}
             paragraphs={resource.paragraphs}
             linkText={resource.linkText}
+            postId={resource.postId}
           />
         </div>
       </div>
