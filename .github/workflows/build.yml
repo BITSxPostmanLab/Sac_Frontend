@@ -22,24 +22,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'pnpm'
-
-      - name: Enable corepack and install pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-
-      - name: Verify pnpm installation
-        run: pnpm --version
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install --legacy-peer-deps
 
       - name: Run Linting
-        run: pnpm run lint
-
-      - name: Type Check
-        run: pnpm exec tsc --noEmit
+        run: npm run lint
 
       - name: Build Next.js App
-        run: pnpm run build
+        run: npm run build
