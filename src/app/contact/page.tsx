@@ -1,14 +1,11 @@
 import ContactUsForm from "@/components/contact-page/contact-us-form";
 import React from "react";
-import { FaPhone } from "react-icons/fa6";
-import { FaMessage } from "react-icons/fa6";
+import { FaPhone, FaMessage } from "react-icons/fa6";
 
 const ContactPage = () => {
-
-  // const arr = ["this", "is"]
   return (
-    <div className=" flex w-full min-h-full bg-[#d9d9d9]  ">
-      <div className="w-[40%]  hidden md:block bg-[#d9d9d9] h-full text-5xl text-center place-content-center font-bold my-auto">
+    <div className="flex w-full min-h-full bg-[#d9d9d9]">
+      <div className="w-[40%] hidden md:block bg-[#d9d9d9] h-full text-5xl text-center place-content-center font-bold my-auto">
         <div>CONTACT</div>
         <div>US</div>
       </div>
@@ -23,17 +20,21 @@ const ContactPage = () => {
           Feel free to reach out to us for any query <br /> or collaboration
         </div>
         <div className="flex flex-col gap-5 mt-8 mb-10">
-          <div>
-            <FaMessage className="text-[#d7c99e] " size={25} />
+          <div className="flex items-center gap-3">
+            <FaMessage className="text-[#d7c99e]" size={25} />
+            <span className="text-lg font-semibold">sac@pilani.bits-pilani.ac.in</span>
           </div>
-          <div>
-            <FaPhone className="text-[#d7c99e] " size={25} />
+          <div className="flex items-center gap-3">
+            <FaPhone className="text-[#d7c99e]" size={25} />
+            <span className="text-lg font-semibold">Mehul: 9608283485</span>
           </div>
-          <div>
-            <FaPhone className="text-[#d7c99e] " size={25} />
+          <div className="flex items-center gap-3">
+            <FaPhone className="text-[#d7c99e]" size={25} />
+            <span className="text-lg font-semibold">Arnav: 9315583656</span>
           </div>
-          <div>
-            <FaPhone className="text-[#d7c99e] " size={25} />
+          <div className="flex items-center gap-3">
+            <FaPhone className="text-[#d7c99e]" size={25} />
+            <span className="text-lg font-semibold">Shreyas: 7387526136</span>
           </div>
         </div>
       </div>
@@ -42,4 +43,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-

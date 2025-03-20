@@ -1,83 +1,75 @@
-"use client"
-
-import React, { useState, useEffect } from "react";
+"use client";
+import React from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { BlogPostType } from "@/types";
-import { CommentsSection } from "@/components/blogs/comments/comment-section";
+import ResourceNavbar from "@/components/resources/r-nav";
+import Link from "next/link";
+import SingularBlogPost from "@/components/blogs/singular-blog";
 
-interface PageProps {
-    params: Promise<{
-        blogId: string
-    }>
-}
+const convertGoogleDriveUrl = (url: string | null | undefined) => {
+  // Return a default image if url is null or undefined
+  if (!url) {
+    return "https://images.unsplash.com/photo-1669352311123-085520652a65?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  }
 
-const SingleResourcePage = ({ params }: PageProps) => {
-    // Unwrap the params Promise using React.use()
-    const resolvedParams = React.use(params);
-    const { blogId } = resolvedParams;
-
-    const [currentBlogPost, setCurrentBlogPost] = useState<BlogPostType | null>(null);
-
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const response = await axios.get("/api/getsingleblogpost", {
-                    params: { blogId }
-                });
-                console.log("here is the reponse", response.data)
-                setCurrentBlogPost(response.data as BlogPostType);
-            } catch (e) {
-                console.log("There was some error", e);
-            }
-        };
-
-        getData();
-    }, [blogId]);
-
-    if (!currentBlogPost) {
-        return (
-            <div className="w-full flex justify-center min-h-screen">
-                <div className="min-h-full mt-10 max-w-[1000px] px-3">
-                    Loading...
-                </div>
-            </div>
-        );
+  // Check if it's a Google Drive URL
+  if (url.includes("drive.google.com/file/d/")) {
+    try {
+      // Extract the file ID
+      const fileId = url.split("/file/d/")[1].split("/")[0];
+      return `https://drive.google.com/uc?export=view&id=${fileId}`;
+    } catch (error) {
+      console.error("Error processing Google Drive URL:", error);
+      return "https://images.unsplash.com/photo-1669352311123-085520652a65?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
     }
-    console.log(currentBlogPost)
-
-    return (
-        <div className="w-full justify-center min-h-full">
-            <div className="bg-blue-50 h-1/2 w-full flex justify-center">
-                <div className="container py-12 md:py-20 px-10 max-w-[1440px] flex justify-center">
-                    <div className="grid gap-8 md:grid-cols-2 items-center">
-                        <div className="space-y-4">
-                            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">{currentBlogPost.title}</h1>
-                            <p className="text-gray-500">
-
-                            </p>
-                        </div>
-                        <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                            {/* <Image src={'/resources/chronicles1.jpg'} alt="chronicles" height={1000} width={500} className='h-[400px] w-auto ml-auto' /> */}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="w-full flex justify-center">
-                <div className="container py-12 md:py-20 px-10 max-w-[1440px] flex justify-center text-center text-md">
-                    {
-                        currentBlogPost.content
-                    }
-                </div>
-
-            </div>
-            <div className="mt-8 px-10">
-                {currentBlogPost.comments_enabled && currentBlogPost.comments && (
-                    <CommentsSection postId={Number(blogId)} />
-                )}
-            </div>
-        </div>
-    );
+  }
+  return url;
 };
 
-export default SingleResourcePage;
+const BlogsPage = () => {
+  const [blogPosts, setBlogPosts] = useState<BlogPostType[] | null>(null);
 
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get("/api/getblogposts");
+        // Transform the image URLs before setting the state
+        const transformedPosts = response.data.map((post: BlogPostType) => ({
+          ...post,
+          image: post.image ? convertGoogleDriveUrl(post.image) : "https://images.unsplash.com/photo-1669352311123-085520652a65?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        }));
+        setBlogPosts(transformedPosts);
+      } catch (error) {
+        console.log("There was some error");
+        console.log(error);
+      }
+    };
+
+    getData();
+  }, []);
+
+  return (
+    <div className="w-full flex min-h-full items-center justify-center">
+      <div className=" w-full max-w-[1000px] flex items-center flex-col justify-center px-3">
+        <ResourceNavbar />
+        <div className="text-4xl">Blogs</div>
+        <div className="w-full mt-10">
+          {blogPosts
+            ? blogPosts.map((ele) => (
+                <Link href={`/blogs/${ele.id}`} key={ele.id}>
+                  <SingularBlogPost
+                    imageUrl={ele.image}
+                    content={ele.content}
+                    title={ele.title}
+                  />
+                </Link>
+              ))
+            : ""}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BlogsPage;

@@ -5,14 +5,14 @@ import ImageCarousel from "@/components/home/crousel";
 
 const Home = () => {
   const ResourceImage = [
-    "/production/resources/r1.jpg",
-    "/production/resources/r2.png",
-    "/production/resources/r3.png"
+    { src: "/production/resources/r1.jpg" },
+    { src: "/production/resources/r2.png" },
+    { src: "/production/resources/r3.png" }
   ]
   const EventsImage = [
-    "/production/events/e1.jpg",
-    "/production/events/e2.jpg",
-    "/production/events/enew.jpg"
+    { src: "/production/events/e1.jpg" },
+    { src: "/production/events/e2.jpg" },
+    { src: "/production/events/enew.jpg" }
   ]
   // const finalImages = [
   //   // `https://www.instagram.com/p/DEtr6QjJD0B/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==`
@@ -27,8 +27,8 @@ const Home = () => {
         <Image
           src={"/landing_image.png"}
           alt="landing image"
-          objectFit="fill"
-          layout="fill"
+          fill
+          className="object-fill"
         />
         <div className=" absolute bottom-10 left-0 md:top-[40%] md:left-[10%] px-10">
           <div className="font-bold text-3xl  md:text-5xl pb-5">

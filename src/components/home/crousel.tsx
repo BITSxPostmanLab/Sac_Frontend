@@ -11,9 +11,15 @@ import {
 } from "@/components/ui/carousel";
 import { type CarouselApi } from "@/components/ui/carousel";
 import Image from "next/image";
+import Link from "next/link";
+
+interface ImageItem {
+  src: string;
+  link?: string | { pathname: string; query?: Record<string, string> };
+}
 
 interface CarouselProps {
-  images: string[];
+  images: ImageItem[];
   autoPlayInterval?: number;
   className?: string;
 }
@@ -51,10 +57,19 @@ const ImageCarousel: React.FC<CarouselProps> = ({
 
   // Preload images for smoother transitions
   React.useEffect(() => {
-    images.forEach((src) => {
-      const img = new window.Image();
-      img.src = src;
-    });
+    // Using Image.preload API instead of window.Image
+    if (typeof window !== 'undefined') {
+      images.forEach((image) => {
+        const imgSrc = image.src;
+        if (imgSrc && typeof imgSrc === 'string') {
+          const link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'image';
+          link.href = imgSrc;
+          document.head.appendChild(link);
+        }
+      });
+    }
   }, [images]);
 
   return (
@@ -73,18 +88,32 @@ const ImageCarousel: React.FC<CarouselProps> = ({
         }}
       >
         <CarouselContent>
-          {images.map((imgSrc, index) => (
+          {images.map((image, index) => (
             <CarouselItem key={index} className="md:basis-full">
               <Card className="relative w-full h-[70vh] overflow-hidden">
-                <Image
-                  src={imgSrc}
-                  alt={`Slide ${index + 1}`}
-                  fill
-                  priority={index === 0}
-                  className=" transition-transform duration-500 hover:scale-105 object-contain"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-                  quality={90}
-                />
+                {typeof image.link === 'string' || typeof image.link === 'object' ? (
+                  <Link href={image.link}>
+                    <Image
+                      src={image.src || ""}
+                      alt={`Slide ${index + 1}`}
+                      fill
+                      priority={index === 0}
+                      className="transition-transform duration-500 hover:scale-105 object-contain cursor-pointer"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                      quality={90}
+                    />
+                  </Link>
+                ) : (
+                  <Image
+                    src={image.src || ""}
+                    alt={`Slide ${index + 1}`}
+                    fill
+                    priority={index === 0}
+                    className="transition-transform duration-500 hover:scale-105 object-contain"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                    quality={90}
+                  />
+                )}
               </Card>
             </CarouselItem>
           ))}
@@ -100,10 +129,9 @@ const ImageCarousel: React.FC<CarouselProps> = ({
           <button
             key={index}
             onClick={() => api?.scrollTo(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${current === index
-              ? "bg-white w-4"
-              : "bg-white/50 hover:bg-white/75"
-              }`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              current === index ? "bg-white w-4" : "bg-white/50 hover:bg-white/75"
+            }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
@@ -113,4 +141,3 @@ const ImageCarousel: React.FC<CarouselProps> = ({
 };
 
 export default ImageCarousel;
-
