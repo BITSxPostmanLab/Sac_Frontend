@@ -43,6 +43,7 @@ const convertUrlsToLinks = (text: string) => {
 
 const BlogsPage = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPostType[] | null>(null);
+  console.log(blogPosts)
 
   useEffect(() => {
     const getData = async () => {
@@ -71,14 +72,14 @@ const BlogsPage = () => {
         <div className="w-full mt-10">
           {blogPosts
             ? blogPosts.map((ele) => (
-                <Link href={`/blogs/${ele.id}`} key={ele.id}>
-                  <SingularBlogPost
-                    imageUrl={ele.image}
-                    content={convertUrlsToLinks(ele.content)}
-                    title={ele.title}
-                  />
-                </Link>
-              ))
+              <Link href={`/blogs/${ele.id}`} key={ele.id}>
+                <SingularBlogPost
+                  imageUrl={ele.image}
+                  content={convertUrlsToLinks(ele.content)}
+                  title={ele.title}
+                />
+              </Link>
+            ))
             : ""}
         </div>
       </div>
@@ -87,3 +88,4 @@ const BlogsPage = () => {
 };
 
 export default BlogsPage;
+
