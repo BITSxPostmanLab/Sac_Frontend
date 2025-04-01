@@ -13,20 +13,23 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
   title,
 }) => {
   const [imgError, setImgError] = useState(false);
-  
+
   // Validate URL to ensure it's properly formatted
   const isValidUrl = (urlString: string): boolean => {
     try {
       return Boolean(new URL(urlString));
     } catch (error) {
-      console.error("Invalid URL:", error);
+      console.log("Invalid URL:", error);
       return false;
     }
   };
 
+  console.log("Checking for valid url")
+  console.log(isValidUrl(imageUrl))
+  console.log(imageUrl)
   // Default image URL to use when image is invalid or fails to load
   const defaultImageUrl = "https://images.unsplash.com/photo-1669352311123-085520652a65?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-  
+
   // Determine which image URL to use
   const safeImageUrl = imgError || !isValidUrl(imageUrl) ? defaultImageUrl : imageUrl;
 
@@ -91,3 +94,4 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
 };
 
 export default SingularBlogPost;
+
