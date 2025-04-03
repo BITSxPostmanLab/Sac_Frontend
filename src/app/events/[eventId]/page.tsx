@@ -1,9 +1,6 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { BlogPostType } from "@/types";
-import { CommentsSection } from "@/components/blogs/comments/comment-section";
-
 interface PageProps {
     params: Promise<{
         eventId: string
