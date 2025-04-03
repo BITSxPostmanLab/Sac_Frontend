@@ -5,7 +5,7 @@ import { GrLinkedin } from "react-icons/gr";
 
 const Footer = () => {
   return (
-    <div className="h-64 w-full bg-[#ebdcbc] mt-10 flex flex-col">
+    <div className="h-80 w-full bg-[#ebdcbc] mt-10 flex flex-col">
       <div className="justify-center w-full footer:ml-auto footer:w-1/2 h-3/4 flex items-center md:px-3">
         <Image
           src={"/bitspilanilogo.png"}
@@ -38,3 +38,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

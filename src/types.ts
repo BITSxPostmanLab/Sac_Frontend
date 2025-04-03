@@ -32,3 +32,14 @@ export type BlogPostType = {
   comments_enabled: boolean;
   comments: CommentType[] | null;
 };
+
+export type EventType = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  date: string; // ISO 8601 format
+  created_at: string; // ISO 8601 format
+  updated_at: string; // ISO 8601 format
+  is_visible: boolean;
+};

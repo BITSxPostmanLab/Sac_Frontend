@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import ImageCarousel from "@/components/home/crousel";
+import BlogCrousel from "@/components/home/blog-crousel";
 
 const Home = () => {
   const ResourceImage = [
@@ -14,6 +15,7 @@ const Home = () => {
     { src: "/production/events/e2.jpg" },
     { src: "/production/events/enew.jpg" }
   ]
+
   // const finalImages = [
   //   // `https://www.instagram.com/p/DEtr6QjJD0B/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==`
   // ]
@@ -49,10 +51,7 @@ const Home = () => {
             Events
           </div>
           <ImageCarousel images={EventsImage} autoPlayInterval={5000} />
-          <div className="text-4xl font-bold text-center py-5 underline">
-            Blogs
-          </div>
-          {/* <ImageCarousel images={finalImages} autoPlayInterval={5000} /> */}
+          <BlogCrousel />
         </div>
       </div>
     </div>

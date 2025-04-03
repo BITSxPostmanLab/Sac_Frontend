@@ -8,7 +8,9 @@ const imageList = [
     "/eventsTestImage.webp",
 ]
 import { MoveUpRight } from 'lucide-react';
-export default function ImageCarouselHorizontal() {
+import { EventType } from '@/types'
+import Link from 'next/link'
+export default function ImageCarouselHorizontal({ event }: { event: EventType }) {
     const [current, setCurrent] = useState(0)
     const [count, setCount] = useState(0)
     const [api, setApi] = useState<CarouselApi>()
@@ -22,8 +24,8 @@ export default function ImageCarouselHorizontal() {
             setCurrent(api.selectedScrollSnap() + 1)
         })
     }, [api])
-    const title = "Summer Intership Talk - 2024"
-    const description = "On April 26, 1986, the Number Four RBMK reactor at the Chernobyl Nuclear Power Plant exploded and released radioactive material into the environment. The accident was caused by a flawed reactor design, inadequately trained personnel, and an attempt to shut down the reactor during a power surge. "
+    const title = event.title
+    const description = event.description
     const resources = ["resource1", "resource2",]
     return (
         <div className='flex gap-4 h-[220px] w-full relative '>
@@ -55,16 +57,18 @@ export default function ImageCarouselHorizontal() {
                     </div>
                 </Carousel>
             </div>
-            <div className=' w-[60%] space-y-3'>
+            <div className=' w-[60%] space-y-3 h-full flex flex-col'>
                 <div className='text-2xl font-semibold whitespace-nowrap flex'>
-                    <div>
-                        {title}
-                    </div>
+                    <Link href={`/events/${event.id}`}>
+                        <div className='line-clamp-1 '>
+                            {title}
+                        </div>
+                    </Link>
                     <div className='ml-auto'>
                         <MoveUpRight />
                     </div>
                 </div>
-                <p className=' line-clamp-5'>{description}</p>
+                <p className=' line-clamp-5 flex-grow'>{description}</p>
                 <div className='flex justify-between px-3 mt-auto'>
                     {resources.map((ele, index) => {
                         return (

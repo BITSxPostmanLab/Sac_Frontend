@@ -7,39 +7,9 @@ import ResourceNavbar from "@/components/resources/r-nav";
 import Link from "next/link";
 import SingularBlogPost from "@/components/blogs/singular-blog";
 
-const convertGoogleDriveUrl = (url: string) => {
-  // Check if it's a Google Drive URL
-  if (url.includes("drive.google.com/file/d/")) {
-    // Extract the file ID
-    const fileId = url.split("/file/d/")[1].split("/")[0];
-    return `https://drive.google.com/uc?export=view&id=${fileId}`;
-  }
-  return url;
-};
+import { convertGoogleDriveUrl } from "@/lib/utils";
 
-const convertUrlsToLinks = (text: string) => {
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-
-  const parts = text.split(urlRegex);
-
-  return parts.map((part, index) => {
-    if (part.match(urlRegex)) {
-      return (
-        <a
-          key={index}
-          href={part}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:text-blue-800 underline"
-          onClick={(e) => e.stopPropagation()} // Prevent triggering the parent Link
-        >
-          {part}
-        </a>
-      );
-    }
-    return part;
-  });
-};
+import { convertUrlsToLinks } from "@/hooks/convert-url-to-links";
 
 const BlogsPage = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPostType[] | null>(null);

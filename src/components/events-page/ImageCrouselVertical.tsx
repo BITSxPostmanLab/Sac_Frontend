@@ -4,13 +4,15 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel"
 import { MoveUpRight } from 'lucide-react';
+import { EventType } from '@/types';
+import Link from 'next/link';
 const imageList = [
     "/eventsTestImage.webp",
     "/eventsTestImage.webp",
     "/eventsTestImage.webp"
 ]
 
-export default function ImageCarouselVertical() {
+export default function ImageCarouselVertical({ event }: { event: EventType }) {
     const [current, setCurrent] = useState(0)
     const [count, setCount] = useState(0)
     const [api, setApi] = useState<CarouselApi>()
@@ -19,7 +21,6 @@ export default function ImageCarouselVertical() {
         if (!api) {
             return
         }
-
         setCount(api.scrollSnapList().length)
         setCurrent(api.selectedScrollSnap() + 1)
 
@@ -29,9 +30,10 @@ export default function ImageCarouselVertical() {
     }, [api])
     //
 
-    const title = "Summer Intership Talk - 2024"
-    const description = "On April 26, 1986, the Number Four RBMK reactor at the Chernobyl Nuclear Power Plant exploded and released radioactive material into the environment. The accident was caused by a flawed reactor design, inadequately trained personnel, and an attempt to shut down the reactor during a power surge. "
+    const title = event.title
+    const description = event.description
     const resources = ["resource1", "resource2", "resource3"]
+
     return (
         <div className=''>
             <div className='relative bg-[#f2f2f2] p-5 pb-16 h-auto rounded-xl border-2'>
@@ -54,22 +56,21 @@ export default function ImageCarouselVertical() {
                             </div>
                             <CarouselNext />
                         </div>
-
                     </Carousel>
-
                 </div>
-
             </div>
             <div className='pt-5 space-y-4'>
                 <div className=' text-xl md:text-3xl font-semibold whitespace-nowrap flex'>
-                    <div className='line-clamp-1 '>
-                        {title}
-                    </div>
+                    <Link href={`/events/${event.id}`}>
+                        <div className='line-clamp-1 '>
+                            {title}
+                        </div>
+                    </Link>
                     <div className='ml-auto'>
                         <MoveUpRight />
                     </div>
                 </div>
-                <p className='text-sm sm:text-base'>{description}</p>
+                <p className='text-sm sm:text-base line-clamp-4'>{description}</p>
                 <div className='flex justify-around lg:justify-between sm:px-3 '>
                     {resources.map((ele, index) => {
                         return (

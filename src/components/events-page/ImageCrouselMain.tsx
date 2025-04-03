@@ -9,8 +9,10 @@ const imageList = [
     "/eventsTestImage.webp",
     "/eventsTestImage.webp"
 ]
+import { EventType } from '@/types';
+import Link from 'next/link';
 
-export default function ImageCarouselMain() {
+export default function ImageCarouselMain({ event }: { event: EventType }) {
     const [current, setCurrent] = useState(0)
     const [count, setCount] = useState(0)
     const [api, setApi] = useState<CarouselApi>()
@@ -28,45 +30,46 @@ export default function ImageCarouselMain() {
         })
     }, [api])
 
-    const title = "Summer Intership Talk - 2024"
-    const description = "On April 26, 1986, the Number Four RBMK reactor at the Chernobyl Nuclear Power Plant exploded and released radioactive material into the environment. The accident was caused by a flawed reactor design, inadequately trained personnel, and an attempt to shut down the reactor during a power surge. "
+    const title = event.title
+    const description = event.description
     const resources = ["resource1", "resource2", "resource3"]
     return (
-        <div className=''>
+        <div>
             <div className='relative bg-[#f2f2f2] p-10 pb-16 h-auto rounded-xl border-2'>
-                <div>
-                    <Carousel className='space-y-10 static' setApi={setApi}>
-                        <div className='text-center text-5xl border-b-2 border-black pb-5 w-fit mx-auto px-14'>
-                            Gallery
+
+                <Carousel className='space-y-10 static' setApi={setApi}>
+                    <div className='text-center text-5xl border-b-2 border-black pb-5 w-fit mx-auto px-14'>
+                        Gallery
+                    </div>
+                    <CarouselContent>
+                        {imageList.map((src, index) => (
+                            <CarouselItem key={index} className='mx-auto'>
+                                <Image src={src} alt={`Gallery image ${index + 1}`} width={300} height={6} className='mx-auto' />
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <div className='absolute bottom-3 left-1/2 transform -translate-x-1/2 flex items-center space-x-4'>
+                        <CarouselPrevious />
+                        <div className=''>
+                            {current}/{count}
                         </div>
-                        <CarouselContent>
-                            {imageList.map((src, index) => (
-                                <CarouselItem key={index} className='mx-auto'>
-                                    <Image src={src} alt={`Gallery image ${index + 1}`} width={300} height={6} className='mx-auto' />
-                                </CarouselItem>
-                            ))}
-                        </CarouselContent>
-                        <div className='absolute bottom-3 left-1/2 transform -translate-x-1/2 flex items-center space-x-4'>
-                            <CarouselPrevious />
-                            <div className=''>
-                                {current}/{count}
-                            </div>
-                            <CarouselNext />
-                        </div>
-                    </Carousel>
-                </div>
+                        <CarouselNext />
+                    </div>
+                </Carousel>
 
             </div>
-            <div className='pt-5 flex flex-col gap-3 line-clamp-4 overflow-y-hidden'>
+            <div className='pt-5 flex flex-col gap-3 line-clamp-4 overflow-y-hidden '>
                 <div className='text-4xl font-semibold whitespace-nowrap flex'>
-                    <div>
-                        {title}
-                    </div>
+                    <Link href={`/events/${event.id}`}>
+                        <div className='line-clamp-1 '>
+                            {title}
+                        </div>
+                    </Link>
                     <div className='ml-auto'>
                         <MoveUpRight />
                     </div>
                 </div>
-                <p>{description}</p>
+                <p className='line-clamp-4'>{description}</p>
                 <div className='flex justify-between px-3 '>
                     {resources.map((ele, index) => {
                         return (
