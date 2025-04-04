@@ -8,6 +8,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { EventType } from '@/types'
+import EventsSkeleton from '@/components/events-page/events-skeleton'
 
 const EventsPage = () => {
     const [events, setEvents] = useState<EventType[]>()
@@ -33,7 +34,7 @@ const EventsPage = () => {
             setEvents(res)
         }
         getEvents()
-
+        // setEvents(undefined)
     }, [])
     console.log(events)
 
@@ -66,7 +67,7 @@ const EventsPage = () => {
 
                                         </div></>
 
-                                ) : ""
+                                ) : <EventsSkeleton count={8} />
                             }
 
                         </div>
@@ -79,7 +80,7 @@ const EventsPage = () => {
                                         <ImageCrouselVertical event={event} />
                                     </div>
                                 ))
-                            ) : ""}
+                            ) : <EventsSkeleton count={8} />}
                         </div>
                     )
                 }
@@ -91,7 +92,7 @@ const EventsPage = () => {
                                 <ImageCrouselVertical event={event} />
                             </div>
                         ))
-                    ) : ""}
+                    ) : <EventsSkeleton count={8} />}
 
                     {/* <ImageCrouselVertical /><ImageCrouselVertical /><ImageCrouselVertical />
                     <ImageCrouselVertical /><ImageCrouselVertical /><ImageCrouselVertical /> */}

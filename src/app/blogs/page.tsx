@@ -10,6 +10,7 @@ import SingularBlogPost from "@/components/blogs/singular-blog";
 import { convertGoogleDriveUrl } from "@/lib/utils";
 
 import { convertUrlsToLinks } from "@/hooks/convert-url-to-links";
+import BlogSkeleton from "@/components/blogs/blog-skeleton";
 
 const BlogsPage = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPostType[] | null>(null);
@@ -50,9 +51,11 @@ const BlogsPage = () => {
                 />
               </Link>
             ))
-            : ""}
+            : <BlogSkeleton cards={8} />}
+
         </div>
       </div>
+
     </div>
   );
 };

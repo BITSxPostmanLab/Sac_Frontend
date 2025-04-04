@@ -4,7 +4,7 @@ import { FaPhone, FaMessage } from "react-icons/fa6";
 
 const ContactPage = () => {
   return (
-    <div className="flex w-full min-h-full bg-[#d9d9d9]">
+    <div className="flex w-full min-h-screen bg-[#d9d9d9]">
       <div className="w-[40%] hidden md:block bg-[#d9d9d9] h-full text-5xl text-center place-content-center font-bold my-auto">
         <div>CONTACT</div>
         <div>US</div>

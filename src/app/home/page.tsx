@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
 
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center mb-10">
       <div className="h-screen w-full bg-slate-200 -mt-24 relative">
         {" "}
         {/* negative margin to negate the effect of shifted navbar, value should be same as height of navbar */}
