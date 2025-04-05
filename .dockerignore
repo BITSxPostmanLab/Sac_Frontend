@@ -1,0 +1,23 @@
+# Node modules and build output
+node_modules
+.next
+out
+build
+
+# Yarn / npm artifacts
+*.log
+.pnpm
+.pnpm-debug.log
+yarn.lock
+package-lock.json
+
+# Vercel / deployment artifacts
+.vercel
+
+# macOS / system files
+.DS_Store
+
+# TypeScript cache
+*.tsbuildinfo
+next-env.d.ts
+
