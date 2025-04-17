@@ -1,6 +1,6 @@
 import ResourceNavbar from '@/components/resources/r-nav'
 import React from 'react'
-import { ReactPhotoCollage } from "react-photo-collage";
+
 import Image from 'next/image';
 const GalleryPage = () => {
 
