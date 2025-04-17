@@ -35,7 +35,7 @@ export default function ImageCarouselVertical({ event }: { event: EventType }) {
     const resources = ["resource1", "resource2", "resource3"]
 
     return (
-        <div className=''>
+        <div className='overflow-x-hidden'>
             <div className='relative bg-[#f2f2f2] p-5 pb-16 h-auto rounded-xl border-2'>
                 <div>
                     <Carousel className='space-y-10 static' setApi={setApi}>
