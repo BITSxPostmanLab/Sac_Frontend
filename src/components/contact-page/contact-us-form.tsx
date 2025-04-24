@@ -35,7 +35,7 @@ const ContactUsForm = () => {
       const response = await axios.post("/api/postform", {
         formData: values,
       });
-      toast.success("Thanks For Your FeedBack!");
+      toast.success("Thank You For Your FeedBack!");
       console.log("Success:", response.data);
       form.reset();
 

@@ -43,6 +43,15 @@ export type EventType = {
   created_at: string; // ISO 8601 format
   updated_at: string; // ISO 8601 format
   is_visible: boolean;
+  is_research: boolean;
+  is_SI: boolean;
+  is_Academic: boolean;
+  is_PS: boolean;
+  is_Quant: boolean;
+  is_offCampus: boolean;
+  is_placement: boolean;
+  is_thesis: boolean;
+  is_coldMailing: boolean;
 };
 
 export type Resources = {

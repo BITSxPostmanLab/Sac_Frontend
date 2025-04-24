@@ -1,9 +1,14 @@
 "use client";
 import React from "react";
 import { Button } from "../ui/button";
-import { useState } from "react";
 import clsx from "clsx";
-const FilterParams = () => {
+
+type FilterParamsProps = {
+  currentParam: string;
+  setCurrentParam: (param: string) => void;
+};
+
+const FilterParams = ({ currentParam, setCurrentParam }: FilterParamsProps) => {
   const filterParams = [
     "All",
     "Research Talks",
@@ -12,7 +17,6 @@ const FilterParams = () => {
     "Academic Talks",
     "PS Talks",
   ];
-  const [currentParam, setCurrentParam] = useState(filterParams[0]);
 
   return (
     <div className="flex gap-10 text-xl p-5">
@@ -20,12 +24,10 @@ const FilterParams = () => {
         return (
           <Button
             key={index}
-            onClick={() => {
-              setCurrentParam(ele);
-            }}
+            onClick={() => setCurrentParam(ele)}
             className={clsx(
               "bg-white text-black text-xl hover:bg-white border-none shadow-none",
-              currentParam == ele && "font-bold"
+              currentParam === ele && "font-bold"
             )}
           >
             {ele}
@@ -37,4 +39,3 @@ const FilterParams = () => {
 };
 
 export default FilterParams;
-

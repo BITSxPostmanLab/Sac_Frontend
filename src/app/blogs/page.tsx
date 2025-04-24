@@ -19,7 +19,7 @@ const BlogsPage = () => {
     const getData = async () => {
       try {
         const response = await axios.get("/api/getblogposts");
-        // Transform the image URLs before setting the state
+
         const transformedPosts = response.data.map((post: BlogPostType) => ({
           ...post,
           image: convertGoogleDriveUrl(post.image),

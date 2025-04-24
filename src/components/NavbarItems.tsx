@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -37,22 +37,28 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
     "Handout",
     "Competitive Programming Document",
   ];
+  const [open, setOpen] = useState(false);
+
+  const handleItemClick = () => {
+    setOpen(false);
+  };
   return (
+
     <div className="hidden lg:block">
       <NavigationMenuList className="flex gap-6 xl:gap-10 ml-auto my-auto w-full ">
         <NavigationMenuItem className="bg-transparent text-lg  ">
-          <Link href="/home" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={cn(isActive("/home") && "font-bold")}
-            >
-              Home
-            </NavigationMenuLink>
-          </Link>
+
+          <NavigationMenuLink
+            className={cn(isActive("/home") && "font-bold")}
+          >
+            Home
+          </NavigationMenuLink>
+
         </NavigationMenuItem>
         <NavigationMenuItem className="bg-transparent">
           <div className={cn("relative ")}>
-            <NavigationMenuTrigger className="bg-transparent text-lg p-0 font-normal hover:bg-none">
-              <Link href={"/events"} legacyBehavior passHref>
+            <NavigationMenuTrigger className="bg-transparent text-lg p-0 font-normal hover:bg-none" onClick={() => setOpen(!open)}>
+              <Link href={"/events"} passHref>
                 <span className={cn(isActive("/events") && "font-bold")}>
                   Events
                 </span>
@@ -77,7 +83,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
         </NavigationMenuItem>
         <NavigationMenuItem className="bg-transparent relative">
           <NavigationMenuTrigger className="bg-transparent text-lg p-0 font-normal">
-            <Link href={"/resources"} legacyBehavior passHref>
+            <Link href={"/resources"} passHref>
               <span className={cn(isActive("/resources") && "font-bold")}>
                 Resources
               </span>
@@ -104,7 +110,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
           return (
             <div key={key}>
               <NavigationMenuItem className="bg-transparent text-lg cursor-pointer">
-                <Link href={`/${ele.toLowerCase()}`} legacyBehavior passHref>
+                <Link href={`/${ele.toLowerCase()}`} passHref>
                   <NavigationMenuLink
                     className={cn(
                       isActive(`/${ele.toLowerCase()}`) && "font-bold"
@@ -122,3 +128,4 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
   );
 };
 export default NavbarItems;
+

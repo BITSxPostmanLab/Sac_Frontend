@@ -36,7 +36,7 @@ export default function ImageCarouselHorizontal({ event }: { event: EventType })
                     <CarouselContent>
                         {imageList.map((src, index) => (
                             <CarouselItem key={index} className='mx-auto'>
-                                <div className="w-[290px] h-[170px] mx-auto relative rounded-lg overflow-hidden bg-white">
+                                <div className="w-[290px] h-[170px] mx-auto relative rounded-lg overflow-hidden bg-[#f2f2f2]">
                                     <Image
                                         src={src}
                                         alt={`Gallery image ${index + 1}`}
