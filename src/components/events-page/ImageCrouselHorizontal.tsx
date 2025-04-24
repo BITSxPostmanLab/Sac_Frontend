@@ -2,14 +2,11 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel"
-const imageList = [
-    "/eventsTestImage.webp",
-    "/eventsTestImage.webp",
-    "/eventsTestImage.webp",
-]
+
 import { MoveUpRight } from 'lucide-react';
-import { EventType } from '@/types'
+import { EventType, Resources } from '@/types'
 import Link from 'next/link'
+import { convertGoogleDriveUrl, getResourceArray, getSafeImageUrl } from '@/lib/utils'
 export default function ImageCarouselHorizontal({ event }: { event: EventType }) {
     const [current, setCurrent] = useState(0)
     const [count, setCount] = useState(0)
@@ -26,10 +23,12 @@ export default function ImageCarouselHorizontal({ event }: { event: EventType })
     }, [api])
     const title = event.title
     const description = event.description
-    const resources = ["resource1", "resource2",]
+    const resources: Resources[] = getResourceArray(event)
+    const rawImages = event.image?.split(",").map(img => img.trim()).filter(Boolean) || [];
+    const imageList = rawImages.map(ele => getSafeImageUrl(convertGoogleDriveUrl(ele)));
     return (
         <div className='flex gap-4 h-[220px] w-full relative '>
-            <div className='bg-[#f2f2f2] p-4 h-[240px] rounded-xl relative border-2 w-[60%]'>
+            <div className='bg-[#f2f2f2] p-4 h-[240px] rounded-xl relative border-2 w-[45%] flex-shrink-0'>
                 <Carousel className='space-y-4  ' setApi={setApi}>
                     {/* <div className='text-center text-xl border-b-2 border-black pb-5 w-fit mx-auto px-10'>
                             Gallery
@@ -37,10 +36,14 @@ export default function ImageCarouselHorizontal({ event }: { event: EventType })
                     <CarouselContent>
                         {imageList.map((src, index) => (
                             <CarouselItem key={index} className='mx-auto'>
-                                <Image src={src} alt={`Gallery image ${index + 1}`}
-                                    width={1000}
-                                    height={0}
-                                    className="h-[170px] w-auto mx-auto" />
+                                <div className="w-[290px] h-[170px] mx-auto relative rounded-lg overflow-hidden bg-white">
+                                    <Image
+                                        src={src}
+                                        alt={`Gallery image ${index + 1}`}
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
                             </CarouselItem>
                         ))}
                     </CarouselContent>
@@ -72,9 +75,11 @@ export default function ImageCarouselHorizontal({ event }: { event: EventType })
                 <div className='flex justify-between px-3 mt-auto'>
                     {resources.map((ele, index) => {
                         return (
-                            <div key={index} className='bg-[#d9d9d9] rounded-3xl py-2 px-10'>
-                                {ele}
-                            </div>
+                            <Link href={ele.link} key={index}>
+                                <div key={index} className='bg-[#d9d9d9] rounded-3xl py-2 px-10'>
+                                    {ele.name}
+                                </div>
+                            </Link>
                         )
                     })}
                 </div>

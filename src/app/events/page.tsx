@@ -29,9 +29,12 @@ const EventsPage = () => {
 
     useEffect(() => {
         const getEvents = async () => {
-            const data = await axios.get("/api/events")
-            const res: EventType[] = await data.data
-            setEvents(res)
+            const { data } = await axios.get("/api/events")
+            const sortedEvents: EventType[] = data.sort((a: EventType, b: EventType) => {
+                return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+            })
+            setEvents(sortedEvents)
+
         }
         getEvents()
         // setEvents(undefined)

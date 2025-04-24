@@ -17,20 +17,32 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import axios from "axios";
 
 const ContactUsForm = () => {
   const form = useForm<formSchemaType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      name: "",
       email: "",
-      queries: "",
+      message: "",
     },
   });
 
-  const onSubmitForm = () => {
+  const onSubmitForm = async (values: formSchemaType) => {
+    try {
+      const response = await axios.post("/api/postform", {
+        formData: values,
+      });
 
+      console.log("Success:", response.data);
+
+    } catch (error) {
+      console.error("Submission failed:", error);
+
+    }
   };
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmitForm)} className="space-y-8">
@@ -39,20 +51,17 @@ const ContactUsForm = () => {
             <CardTitle className="text-2xl text-center pb-4">
               Reach us out at :
             </CardTitle>
-            <p className="text-center ">
-              Feel free to leave your thoughts down below and we will respond
-              and get in touch with you!!
+            <p className="text-center">
+              Feel free to leave your thoughts down below and we will respond and get in touch with you!!
             </p>
           </CardHeader>
           <CardContent className="flex flex-col gap-5">
             <FormField
               control={form.control}
-              name="username"
+              name="name"
               render={({ field }) => (
                 <FormItem className="text-left space-y-0">
-                  <FormLabel className="w-fit mr p-0 text-lg">
-                    Name (Required){" "}
-                  </FormLabel>
+                  <FormLabel className="text-lg">Name (Required)</FormLabel>
                   <FormControl>
                     <Input
                       className="bg-white text-black py-3"
@@ -60,19 +69,17 @@ const ContactUsForm = () => {
                       {...field}
                     />
                   </FormControl>
-
                   <FormMessage />
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem className="text-left space-y-0">
-                  <FormLabel className="text-left text-lg">
-                    Email (Required){" "}
-                  </FormLabel>
+                  <FormLabel className="text-lg">Email (Required)</FormLabel>
                   <FormControl>
                     <Input
                       className="bg-white text-black py-3"
@@ -80,17 +87,17 @@ const ContactUsForm = () => {
                       {...field}
                     />
                   </FormControl>
-
                   <FormMessage />
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
-              name="queries"
+              name="message"
               render={({ field }) => (
                 <FormItem className="text-left space-y-0">
-                  <FormLabel className="text-left text-lg">Queries </FormLabel>
+                  <FormLabel className="text-lg">Queries</FormLabel>
                   <FormControl>
                     <Textarea
                       className="bg-white text-black h-16"
@@ -98,7 +105,6 @@ const ContactUsForm = () => {
                       {...field}
                     />
                   </FormControl>
-
                   <FormMessage />
                 </FormItem>
               )}
@@ -108,7 +114,7 @@ const ContactUsForm = () => {
               type="submit"
               className="w-fit mx-auto bg-[#ffedb8] text-black font-semibold"
             >
-              Save
+              Submit
             </Button>
           </CardContent>
         </Card>

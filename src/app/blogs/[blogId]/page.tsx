@@ -70,7 +70,7 @@ const SingleResourcePage = ({ params }: PageProps) => {
         </div>
 
       </div>
-      <div className="mt-8 px-10">
+      <div className="mt-8 px-10 pb-40">
         {currentBlogPost.comments_enabled && currentBlogPost.comments && (
           <CommentsSection postId={Number(blogId)} />
         )}

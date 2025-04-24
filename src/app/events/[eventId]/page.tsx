@@ -22,7 +22,7 @@ const SingleEventPage = ({ params }: PageProps) => {
                 const response = await axios.get("/api/getsingleevent", {
                     params: { eventId }
                 });
-                console.log("here is the reponse", response.data)
+
                 setCurrentEvent(response.data as EventType);
             } catch (e) {
                 console.log("There was some error", e);
@@ -41,7 +41,6 @@ const SingleEventPage = ({ params }: PageProps) => {
             </div>
         );
     }
-    console.log(currentEvent)
 
     return (
         <div className="w-full justify-center min-h-full">

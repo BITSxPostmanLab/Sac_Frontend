@@ -1,3 +1,5 @@
+import { defaultImageUrl } from "./../../constants";
+import { EventType, Resources } from "@/types";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -13,4 +15,35 @@ export const convertGoogleDriveUrl = (url: string) => {
     return `https://drive.google.com/uc?export=view&id=${fileId}`;
   }
   return url;
+};
+
+export const getResourceArray = (event: EventType) => {
+  const resources: Resources[] = [];
+  const resourcesArray = event.url2 ? event.url2.split(",") : [];
+  resourcesArray.map((ele) => {
+    if (ele.includes("youtube")) {
+      resources.push({
+        name: "Youtube",
+        link: ele,
+      });
+    } else if (ele.includes("drive")) {
+      resources.push({
+        name: "Drive",
+        link: ele,
+      });
+    }
+  });
+  return resources;
+};
+
+export const isValidUrl = (urlString: string): boolean => {
+  try {
+    return Boolean(new URL(urlString));
+  } catch {
+    return false;
+  }
+};
+
+export const getSafeImageUrl = (url: string, hasError = false): string => {
+  return !isValidUrl(url) || hasError ? defaultImageUrl : url;
 };

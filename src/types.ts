@@ -37,9 +37,15 @@ export type EventType = {
   id: number;
   title: string;
   description: string;
+  url2: string;
   image: string;
   date: string; // ISO 8601 format
   created_at: string; // ISO 8601 format
   updated_at: string; // ISO 8601 format
   is_visible: boolean;
+};
+
+export type Resources = {
+  link: string;
+  name: "Youtube" | "Drive";
 };

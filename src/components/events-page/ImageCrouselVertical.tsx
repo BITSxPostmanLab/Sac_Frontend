@@ -6,11 +6,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { MoveUpRight } from 'lucide-react';
 import { EventType } from '@/types';
 import Link from 'next/link';
-const imageList = [
-    "/eventsTestImage.webp",
-    "/eventsTestImage.webp",
-    "/eventsTestImage.webp"
-]
+import { convertGoogleDriveUrl, getResourceArray, getSafeImageUrl } from '@/lib/utils';
+import { Resources } from '@/types';
 
 export default function ImageCarouselVertical({ event }: { event: EventType }) {
     const [current, setCurrent] = useState(0)
@@ -32,7 +29,10 @@ export default function ImageCarouselVertical({ event }: { event: EventType }) {
 
     const title = event.title
     const description = event.description
-    const resources = ["resource1", "resource2", "resource3"]
+    const resources: Resources[] = getResourceArray(event)
+
+    const rawImages = event.image?.split(",").map(img => img.trim()).filter(Boolean) || [];
+    const imageList = rawImages.map(ele => getSafeImageUrl(convertGoogleDriveUrl(ele)));
 
     return (
         <div className='overflow-x-hidden'>
@@ -45,7 +45,14 @@ export default function ImageCarouselVertical({ event }: { event: EventType }) {
                         <CarouselContent>
                             {imageList.map((src, index) => (
                                 <CarouselItem key={index} className='mx-auto'>
-                                    <Image src={src} alt={`Gallery image ${index + 1}`} width={300} height={6} className='mx-auto' />
+                                    <div className="w-[350px] h-[350px] mx-auto relative rounded-lg overflow-hidden bg-white">
+                                        <Image
+                                            src={src}
+                                            alt={`Gallery image ${index + 1}`}
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
@@ -74,9 +81,11 @@ export default function ImageCarouselVertical({ event }: { event: EventType }) {
                 <div className='flex justify-around lg:justify-between sm:px-3 '>
                     {resources.map((ele, index) => {
                         return (
-                            <div key={index} className='bg-[#d9d9d9] rounded-3xl py-2 px-4 text-sm sm:text-base sm:px-5 md:px-10'>
-                                {ele}
-                            </div>
+                            <Link href={ele.link} key={index}>
+                                <div className='bg-[#d9d9d9] rounded-3xl py-2 px-4 text-sm sm:text-base sm:px-5 md:px-10'>
+                                    {ele.name}
+                                </div>
+                            </Link>
                         )
                     })}
                 </div>

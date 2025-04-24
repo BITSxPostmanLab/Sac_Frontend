@@ -1,33 +1,40 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ImageCarousel from "./crousel";
 import axios from "axios";
+import ImageCarousel from "./crousel";
 import { BlogPostType } from "@/types";
 import { convertGoogleDriveUrl } from "@/lib/utils";
+import { getSafeImageUrl } from "@/lib/utils"
+
 interface ImageItem {
     src: string;
     link?: string | { pathname: string; query?: Record<string, string> };
 }
 
-const BlogCrousel = () => {
+const BlogCarousel = () => {
     const [blogData, setBlogData] = useState<ImageItem[]>([]);
-
+    console.log(blogData)
     useEffect(() => {
-        async function fetchData() {
+        const fetchData = async () => {
             try {
                 const response = await axios.get("/api/getblogposts");
                 const blogs: BlogPostType[] = response.data || [];
 
-                const twoBlogs = blogs.slice(1, 2).map((data) => ({
-                    src: convertGoogleDriveUrl(data.image),
-                    link: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/blogs/${data.id}`,
-                }));
+                const selectedBlogs = blogs.slice(0, 3).map((data) => {
+                    const rawImageUrl = convertGoogleDriveUrl(data.image);
+                    const imageUrl = getSafeImageUrl(rawImageUrl);
 
-                setBlogData(twoBlogs);
+                    return {
+                        src: imageUrl,
+                        link: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/blogs/${data.id}`,
+                    };
+                });
+
+                setBlogData(selectedBlogs);
             } catch (error) {
                 console.error("Error fetching blog posts:", error);
             }
-        }
+        };
 
         fetchData();
     }, []);
@@ -42,5 +49,5 @@ const BlogCrousel = () => {
     );
 };
 
-export default BlogCrousel;
+export default BlogCarousel;
 

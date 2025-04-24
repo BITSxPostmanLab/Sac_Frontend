@@ -3,26 +3,18 @@ import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import ImageCarousel from "@/components/home/crousel";
 import BlogCrousel from "@/components/home/blog-crousel";
+import EventsCrousel from "@/components/home/events-crousel";
 
 const Home = () => {
   const ResourceImage = [
-    { src: "/production/resources/r1.jpg" },
-    { src: "/production/resources/r2.png" },
-    { src: "/production/resources/r3.png" }
+    { src: "/production/resources/r1.jpg", link: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/resources/101` },
+    { src: "/production/resources/r2.png", link: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/resources/102` },
+    { src: "/production/resources/r3.png", link: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/resources/103` }
   ]
-  const EventsImage = [
-    { src: "/production/events/e1.jpg" },
-    { src: "/production/events/e2.jpg" },
-    { src: "/production/events/enew.jpg" }
-  ]
-
-  // const finalImages = [
-  //   // `https://www.instagram.com/p/DEtr6QjJD0B/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==`
-  // ]
 
   return (
 
-    <div className="flex flex-col justify-center items-center mb-10">
+    <div className="flex flex-col justify-center items-center mb-40">
       <div className="h-screen w-full bg-slate-200 -mt-24 relative">
         {" "}
         {/* negative margin to negate the effect of shifted navbar, value should be same as height of navbar */}
@@ -47,10 +39,7 @@ const Home = () => {
         </div>
         <div className="space-y-20">
           <ImageCarousel images={ResourceImage} autoPlayInterval={5000} />
-          <div className="text-4xl font-bold text-center py-5 underline">
-            Events
-          </div>
-          <ImageCarousel images={EventsImage} autoPlayInterval={5000} />
+          <EventsCrousel />
           <BlogCrousel />
         </div>
       </div>
