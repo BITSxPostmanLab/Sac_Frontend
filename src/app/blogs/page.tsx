@@ -14,7 +14,6 @@ import BlogSkeleton from "@/components/blogs/blog-skeleton";
 
 const BlogsPage = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPostType[] | null>(null);
-  console.log(blogPosts)
 
   useEffect(() => {
     const getData = async () => {
@@ -26,7 +25,7 @@ const BlogsPage = () => {
           image: convertGoogleDriveUrl(post.image),
         }));
         setBlogPosts(transformedPosts);
-        console.log(transformedPosts);
+
       } catch (e) {
         console.log("There was some error", e);
       }

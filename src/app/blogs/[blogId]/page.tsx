@@ -16,7 +16,6 @@ const SingleResourcePage = ({ params }: PageProps) => {
   const { blogId } = resolvedParams;
 
   const [currentBlogPost, setCurrentBlogPost] = useState<BlogPostType | null>(null);
-  console.log(currentBlogPost)
 
   useEffect(() => {
     const getData = async () => {
@@ -24,7 +23,7 @@ const SingleResourcePage = ({ params }: PageProps) => {
         const response = await axios.get("/api/getsingleblogpost", {
           params: { blogId }
         });
-        console.log("here is the reponse", response.data)
+
         setCurrentBlogPost(response.data as BlogPostType);
       } catch (e) {
         console.log("There was some error", e);
@@ -43,7 +42,7 @@ const SingleResourcePage = ({ params }: PageProps) => {
       </div>
     );
   }
-  console.log(currentBlogPost)
+
 
   return (
     <div className="w-full justify-center min-h-full">

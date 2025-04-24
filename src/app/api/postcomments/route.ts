@@ -11,7 +11,6 @@ export async function POST(req: NextRequest) {
       },
     }
   );
-  console.log(response.data);
 
   return NextResponse.json(commentData);
 }

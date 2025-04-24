@@ -6,7 +6,6 @@ export async function GET(req: NextRequest) {
   const response = await axios.get(
     `https://discoverwithsac-bitspilani.in/2025/main/api/posts/${blogId}`
   );
-  console.log(response.data);
 
   return NextResponse.json(response.data);
 }

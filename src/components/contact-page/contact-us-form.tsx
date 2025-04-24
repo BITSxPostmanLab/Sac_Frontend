@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const ContactUsForm = () => {
   const form = useForm<formSchemaType>({
@@ -34,10 +35,12 @@ const ContactUsForm = () => {
       const response = await axios.post("/api/postform", {
         formData: values,
       });
-
+      toast.success("Thanks For Your FeedBack!");
       console.log("Success:", response.data);
+      form.reset();
 
     } catch (error) {
+      toast.error("Submission failed. Please try again.");
       console.error("Submission failed:", error);
 
     }
@@ -112,7 +115,7 @@ const ContactUsForm = () => {
 
             <Button
               type="submit"
-              className="w-fit mx-auto bg-[#ffedb8] text-black font-semibold"
+              className="w-fit mx-auto bg-[#ffedb8] text-black font-semibold hover:bg-[#eecf73]"
             >
               Submit
             </Button>

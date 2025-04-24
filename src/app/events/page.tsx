@@ -39,7 +39,7 @@ const EventsPage = () => {
         getEvents()
         // setEvents(undefined)
     }, [])
-    console.log(events)
+
 
     return (
         <div className='max-w-[1660px] mx-auto py-7 space-y-10'>

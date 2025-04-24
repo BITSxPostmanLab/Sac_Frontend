@@ -25,11 +25,7 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
     }
   };
 
-  console.log("Checking for valid url")
-  console.log(isValidUrl(imageUrl))
-  console.log(imageUrl)
   // Default image URL to use when image is invalid or fails to load
-
 
   // Determine which image URL to use
   const safeImageUrl = imgError || !isValidUrl(imageUrl) ? defaultImageUrl : imageUrl;

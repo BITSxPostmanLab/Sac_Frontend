@@ -13,7 +13,7 @@ interface ImageItem {
 
 const BlogCarousel = () => {
     const [blogData, setBlogData] = useState<ImageItem[]>([]);
-    console.log(blogData)
+
     useEffect(() => {
         const fetchData = async () => {
             try {
