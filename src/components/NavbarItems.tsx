@@ -39,21 +39,19 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
   ];
   const [open, setOpen] = useState(false);
 
-  const handleItemClick = () => {
-    setOpen(false);
-  };
+
   return (
 
     <div className="hidden lg:block">
       <NavigationMenuList className="flex gap-6 xl:gap-10 ml-auto my-auto w-full ">
         <NavigationMenuItem className="bg-transparent text-lg  ">
-
-          <NavigationMenuLink
-            className={cn(isActive("/home") && "font-bold")}
-          >
-            Home
-          </NavigationMenuLink>
-
+          <Link href={`/home`} passHref>
+            <NavigationMenuLink
+              className={cn(isActive("/home") && "font-bold")}
+            >
+              Home
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
         <NavigationMenuItem className="bg-transparent">
           <div className={cn("relative ")}>

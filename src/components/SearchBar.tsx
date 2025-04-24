@@ -10,7 +10,7 @@ type SearchBarProps = {
 
 const SearchBar = ({ value, onChange }: SearchBarProps) => {
     const [isFocused, setIsFocused] = useState(false)
-
+    console.log(isFocused)
     return (
         <div>
             <div className='min-w-[320px] w-[30vw] mx-auto relative flex'>

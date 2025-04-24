@@ -15,6 +15,7 @@ export async function POST(req: NextRequest) {
         },
       }
     );
+    console.log(response);
 
     return NextResponse.json({ success: true, message: "Form submitted!" });
   } catch (error) {

@@ -1,5 +1,5 @@
 "use client";
-import SearchBar from "@/components/SearchBar";
+
 import React from "react";
 import ReactFlow from "reactflow";
 import "reactflow/dist/style.css";
@@ -11,7 +11,7 @@ const DiscoverPage = () => {
   return (
     <div className="p-3 w-full h-full space-y-10">
       <div className="mt-10">
-        <SearchBar />
+
       </div>
       <div
         ref={containerRef}
@@ -37,3 +37,4 @@ const DiscoverPage = () => {
 };
 
 export default DiscoverPage;
+
