@@ -108,6 +108,70 @@ const SingleResourcePage = ({ params }: PageProps) => {
               </p>
             </div>
 
+            <div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">Question.</h2>
+              <p className="text-gray-700">
+                How did you secure the Visiting Scholar position at the Max Planck Institute for Software Systems, and what made you choose this opportunity?
+              </p>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg my-6 border-l-4 border-amber-500">
+              This was by cold mailing. I, like most BITSians, was pretty confused on what I wanted to do, even by the end of my third year. I had my Google SI lined up for the summer, and I just felt I wanted both industry and research experience from my undergrad. I got to know about MPI in general from a few of my seniors who had done their theses there before me, and talking to them as well as going through the profiles of the professors, a few professors caught my eye. I actually had mailed Professor Deepak Garg expressing interest in a completely different topic. I was fortunate enough to get a response from him and had a meeting with him shortly. I realised that my original topic of choice was not practical for the limited duration of a thesis. On discussing his other active projects, Deepak brought up the Multiparty Computation effort that was ongoing in his lab. This really caught my interest, and then he shared a few papers with me. Going through them I found it fascinating, and we agreed upon it.
+            </div>
+
+            <div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">Question.</h2>
+              <p className="text-gray-700">
+                What was the research problem you worked on during your time at MPI-SWS? Could you give us a simplified explanation of your project?
+
+              </p>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg my-6 border-l-4 border-amber-500">
+              I worked on building a hybrid framework for Multiparty Computation protocols. I know that's a mouthful, but in simple words, MPC is a way of performing some operations on encrypted data without revealing the data to the entity that's performing the operation. There are different ways (protocols) of achieving MPC and we were working on designing a way to write and execute programs that make up of such different protocols simultaneously.
+            </div>
+
+            <div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">Question.</h2>
+              <p className="text-gray-700">
+                Many students struggle with deciding between research and industry, how did you navigate this choice, what factors influenced your decision?  Do you see yourself pursuing research in the future?
+
+              </p>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg my-6 border-l-4 border-amber-500">
+              It was mainly keeping my options open, and trying my hands at both (through an industry SI and a research-based thesis). While I enjoyed both stints, I was itching to do some real dev and thought this might be a good idea to start with. I am still not 100% convinced that my decision was the correct one for me, but I do enjoy the work I get to do on a daily basis. I would definitely like to pursue further studies and research in the future.
+            </div>
+
+            <div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">Question.</h2>
+              <p className="text-gray-700">
+                Your journey includes an internship at Google before securing a full time role, what key lessons did you take from that experience that later helped you in landing a full-time position?
+              </p>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg my-6 border-l-4 border-amber-500">
+              So going into the intern, my aim was to learn as much as possible. I was cognizant that irrespective of a return offer and whether or not I accept this, working at a company of this scale is probably going to be a once-in-a-lifetime opportunity. I went in with an open mind without any hard preferences on the kind of work I'd get to do. During the internship a key thing was to document my efforts and unblocking myself by approaching my teammates as soon as possible. You go into an internship with very limited time, and it is on you to get the most out of it. The people assigned to mentor you often have a dozen other things on their plate. You would need to show intiative and make sure that you are able to get the maximum out of the internship. The documentation helps you organise your thoughts during the project and at the end helps you structure your work when you need to present it. Keeping regular progress docs is something that I find extremely useful even in my full time role.
+            </div>
+
+            <div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">Question.</h2>
+              <p className="text-gray-700">
+                How&apos;s a typical day in your life as a Software Engineer at Google? What excites you the most about your work
+              </p>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg my-6 border-l-4 border-amber-500">
+              The typical day has a couple of meetings and attempts to make some progress on the few reasonably long term projects that I am involved in. The most exciting thing here has to be the fact that your work here has the potential to impact billions (with a B) of people. And getting to work with incredibly smart people is another perk. :)
+            </div>
+
+            <div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">Question.</h2>
+              <p className="text-gray-700">
+                Looking back, what would you have done differently during your time at BITS?
+              </p>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-lg my-6 border-l-4 border-amber-500">
+              Probably might have tried more resolutely to explore some more research avenues while I was a student. The only endeavour that I had actually made before my thesis was a fairly lite SOP which did not lead anywhere. Approaching other profs (either at BITS or otherwise) for working with them even informally/part-time could have been interesting.
+            </div>
+
           </div>
         </div>
 
