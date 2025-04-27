@@ -128,7 +128,7 @@ const SingleResourcePage = ({ params }: PageProps) => {
             </div>
 
             <div className="bg-amber-50 p-4 rounded-lg my-6 border-l-4 border-amber-500">
-              I worked on building a hybrid framework for Multiparty Computation protocols. I know that's a mouthful, but in simple words, MPC is a way of performing some operations on encrypted data without revealing the data to the entity that's performing the operation. There are different ways (protocols) of achieving MPC and we were working on designing a way to write and execute programs that make up of such different protocols simultaneously.
+              I worked on building a hybrid framework for Multiparty Computation protocols. I know that&apos;s a mouthful, but in simple words, MPC is a way of performing some operations on encrypted data without revealing the data to the entity that&apos;s performing the operation. There are different ways (protocols) of achieving MPC and we were working on designing a way to write and execute programs that make up of such different protocols simultaneously.
             </div>
 
             <div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
@@ -149,7 +149,7 @@ const SingleResourcePage = ({ params }: PageProps) => {
               </p>
             </div>
             <div className="bg-amber-50 p-4 rounded-lg my-6 border-l-4 border-amber-500">
-              So going into the intern, my aim was to learn as much as possible. I was cognizant that irrespective of a return offer and whether or not I accept this, working at a company of this scale is probably going to be a once-in-a-lifetime opportunity. I went in with an open mind without any hard preferences on the kind of work I'd get to do. During the internship a key thing was to document my efforts and unblocking myself by approaching my teammates as soon as possible. You go into an internship with very limited time, and it is on you to get the most out of it. The people assigned to mentor you often have a dozen other things on their plate. You would need to show intiative and make sure that you are able to get the maximum out of the internship. The documentation helps you organise your thoughts during the project and at the end helps you structure your work when you need to present it. Keeping regular progress docs is something that I find extremely useful even in my full time role.
+              So going into the intern, my aim was to learn as much as possible. I was cognizant that irrespective of a return offer and whether or not I accept this, working at a company of this scale is probably going to be a once-in-a-lifetime opportunity. I went in with an open mind without any hard preferences on the kind of work I&apos;d get to do. During the internship a key thing was to document my efforts and unblocking myself by approaching my teammates as soon as possible. You go into an internship with very limited time, and it is on you to get the most out of it. The people assigned to mentor you often have a dozen other things on their plate. You would need to show intiative and make sure that you are able to get the maximum out of the internship. The documentation helps you organise your thoughts during the project and at the end helps you structure your work when you need to present it. Keeping regular progress docs is something that I find extremely useful even in my full time role.
             </div>
 
             <div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
