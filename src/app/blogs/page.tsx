@@ -45,7 +45,7 @@ const BlogsPage = () => {
               <Link href={`/blogs/${ele.id}`} key={ele.id}>
                 <SingularBlogPost
                   imageUrl={ele.image}
-                  content={convertUrlsToLinks(ele.content)}
+                  content={ele.content}
                   title={ele.title}
                 />
               </Link>

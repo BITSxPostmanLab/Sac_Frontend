@@ -177,7 +177,7 @@ const SingleResourcePage = ({ params }: PageProps) => {
       <div className="bg-blue-50 h-1/2 w-full flex justify-center">
         <div className="container py-12 md:py-20 px-10 max-w-[1440px] flex justify-center">
           <div className="grid gap-8 md:grid-cols-2 items-center">
-            <div className="space-y-4">1
+            <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">{currentBlogPost.title}</h1>
               <p className="text-gray-500">
 
@@ -193,8 +193,8 @@ const SingleResourcePage = ({ params }: PageProps) => {
         <div className="container py-12 md:py-20 px-10 max-w-[1440px] flex justify-center  text-md">
         <div
       className=" prose w-full mr-auto"
-      // dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(currentBlogPost.content) }}
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }}
+      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(currentBlogPost.content) }}
+      // dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }}
          />
   
         </div>

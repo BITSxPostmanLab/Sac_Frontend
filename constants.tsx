@@ -110,3 +110,205 @@ export const initialEdges = [
 
 export const defaultImageUrl = "https://images.unsplash.com/photo-1669352311123-085520652a65?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
+
+export const dataset = [
+  {
+    "program": "sample",
+    "org": "orgX",
+    "start": "Jan 1, 2025",
+    "end": "Feb 1, 2025",
+    "internship": "Yes",
+    "domain": "AI/ML",
+    "recurring": "No",
+    "skills": "DS, ML"
+  },
+  {
+    "program": "techSpark",
+    "org": "techNova",
+    "start": "Mar 10, 2025",
+    "end": "Apr 10, 2025",
+    "internship": "Yes",
+    "domain": "FinTech",
+    "recurring": "Yes",
+    "skills": "Algo Dev, Strategy"
+  },
+  {
+    "program": "codeClash",
+    "org": "codeInc",
+    "start": "Apr 2, 2025",
+    "end": "Apr 20, 2025",
+    "internship": "No",
+    "domain": "IT",
+    "recurring": "Yes",
+    "skills": "Problem-solving, DSA"
+  },
+  {
+    "program": "quantCup",
+    "org": "quantify",
+    "start": "Feb 5, 2025",
+    "end": "Mar 1, 2025",
+    "internship": "No",
+    "domain": "Quant",
+    "recurring": "Yes",
+    "skills": "Alpha Gen, Risk Mgmt"
+  },
+  {
+    "program": "hackHub",
+    "org": "innoTech",
+    "start": "May 1, 2025",
+    "end": "May 15, 2025",
+    "internship": "Yes",
+    "domain": "Blockchain",
+    "recurring": "Yes",
+    "skills": "Web3, Gaming"
+  },
+  {
+    "program": "dataJam",
+    "org": "dataGen",
+    "start": "Jun 1, 2025",
+    "end": "Jul 1, 2025",
+    "internship": "Yes",
+    "domain": "Data",
+    "recurring": "No",
+    "skills": "Analysis, SQL"
+  },
+  {
+    "program": "aiCamp",
+    "org": "aiVault",
+    "start": "Jul 15, 2025",
+    "end": "Aug 15, 2025",
+    "internship": "Yes",
+    "domain": "AI/ML",
+    "recurring": "Yes",
+    "skills": "LLMs, RAG"
+  },
+  {
+    "program": "swiftGo",
+    "org": "applix",
+    "start": "Feb 1, 2025",
+    "end": "Feb 28, 2025",
+    "internship": "No",
+    "domain": "IT",
+    "recurring": "Yes",
+    "skills": "iOS Dev"
+  },
+  {
+    "program": "bizSolve",
+    "org": "ey",
+    "start": "Jan 10, 2025",
+    "end": "Mar 10, 2025",
+    "internship": "Yes",
+    "domain": "Consulting",
+    "recurring": "Yes",
+    "skills": "Biz Strategy"
+  },
+  {
+    "program": "entQuest",
+    "org": "harvardX",
+    "start": "Aug 1, 2025",
+    "end": "Sep 1, 2025",
+    "internship": "No",
+    "domain": "Entrepreneurship",
+    "recurring": "Yes",
+    "skills": "Startup Dev"
+  },  {
+    "program": "sample",
+    "org": "orgX",
+    "start": "Jan 1, 2025",
+    "end": "Feb 1, 2025",
+    "internship": "Yes",
+    "domain": "AI/ML",
+    "recurring": "No",
+    "skills": "DS, ML"
+  },
+  {
+    "program": "techSpark",
+    "org": "techNova",
+    "start": "Mar 10, 2025",
+    "end": "Apr 10, 2025",
+    "internship": "Yes",
+    "domain": "FinTech",
+    "recurring": "Yes",
+    "skills": "Algo Dev, Strategy"
+  },
+  {
+    "program": "codeClash",
+    "org": "codeInc",
+    "start": "Apr 2, 2025",
+    "end": "Apr 20, 2025",
+    "internship": "No",
+    "domain": "IT",
+    "recurring": "Yes",
+    "skills": "Problem-solving, DSA"
+  },
+  {
+    "program": "quantCup",
+    "org": "quantify",
+    "start": "Feb 5, 2025",
+    "end": "Mar 1, 2025",
+    "internship": "No",
+    "domain": "Quant",
+    "recurring": "Yes",
+    "skills": "Alpha Gen, Risk Mgmt"
+  },
+  {
+    "program": "hackHub",
+    "org": "innoTech",
+    "start": "May 1, 2025",
+    "end": "May 15, 2025",
+    "internship": "Yes",
+    "domain": "Blockchain",
+    "recurring": "Yes",
+    "skills": "Web3, Gaming"
+  },
+  {
+    "program": "dataJam",
+    "org": "dataGen",
+    "start": "Jun 1, 2025",
+    "end": "Jul 1, 2025",
+    "internship": "Yes",
+    "domain": "Data",
+    "recurring": "No",
+    "skills": "Analysis, SQL"
+  },
+  {
+    "program": "aiCamp",
+    "org": "aiVault",
+    "start": "Jul 15, 2025",
+    "end": "Aug 15, 2025",
+    "internship": "Yes",
+    "domain": "AI/ML",
+    "recurring": "Yes",
+    "skills": "LLMs, RAG"
+  },
+  {
+    "program": "swiftGo",
+    "org": "applix",
+    "start": "Feb 1, 2025",
+    "end": "Feb 28, 2025",
+    "internship": "No",
+    "domain": "IT",
+    "recurring": "Yes",
+    "skills": "iOS Dev"
+  },
+  {
+    "program": "bizSolve",
+    "org": "ey",
+    "start": "Jan 10, 2025",
+    "end": "Mar 10, 2025",
+    "internship": "Yes",
+    "domain": "Consulting",
+    "recurring": "Yes",
+    "skills": "Biz Strategy"
+  },
+  {
+    "program": "entQuest",
+    "org": "harvardX",
+    "start": "Aug 1, 2025",
+    "end": "Sep 1, 2025",
+    "internship": "No",
+    "domain": "Entrepreneurship",
+    "recurring": "Yes",
+    "skills": "Startup Dev"
+  }
+]

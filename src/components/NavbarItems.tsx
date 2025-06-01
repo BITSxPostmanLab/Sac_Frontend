@@ -44,7 +44,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
 
     <div className="hidden lg:block">
       <NavigationMenuList className="flex gap-6 xl:gap-10 ml-auto my-auto w-full ">
-        <NavigationMenuItem className="bg-transparent text-lg  ">
+        <NavigationMenuItem className="bg-transparent text-lg">
           <Link href={`/home`} passHref>
             <NavigationMenuLink
               className={cn(isActive("/home") && "font-bold")}

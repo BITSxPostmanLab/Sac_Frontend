@@ -1,10 +1,12 @@
 import React, { ReactNode, useState } from "react";
 import Image from "next/image";
 import { defaultImageUrl } from "../../../constants";
+import DOMPurify  from "dompurify";
+
 
 interface SingularBlogPostProps {
   imageUrl: string;
-  content: ReactNode | string;
+  content:  string;
   title: string;
 }
 
@@ -30,31 +32,6 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
   // Determine which image URL to use
   const safeImageUrl = imgError || !isValidUrl(imageUrl) ? defaultImageUrl : imageUrl;
 
-  const formatContent = (content: ReactNode | string) => {
-    if (typeof content === "string") {
-      const urlRegex = /(https?:\/\/[^\s]+)/g;
-      const parts = content.split(urlRegex);
-
-      return parts.map((part, index) => {
-        if (part.match(urlRegex)) {
-          return (
-            <a
-              key={index}
-              href={part}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {part}
-            </a>
-          );
-        }
-        return part;
-      });
-    }
-    return content;
-  };
 
   return (
     <div className="grid md:grid-cols-3 w-full mb-20 max-h-[600px] overflow-y-hidden">
@@ -83,7 +60,11 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
             paddingRight: "10px",
           }}
         >
-          {formatContent(content)}
+         <div
+      className="w-full mr-auto"
+      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
+      // dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }}
+         />
         </div>
       </div>
     </div>

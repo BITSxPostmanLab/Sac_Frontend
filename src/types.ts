@@ -58,3 +58,14 @@ export type Resources = {
   link: string;
   name: "Youtube" | "Drive";
 };
+
+export type ProgramData = {
+  program: string;
+  org: string;
+  start: string;
+  end: string;
+  internship: string;
+  domain: string;
+  recurring: string;
+  skills: string;
+};
