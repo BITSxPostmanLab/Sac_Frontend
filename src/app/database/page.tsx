@@ -21,51 +21,7 @@ const title = [
 ]
 
 const iconClass = 'text-neutral-600 h-4 w-4'
-const labels = [
-  {
-    text: 'Name of the program',
-    className: 'col-span-2',
-    icon: <ALargeSmall className={iconClass} />,
-  },
-  {
-    text: 'Organisation(s)',
-    className: '',
-    icon: <AlignLeft className={iconClass} />,
-  },
-  {
-    text: 'Start Date',
-    className: '',
-    icon: <Calendar className={iconClass} />,
-  },
-  {
-    text: 'End Date',
-    className: '',
-    icon: <Calendar className={iconClass} />,
-  },
-  {
-    text: 'Prospective Internship?',
-    className: '',
-    icon: <CircleChevronDown className={iconClass} />,
-    domain:<YesNoFilter/>
-  },
-  {
-    text: 'Domains',
-    className: '',
-    icon: <CircleChevronDown className={iconClass} />,
-    domain: <DomainFilterComponent />
-  },
-  {
-    text: 'Recurring?',
-    className: '',
-    icon: <CircleChevronDown className={iconClass} />,
-    domain:<YesNoFilter/>
-  },
-  {
-    text: 'Attainable Skillsets',
-    className: 'col-span-2',
-    icon: <AlignLeft className={iconClass} />,
-  },
-];
+
 const CompetitionDatabasePage = () => {
   const [fieldData, setFieldData] = useState<ProgramData[]>([])
 
@@ -84,33 +40,41 @@ const CompetitionDatabasePage = () => {
 
   //recurring sort
   const sortRecurring = (value: "Yes" | "No") => {
-    useEffect(() => {
-      const sorted = [...dataset].sort((a, b) => {
-        if (a.recurring === "No" && b.recurring !== "No") return -1;
-        if (a.recurring !== "No" && b.recurring === "No") return 1;
-        return 0;
-      });
-      setFieldData(sorted);
-    }, []);
+  
+    if(value === "No"){
+      const sorted = [...dataset].sort((a,b)=>
+        a.recurring.localeCompare(b.recurring)
+      )
+      setFieldData(sorted)
+    }else{
+      const sorted = [...dataset].sort((a,b)=>
+        b.recurring.localeCompare(a.recurring)
+      )
+      setFieldData(sorted)
+    }
+
     
   };
   //sort internship
   
   const sortInternship = (value: "Yes" | "No") => {
-    useEffect(() => {
-      const sorted = [...dataset].sort((a, b) => {
-        if (a.internship === "No" && b.internship !== "No") return -1;
-        if (a.internship !== "No" && b.internship === "No") return 1;
-        return 0;
-      });
-      setFieldData(sorted);
-    }, []);
+  
+    if(value === "No"){
+      const sorted = [...dataset].sort((a,b)=>
+        a.internship.localeCompare(b.internship)
+      )
+      setFieldData(sorted)
+    }else{
+      const sorted = [...dataset].sort((a,b)=>
+        b.internship.localeCompare(a.internship)
+      )
+      setFieldData(sorted)
+    }
     
   };
   //domain
 
   const sortDomain = (value:"ASC" | "DCS") =>{
-    useEffect(()=>{
       if(value === "ASC"){
         const sorted = [...dataset].sort((a,b)=>
           a.domain.localeCompare(b.domain)
@@ -122,17 +86,60 @@ const CompetitionDatabasePage = () => {
         )
         setFieldData(sorted)
       }
-
-      
-    })
   }
-  sortDomain("ASC")
-  
+ 
+  const labels = [
+    {
+      text: 'Name of the program',
+      className: 'col-span-2',
+      icon: <ALargeSmall className={iconClass} />,
+    },
+    {
+      text: 'Organisation(s)',
+      className: '',
+      icon: <AlignLeft className={iconClass} />,
+    },
+    {
+      text: 'Start Date',
+      className: '',
+      icon: <Calendar className={iconClass} />,
+    },
+    {
+      text: 'End Date',
+      className: '',
+      icon: <Calendar className={iconClass} />,
+    },
+    {
+      text: 'Prospective Internship?',
+      className: '',
+      icon: <CircleChevronDown className={iconClass} />,
+      domain:<YesNoFilter sortField = {sortInternship}/>
+    },
+    {
+      text: 'Domains',
+      className: '',
+      icon: <CircleChevronDown className={iconClass} />,
+      domain: <DomainFilterComponent sortField = {sortDomain} />
+    },
+    {
+      text: 'Recurring?',
+      className: '',
+      icon: <CircleChevronDown className={iconClass} />,
+      domain:<YesNoFilter sortField = {sortRecurring}/>
+    },
+    {
+      text: 'Attainable Skillsets',
+      className: 'col-span-2',
+      icon: <AlignLeft className={iconClass} />,
+    },
+  ];
+
+
   return (
     <div className='w-full min-h-screen flex justify-center text-sm'>
       <div className=" w-full max-w-[1780px]  h-full py-10 ">
-        <table>
-          <th className='grid grid-cols-10 w-full'>
+   
+          <div className='grid grid-cols-10 w-full'>
 
             {
               labels.map((label, ind) => {
@@ -148,7 +155,7 @@ const CompetitionDatabasePage = () => {
                 )
               })
             }
-          </th>
+          </div>
 
           {
             fieldData.map((data, ind) => {
@@ -159,7 +166,7 @@ const CompetitionDatabasePage = () => {
           }
 
 
-        </table>
+   
 
 
       </div>

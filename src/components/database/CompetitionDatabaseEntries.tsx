@@ -13,7 +13,7 @@ const CompetitionDatabaseEntries = ({ dataset }: { dataset: ProgramData }) => {
       { value: dataset.skills, className: 'col-span-2' },
    ];
    return (
-      <tr className='grid grid-cols-10 '>
+      <div className='grid grid-cols-10 '>
          {entries.map((entry, index) => (
             <div
                key={index}
@@ -24,7 +24,7 @@ const CompetitionDatabaseEntries = ({ dataset }: { dataset: ProgramData }) => {
                </div>
             </div>
          ))}
-      </tr>
+      </div>
    )
 }
 

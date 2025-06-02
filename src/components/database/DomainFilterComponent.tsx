@@ -19,15 +19,23 @@ import { ChevronsUpDown, Check } from "lucide-react"
 import { ListFilter } from 'lucide-react';
 
 const frameworks = [
-  { value: "nextjs", label: "Next.js" },
-  { value: "react", label: "React" },
-  { value: "vue", label: "Vue" },
-  { value: "svelte", label: "Svelte" },
+  { value: "ASC", label: "Ascending" },
+  { value: "DCS", label: "Descending" },
+
 ]
 
-const DomainFilterComponent = () => {
+const DomainFilterComponent = ({sortField}:{sortField : (value:"ASC" | "DCS")=>void}) => {
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState("")
+
+  const handleCurrentValue = (value:string) =>{
+    if(value !== "ASC" && value !== "DCS"){
+      return
+    }
+    console.log(value)
+    console.log(sortField)
+    sortField(value)
+  }
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -44,7 +52,6 @@ const DomainFilterComponent = () => {
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search Tag..." />
           <CommandList>
             <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup>
@@ -54,6 +61,7 @@ const DomainFilterComponent = () => {
                   value={framework.value}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
+                    handleCurrentValue(currentValue)
                     setOpen(false)
                   }}
                 >

@@ -30,7 +30,6 @@ const BlogsPage = () => {
         console.log("There was some error", e);
       }
     };
-
     getData();
   }, []);
 
@@ -54,7 +53,6 @@ const BlogsPage = () => {
 
         </div>
       </div>
-
     </div>
   );
 };

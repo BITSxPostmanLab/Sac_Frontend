@@ -19,14 +19,22 @@ import { ChevronsUpDown, Check } from "lucide-react"
 import { ListFilter } from 'lucide-react';
 
 const frameworks = [
-  { value: "nextjs", label: "Next.js" },
-  { value: "react", label: "React" },
-  { value: "vue", label: "Vue" },
-  { value: "svelte", label: "Svelte" },
+  { value: "Yes", label: "Yes" },
+  { value: "No", label: "No" },
+
 ]
-const YesNoFilter = () => {
+const YesNoFilter = ({sortField}:{sortField : (value:"Yes" | "No")=>void}) => {
     const [open, setOpen] = useState(false)
     const [value, setValue] = useState("")
+
+    const handleCurrentValue = (value:string) =>{
+      if(value !== "Yes" && value !== "No"){
+        return
+      }
+      console.log(value)
+      console.log(sortField)
+      sortField(value)
+    }
   
     return (
       <Popover open={open} onOpenChange={setOpen}>
@@ -43,7 +51,6 @@ const YesNoFilter = () => {
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-0">
           <Command>
-            <CommandInput placeholder="Search Tag..." />
             <CommandList>
               <CommandEmpty>No framework found.</CommandEmpty>
               <CommandGroup>
@@ -51,8 +58,9 @@ const YesNoFilter = () => {
                   <CommandItem
                     key={framework.value}
                     value={framework.value}
-                    onSelect={(currentValue) => {
-                      setValue(currentValue === value ? "" : currentValue)
+                    onSelect={(currentValue ) => {
+                      setValue(currentValue === value ? "" : currentValue)              
+                      handleCurrentValue(currentValue)
                       setOpen(false)
                     }}
                   >
