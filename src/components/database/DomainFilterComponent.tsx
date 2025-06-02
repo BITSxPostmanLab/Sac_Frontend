@@ -21,7 +21,6 @@ import { ListFilter } from 'lucide-react';
 const frameworks = [
   { value: "ASC", label: "Ascending" },
   { value: "DCS", label: "Descending" },
-
 ]
 
 const DomainFilterComponent = ({sortField}:{sortField : (value:"ASC" | "DCS")=>void}) => {

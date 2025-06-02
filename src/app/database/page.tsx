@@ -1,7 +1,7 @@
 "use client"
 import CompetitionDatabaseEntries from '@/components/database/CompetitionDatabaseEntries'
 import { ProgramData } from '@/types'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { ALargeSmall, Divide } from 'lucide-react';
 import { dataset } from '../../../constants';
 import { AlignLeft } from 'lucide-react';
@@ -9,6 +9,7 @@ import { Calendar } from 'lucide-react';
 import { CircleChevronDown } from 'lucide-react';
 import DomainFilterComponent from '@/components/database/DomainFilterComponent';
 import YesNoFilter from '@/components/database/YesNoFilter';
+
 const title = [
   "Program",
   "Org",
@@ -29,14 +30,6 @@ const CompetitionDatabasePage = () => {
     setFieldData(dataset)
   }, [])
 
-  // setting the domain list
-  const domainSet = new Set();
-
-  fieldData.forEach((data) => {
-    domainSet.add(data.domain)
-  })
-  console.log(domainSet)
-  
 
   //recurring sort
   const sortRecurring = (value: "Yes" | "No") => {

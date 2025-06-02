@@ -24,6 +24,7 @@ const Navbar = () => {
     "Gallery",
     "Members",
     "Blogs",
+    "RI",
     "Database",
     "Quantaculus",
     "Contact",
