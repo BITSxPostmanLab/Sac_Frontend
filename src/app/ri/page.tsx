@@ -20,7 +20,7 @@ const ResearchInternshipDatabase = () => {
       const response = await axios.get('/api/researchdatabase')
       return response.data as ResearchIntern[]
     },
-    staleTime: 1000*60*10,
+    staleTime: 0,
 
   })
 

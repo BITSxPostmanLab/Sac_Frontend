@@ -29,9 +29,10 @@ const getIntern = async (id: string): Promise<ResearchIntern | null> => {
   const all: ResearchIntern[] = await res.json()
   return all.find((entry) => entry.id === parseInt(id)) || null
 }
-
-export default async function IndividualResearchInternPage({ params }: { params: { id: string } }) {
-  const application = await getIntern(params.id)
+type Params = Promise<{ id: string }>;
+export default async function IndividualResearchInternPage({ params }: { params: Params } ) {
+  const {id} = await params
+  const application = await getIntern(id)
 
   if (!application) return notFound()
 

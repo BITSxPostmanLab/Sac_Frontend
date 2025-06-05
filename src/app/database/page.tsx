@@ -34,7 +34,7 @@ const CompetitionDatabasePage = () => {
       const response = await axios.get('/api/database')
       return response.data as ProgramData[]
     },
-    staleTime:1000*60*10,
+    staleTime:0,
    
   })
 
