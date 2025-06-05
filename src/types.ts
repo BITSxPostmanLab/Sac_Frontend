@@ -59,16 +59,6 @@ export type Resources = {
   name: "Youtube" | "Drive";
 };
 
-// export type ProgramData = {
-//   program: string;
-//   org: string;
-//   start: string;
-//   end: string;
-//   internship: string;
-//   domain: string;
-//   recurring: string;
-//   skills: string;
-// };
 
 export type ProgramData = {
   id: number;
@@ -86,39 +76,39 @@ export type ProgramData = {
 
 
 export type ResearchIntern = {
-  id: number;
-  timestamp: string;
-  name: string;
-  bits_id: string;
-  type_of_internship: string;
-  university_or_institute: string;
-  primary_research_domain: string;
-  research_program_name: string;
-  start_end_date: string;
-  cgpa: number;
-  prior_courses: string;
-  prior_experience: string;
-  lors: number;
-  funding_status: string;
-  publication: string;
+  id: number;//
+  timestamp: string;//
+  name: string;//
+  bits_id: string;///
+  type_of_internship: string;//
+  university_or_institute: string;//
+  primary_research_domain: string;//
+  research_program_name: string;//
+  start_end_date: string;//1
+  cgpa: string;//
+  prior_courses: string;//
+  prior_experience: string;//
+  lors: string;//
+  funding_status: string|null;//
+  publication: string;//
   application_perks: string;
   research_experience: string;
-  contact_permission: boolean;
-  contact_details: string;
+  contact_permission: boolean;//
+  contact_details: string;//
   anything_else: string;
   type_of_internship_1: string;
   university_or_institute_1: string;
   research_program_name_1: string;
   primary_research_domain_1: string;
   remote_onsite_1: string;
-  start_end_date_1: string;
-  cgpa_1: number;
-  prior_courses_1: string;
-  prior_experience_1: string;
-  lors_1: number;
-  funding_status_1: string;
-  publication_1: string;
-  research_experience_1: string;
+  start_end_date_1: string;//
+  cgpa_1: string;//
+  prior_courses_1: string;//
+  prior_experience_1: string;//
+  lors_1: string;//
+  funding_status_1: string;//
+  publication_1: string;//
+  research_experience_1: string;//
   created_at: string;
   updated_at: string;
 };
