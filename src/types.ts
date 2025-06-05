@@ -59,16 +59,31 @@ export type Resources = {
   name: "Youtube" | "Drive";
 };
 
+// export type ProgramData = {
+//   program: string;
+//   org: string;
+//   start: string;
+//   end: string;
+//   internship: string;
+//   domain: string;
+//   recurring: string;
+//   skills: string;
+// };
+
 export type ProgramData = {
-  program: string;
-  org: string;
-  start: string;
-  end: string;
-  internship: string;
-  domain: string;
-  recurring: string;
-  skills: string;
+  id: number;
+  name: string;
+  organization: string;
+  start_date: string | null;
+  end_date: string | null;
+  prospective: boolean;
+  domains: string;
+  is_recurring: boolean;
+  skillsets: string;
+  created_at: string;
+  updated_at: string;
 };
+
 
 export type ResearchIntern = {
   id: number;
