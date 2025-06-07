@@ -77,6 +77,20 @@ const MobileNavbar = ({ setNavbarState }: MobileNavbarProps) => {
           <Dot /> Blogs
         </Link>
         <Link
+          href="/ri"
+          className="h-14 flex items-center p-2"
+          onClick={closeSidebar}
+        >
+          <Dot /> RI
+        </Link>
+        <Link
+          href="/database"
+          className="h-14 flex items-center p-2"
+          onClick={closeSidebar}
+        >
+          <Dot /> Competition Database
+        </Link>
+        <Link
           href="/quantaculus"
           className="h-14 flex items-center p-2"
           onClick={closeSidebar}

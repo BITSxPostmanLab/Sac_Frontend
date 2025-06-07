@@ -75,7 +75,7 @@ const ResearchInternshipDatabase = () => {
             <p className="text-muted-foreground">Browse through {internshipData.length} internship applications</p>
           </div>
 
-          <div className='flex gap-10 mb-8 font-semibold text-lg'>
+          <div className='md:flex gap-10 mb-8 font-semibold text-lg space-y-5'>
 
             <div className='flex gap-5 items-center '>
               Filter Type of internship

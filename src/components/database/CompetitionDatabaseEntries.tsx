@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { ProgramData } from '@/types'
 import { cn } from '@/lib/utils';
-const CompetitionDatabaseEntries = ({ dataset }: { dataset: ProgramData }) => {
+
+const CompetitionDatabaseEntries = memo(({ dataset }: { dataset: ProgramData }) => {
    const entries = [
       { value: dataset.name, className: 'col-span-2' },
       { value: dataset.organization },
@@ -26,6 +27,6 @@ const CompetitionDatabaseEntries = ({ dataset }: { dataset: ProgramData }) => {
          ))}
       </div>
    )
-}
+})
 
 export default CompetitionDatabaseEntries

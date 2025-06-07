@@ -10,6 +10,8 @@ import DomainFilterComponent from '@/components/database/DomainFilterComponent';
 import YesNoFilter from '@/components/database/YesNoFilter';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import InternshipFilterComponent from '@/components/ri/internship-filter';
+import { cn } from '@/lib/utils';
 const title = [
   "Program",
   "Org",
@@ -25,17 +27,15 @@ const iconClass = 'text-neutral-600 h-4 w-4'
 
 const CompetitionDatabasePage = () => {
   const [fieldData, setFieldData] = useState<ProgramData[]>([])
-
-
-  // fetch thee api data 
+  const [width, setWidth] = useState<number>(1780)
   const { data } = useQuery<ProgramData[]>({
     queryKey: ['comp-database'],
     queryFn: async () => {
       const response = await axios.get('/api/database')
-      return response.data as ProgramData[]
+      return response.data.reverse() as ProgramData[]
     },
-    staleTime:0,
-   
+    staleTime: 1000,
+
   })
 
   useEffect(() => {
@@ -43,13 +43,47 @@ const CompetitionDatabasePage = () => {
       setFieldData(data)
     }
   }, [data])
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth
+      setWidth(width)
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+
+
+  const findInternships = () => {
+
+    const response = new Set();
+    fieldData.forEach((data) => {
+      if(data.domains !== ""){
+        response.add(data.domains)
+      }
+    
+    })
+
+    return Array.from(response).sort() as string[]
+  }
+
+
+
+  const listValues = useMemo(findInternships, [fieldData])
+
+
+  // fetch thee api data 
   
+
 
 
 
   //recurring sort
   const sortRecurring = (value: "Yes" | "No") => {
- 
+
     const sorted = [...fieldData].sort((a, b) =>
       value === "Yes"
         ? Number(b.is_recurring) - Number(a.is_recurring) // descending: true first
@@ -57,7 +91,7 @@ const CompetitionDatabasePage = () => {
     );
     setFieldData(sorted);
   };
-  
+
   //sort internship
 
   const sortInternship = (value: "Yes" | "No") => {
@@ -70,26 +104,25 @@ const CompetitionDatabasePage = () => {
   };
   //domain
 
-  const sortDomain = (value: "ASC" | "DCS") => {
-    const nonEmptyDomains = fieldData.filter((data)=>data.domains !== "")
-    const emptyDomains = fieldData.filter((data)=>data.domains === "")
-    if (value === "ASC") {
-      const sorted = [...nonEmptyDomains].sort((a, b) =>
-        a.domains.localeCompare(b.domains)
-      )
-      setFieldData([...sorted,...emptyDomains])
-    } else {
-      const sorted = [...nonEmptyDomains].sort((a, b) =>
-        b.domains.localeCompare(a.domains)
-      )
-      setFieldData([...sorted,...emptyDomains])
-    }
+  const sortDomain = (value: string) => {
+    const present = [...fieldData].filter((data) => data.domains === value)
+    const notPresent = [...fieldData].filter((data) => data.domains !== value && data.domains !== "")
+    const empty = [...fieldData].filter((data) => data.domains === "")
+    setFieldData([...present, ...notPresent, ...empty])
   }
+
+  useEffect(() => {
+    console.log("running")
+    const nonEmpty = [...fieldData].filter((data) => data.domains !== "")
+    const empty = [...fieldData].filter((data) => data.domains === "")
+    setFieldData([...nonEmpty, ...empty])
+  }, [])
+
 
   const labels = [
     {
       text: 'Name of the program',
-      className: 'col-span-2',
+      className: 'col-span-2 ',
       icon: <ALargeSmall className={iconClass} />,
     },
     {
@@ -117,7 +150,7 @@ const CompetitionDatabasePage = () => {
       text: 'Domains',
       className: '',
       icon: <CircleChevronDown className={iconClass} />,
-      domain: <DomainFilterComponent sortField={sortDomain} />
+      domain: <InternshipFilterComponent sortField={sortDomain} listValues={listValues} />
     },
     {
       text: 'Recurring?',
@@ -131,46 +164,40 @@ const CompetitionDatabasePage = () => {
       icon: <AlignLeft className={iconClass} />,
     },
   ];
-
+console.log("render")
 
   return (
-    <div className='w-full min-h-screen flex justify-center text-sm'>
-      <div className=" w-full max-w-[1780px]  h-full py-10 ">
+    <div className="w-full min-h-screen flex justify-center text-xs overflow-x-scroll ">
+      <div
+        className="w-full max-w-[1780px] min-w-[1700px] h-full py-10 relative"
+        style={{ left: width < 1780 ? `${(1780 - width)/2 - 30}px` : '0px' }}
 
-        <div className='grid grid-cols-10 w-full'>
-
-          {
-            labels.map((label, ind) => {
-              return (
-                <div key={ind} className={`border-[1px] border-solid border-slate-300 px-2 flex gap-3 py-1 items-center ${label.className}`}>
-                  {label.icon}{label.text}
-                  {label.domain ? (
-                    <div className='ml-auto' >
-                      {label.domain}
-                    </div>
-                  ) : ""}
-                </div>
-              )
-            })
-          }
+      >
+        {/* Header Row */}
+        <div className="grid grid-cols-10 min-w-[1400px]">
+          {labels.map((label, ind) => (
+            <div
+              key={ind}
+              className={`border border-slate-300 px-2 flex gap-3 py-1 items-center ${label.className}`}
+            >
+              {label.icon}
+              {label.text}
+              {label.domain && (
+                <div className="ml-auto">{label.domain}</div>
+              )}
+            </div>
+          ))}
         </div>
 
-
-        {
-          fieldData.map((data, ind) => {
-            return (
-              <CompetitionDatabaseEntries key={ind} dataset={data} />
-            )
-          })
-        }
-
-
-
-
+        {/* Data Rows */}
+        {fieldData.map((data, ind) => (
+          <CompetitionDatabaseEntries key={ind} dataset={data} />
+        ))}
 
       </div>
     </div>
-  )
+  );
+
 }
 
 export default CompetitionDatabasePage

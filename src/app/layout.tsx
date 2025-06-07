@@ -22,6 +22,8 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={cn(inter.className, "w-full h-screen")} suppressHydrationWarning={true}>
+      
+   
       <body
         className=" w-full h-screen"
       >
