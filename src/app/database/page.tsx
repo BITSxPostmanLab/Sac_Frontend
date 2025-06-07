@@ -164,7 +164,7 @@ const CompetitionDatabasePage = () => {
       icon: <AlignLeft className={iconClass} />,
     },
   ];
-console.log("render")
+
 
   return (
     <div className="w-full min-h-screen flex justify-center text-xs overflow-x-scroll ">
