@@ -34,7 +34,7 @@ const CompetitionDatabasePage = () => {
       const response = await axios.get('/api/database')
       return response.data.reverse() as ProgramData[]
     },
-    staleTime: 1000,
+    staleTime: 0,
 
   })
 
