@@ -15,7 +15,7 @@ const GalleryPage = () => {
                     <p className="text-gray-600 mb-8">6th April, 2023</p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="overflow-hidden h-[306px]">
+                        {/* <div className="overflow-hidden h-[306px]">
                             <Image
                                 src="/gallery/quant2024-1.webp"
                                 alt="Person writing on blackboard"
@@ -24,7 +24,7 @@ const GalleryPage = () => {
                                 layout='responsive'
                                 className="w-auto h-full object-scale-down"
                             />
-                        </div>
+                        </div> */}
 
                         <div className="overflow-hidden">
                             <Image

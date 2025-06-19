@@ -1,3 +1,5 @@
+// components/database/DomainFilterComponent.tsx
+
 import React, { useState } from 'react'
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -14,25 +16,23 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { ChevronsUpDown, Check } from "lucide-react" 
+import { Check, ListFilter } from "lucide-react"
 
-import { ListFilter } from 'lucide-react';
+type DomainFilterProps = {
+  sortField: (value: string) => void,
+  listValues: string[]
+}
 
-const frameworks = [
-  { value: "ASC", label: "Ascending" },
-  { value: "DCS", label: "Descending" },
-]
-
-const DomainFilterComponent = ({sortField}:{sortField : (value:"ASC" | "DCS")=>void}) => {
+const DomainFilterComponent = ({ sortField, listValues }: DomainFilterProps) => {
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState("")
 
-  const handleCurrentValue = (value:string) =>{
-    if(value !== "ASC" && value !== "DCS"){
-      return
-    }
-    console.log(value)
-    console.log(sortField)
+  const frameworks = listValues.map((domain) => ({
+    label: domain,
+    value: domain
+  }))
+
+  const handleCurrentValue = (value: string) => {
     sortField(value)
   }
 
@@ -43,16 +43,16 @@ const DomainFilterComponent = ({sortField}:{sortField : (value:"ASC" | "DCS")=>v
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className=" justify-between p-1 px-3"
+          className="justify-between p-1 px-3"
         >
-         
-          <ListFilter className="" />
+          <ListFilter />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[300px] p-0">
         <Command>
+          <CommandInput placeholder="Search domain..." />
           <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandEmpty>No domain found.</CommandEmpty>
             <CommandGroup>
               {frameworks.map((framework) => (
                 <CommandItem

@@ -79,7 +79,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
             </NavigationMenuContent>
           </div>
         </NavigationMenuItem>
-        <NavigationMenuItem className="bg-transparent relative">
+        {/* <NavigationMenuItem className="bg-transparent relative">
           <NavigationMenuTrigger className="bg-transparent text-lg p-0 font-normal">
             <Link href={"/resources"} passHref>
               <span className={cn(isActive("/resources") && "font-bold")}>
@@ -102,7 +102,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
               <div className="bg-[#edd299] clip-path-triangle w-7 h-5 absolute left-[32%] -top-5"></div>
             </div>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
 
         {navbarList.slice(3).map((ele, key) => {
           return (

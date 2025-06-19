@@ -83,7 +83,7 @@ const MobileNavbar = ({ setNavbarState }: MobileNavbarProps) => {
         </div>
 
         {/* RESOURCES DROPDOWN */}
-        <div className="p-2">
+        {/* <div className="p-2">
           <Link href="/resources"     onClick={closeSidebar}>
             <div
               className="font-semibold mb-2 flex items-center justify-between cursor-pointer"
@@ -109,7 +109,7 @@ const MobileNavbar = ({ setNavbarState }: MobileNavbarProps) => {
             ))}
           </div>
 
-        </div>
+        </div> */}
 
         {/* Rest of the Links */}
         {[
