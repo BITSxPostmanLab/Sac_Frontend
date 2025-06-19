@@ -40,7 +40,7 @@ export default async function IndividualResearchInternPage({ params }: { params:
   return (
     <div className="w-full min-h-screen flex justify-center text-sm">
       <div className="w-full max-w-[1780px] h-full py-10">
-        <div className="mx-auto p-6">
+        <div className="mx-auto p-6 flex flex-col">
           <div className="mb-6">
             <Link href="/ri">
               <Button variant="ghost" className="mb-4">
@@ -57,7 +57,7 @@ export default async function IndividualResearchInternPage({ params }: { params:
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1  gap-6">
             {/* Main Info */}
             <div className="lg:col-span-2 space-y-6">
               <Card>
@@ -76,7 +76,7 @@ export default async function IndividualResearchInternPage({ params }: { params:
                     <InfoBlock icon={<MapPin />} label="Remote/Onsite" value={application.remote_or_onsite_1} />
                   </div>
 
-                  <Paragraph label="Research Program" text={application.type_of_internship_1} />
+                  <Paragraph label="Research Program" text={application.intern_name_1} />
                   <Paragraph label="Contact Permission" text={application.contact_permission} />
                   <Paragraph label="Type of Internship" text={application.type_of_internship_1} />
                 </CardContent>
@@ -106,7 +106,7 @@ export default async function IndividualResearchInternPage({ params }: { params:
                 </CardHeader>
                 <CardContent>
                   <Paragraph label="Did the research work lead to a publication? If yes, specify the name of the journal/conference and your role (author or co-author)." text={application.publication_status_1} />
-                  <Paragraph label="Application Perks" text={application.publication_status_1} />
+
                 </CardContent>
               </Card>
 
@@ -144,7 +144,7 @@ export default async function IndividualResearchInternPage({ params }: { params:
                       <InfoBlock icon={<MapPin />} label="Remote/Onsite" value={application.remote_or_onsite_2 ?? "-"} />
                     </div>
 
-                    <Paragraph label="Research Program" text={application.type_of_internship_2} />
+                    <Paragraph label="Research Program" text={application.intern_name_2} />
                     <Paragraph label="Type of Internship" text={application.type_of_internship_2} />
                   </CardContent>
                 </Card>
@@ -172,13 +172,35 @@ export default async function IndividualResearchInternPage({ params }: { params:
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <Paragraph label="Did the research work lead to a publication? If yes, specify the name of the journal/conference and your role (author or co-author)." text={application.publication_status_1} />
-                    <Paragraph label="Application Perks" text={application.publication_status_2} />
+                    <Paragraph label="Did the research work lead to a publication? If yes, specify the name of the journal/conference and your role (author or co-author)." text={application.publication_status_2} />
                   </CardContent>
                 </Card>
               </div>
             )}
+            <div>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <FileText className="w-5 h-5" />
+                    Reflections & Advice
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <Paragraph
+                    label="How did your internship experience(s) aid your academic or professional growth, and what advice do you have for future BITSians applying?"
+                    text={application.academic_career_impact}
+                  />
+                  <Paragraph
+                    label="Anything else that you would like to add that was not asked above"
+                    text={application.additional_info}
+                  />
+                </CardContent>
+              </Card>
+            </div>
+
+
           </div>
+
         </div>
       </div>
     </div>
