@@ -75,40 +75,41 @@ export type ProgramData = {
 };
 
 
-export type ResearchIntern = {
-  id: number;//
-  timestamp: string;//
-  name: string;//
-  bits_id: string;///
-  type_of_internship: string;//
-  university_or_institute: string;//
-  primary_research_domain: string;//
-  research_program_name: string;//
-  start_end_date: string;//1
-  cgpa: string;//
-  prior_courses: string;//
-  prior_experience: string;//
-  lors: string;//
-  funding_status: string|null;//
-  publication: string;//
-  application_perks: string;
-  research_experience: string;
-  contact_permission: boolean;//
-  contact_details: string;//
-  anything_else: string;
-  type_of_internship_1: string;
-  university_or_institute_1: string;
-  research_program_name_1: string;
-  primary_research_domain_1: string;
-  remote_onsite_1: string;
-  start_end_date_1: string;//
-  cgpa_1: string;//
-  prior_courses_1: string;//
-  prior_experience_1: string;//
-  lors_1: string;//
-  funding_status_1: string;//
-  publication_1: string;//
-  research_experience_1: string;//
-  created_at: string;
-  updated_at: string;
-};
+export type ResearchIntern = 
+  {
+    id: number;
+    timestamp: string | null;
+    name: string;
+    bits_id: string;
+    domain_classification: string;
+    type_of_internship_1: string | null;
+    university_1: string;
+    domain_1: string;
+    intern_name_1: string;
+    remote_or_onsite_1: string;
+    start_end_date_1: string;
+    cgpa_1: string;
+    relevant_courses_1: string;
+    research_experience_1: string;
+    lor_requirement_1: string;
+    funding_status_1: string;
+    publication_status_1: string;
+    type_of_internship_2: string | null;
+    university_2: string | null;
+    intern_name_2: string | null;
+    domain_2: string | null;
+    remote_or_onsite_2: string | null;
+    start_end_date_2: string | null;
+    cgpa_2: string | null;
+    relevant_courses_2: string | null;
+    research_experience_2: string | null;
+    lor_requirement_2: string | null;
+    funding_status_2: string | null;
+    publication_status_2: string | null;
+    academic_career_impact: string;
+    contact_permission: string | null;
+    additional_info: string | null;
+    created_at: string;
+    updated_at: string;
+  }
+

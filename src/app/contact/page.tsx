@@ -4,12 +4,12 @@ import { FaPhone, FaMessage } from "react-icons/fa6";
 
 const ContactPage = () => {
   return (
-    <div className="flex w-full min-h-screen bg-[#d9d9d9]">
-      <div className="w-[40%] hidden md:block bg-[#d9d9d9] h-full text-5xl text-center place-content-center font-bold my-auto">
+    <div className=" w-full min-h-screen bg-[#d9d9d9] grid grid-cols-5">
+      <div className="w-full col-span-2 hidden md:block bg-[#d9d9d9] h-full text-5xl text-center place-content-center font-bold ">
         <div>CONTACT</div>
         <div>US</div>
       </div>
-      <div className="bg-white w-full md:w-[60%] h-full text-center flex flex-col items-center">
+      <div className="bg-white w-full md:col-span-3 col-span-5  h-full text-center flex flex-col items-center">
         <div className="font-bold text-3xl my-8">
           CONTACT <br /> INFORMATION
         </div>

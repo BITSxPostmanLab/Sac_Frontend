@@ -28,6 +28,8 @@ const iconClass = 'text-neutral-600 h-4 w-4'
 const CompetitionDatabasePage = () => {
   const [fieldData, setFieldData] = useState<ProgramData[]>([])
   const [width, setWidth] = useState<number>(1780)
+  const [orgData, setOrgData] = useState<ProgramData[]>([])
+  
   const { data } = useQuery<ProgramData[]>({
     queryKey: ['comp-database'],
     queryFn: async () => {
@@ -40,9 +42,13 @@ const CompetitionDatabasePage = () => {
 
   useEffect(() => {
     if (data) {
+      
       setFieldData(data)
+      setOrgData(data)
     }
   }, [data])
+
+  console.log(orgData)
 
 
   useEffect(() => {
@@ -58,7 +64,6 @@ const CompetitionDatabasePage = () => {
 
 
   const findInternships = () => {
-
     const response = new Set();
     fieldData.forEach((data) => {
       if(data.domains !== ""){
@@ -118,6 +123,20 @@ const CompetitionDatabasePage = () => {
     setFieldData([...nonEmpty, ...empty])
   }, [])
 
+  useEffect(() => {
+    const handleResetList = () => {
+      console.log(orgData)
+      setFieldData(orgData);
+    };
+  
+    window.addEventListener("reset-database-list", handleResetList as EventListener);
+  
+    return () => {
+      window.removeEventListener("reset-database-list", handleResetList as EventListener);
+    };
+  }, []);
+  
+
 
   const labels = [
     {
@@ -144,19 +163,27 @@ const CompetitionDatabasePage = () => {
       text: 'Prospective Internship?',
       className: '',
       icon: <CircleChevronDown className={iconClass} />,
-      domain: <YesNoFilter sortField={sortInternship} />
+      domain:   <YesNoFilter
+      sortField={sortInternship}
+      originalList={data || []}
+      setFieldData={setFieldData}
+    />
     },
     {
       text: 'Domains',
       className: '',
       icon: <CircleChevronDown className={iconClass} />,
-      domain: <InternshipFilterComponent sortField={sortDomain} listValues={listValues} />
+      domain: <InternshipFilterComponent sortField={sortDomain} listValues={listValues}  />
     },
     {
       text: 'Recurring?',
       className: '',
       icon: <CircleChevronDown className={iconClass} />,
-      domain: <YesNoFilter sortField={sortRecurring} />
+      domain:   <YesNoFilter
+      sortField={sortRecurring}
+      originalList={data || []}
+      setFieldData={setFieldData}
+    />
     },
     {
       text: 'Attainable Skillsets',

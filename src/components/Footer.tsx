@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { FaInstagramSquare } from "react-icons/fa";
 import { GrLinkedin } from "react-icons/gr";
-
+import Link from "next/link";
 const Footer = () => {
   return (
     <div className="h-80 w-full bg-[#ebdcbc]  flex flex-col">
@@ -20,8 +20,14 @@ const Footer = () => {
           </div>
           <div className="pr-4 mt-1">Pilani | Goa | Hyderabad | Dubai</div>
           <div className="flex gap-5 mt-10 justify-start md:justify-center">
-            <FaInstagramSquare className="w-9 h-9 footer:w-12 footer:h-12 text-white" />
-            <GrLinkedin className="w-8 h-8 mt-[2px] footer:w-11 footer:h-11 rounded-sm text-white" />
+            <Link href="https://www.linkedin.com/company/sacbitspilani/?originalSubdomain=in" target="/">
+              <FaInstagramSquare className="w-9 h-9 footer:w-12 footer:h-12 text-white" />
+            </Link>
+            <Link href="https://www.instagram.com/sac_bits_pilani/" target="/">
+              <GrLinkedin className="w-8 h-8 mt-[2px] footer:w-11 footer:h-11 rounded-sm text-white" />
+            </Link>
+
+
           </div>
         </div>
       </div>

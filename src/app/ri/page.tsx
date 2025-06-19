@@ -28,14 +28,22 @@ const ResearchInternshipDatabase = () => {
   
     const response = new Set();
     internshipData.forEach((datas)=>{
-      response.add(datas.type_of_internship)
+      response.add(datas.type_of_internship_1)
     })
     
     return Array.from(response).sort() as string[]
   }
 
+  const findDomains = () =>{
+    const domains = new Set();
+    internshipData.forEach((data)=>{
+      domains.add([...data.domain_classification.split(",")])
+    })
+    console.log(domains)
+    return Array.from(domains).sort() as string[]
+  }
  
-
+findDomains()
   const listValues = useMemo(findInternships,[internshipData])
 
   useEffect(() => {
@@ -48,20 +56,20 @@ const ResearchInternshipDatabase = () => {
 
     if (value === "ASC") {
       const sorted = [...internshipData].sort((a, b) =>
-        a.primary_research_domain.localeCompare(b.primary_research_domain)
+        a.domain_classification.localeCompare(b.domain_classification)
       )
       setInternshipData(sorted)
     } else {
       const sorted = [...internshipData].sort((a, b) =>
-        b.primary_research_domain.localeCompare(a.primary_research_domain)
+        b.domain_classification.localeCompare(a.domain_classification)
       )
       setInternshipData([...sorted])
     }
   }
 
   const sortTypeOfInternship = (value:string) => {
-    const present = [...internshipData].filter((data)=>data.type_of_internship === value)
-    const notPresent = [...internshipData].filter((data)=>data.type_of_internship !== value)
+    const present = [...internshipData].filter((data)=>data.type_of_internship_1 === value)
+    const notPresent = [...internshipData].filter((data)=>data.type_of_internship_1 !== value)
     setInternshipData([...present,...notPresent])
   }
 

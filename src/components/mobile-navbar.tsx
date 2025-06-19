@@ -1,111 +1,137 @@
-import type React from "react";
-import { X, Dot } from "lucide-react";
+import React, { useState } from "react";
+import { X, Dot, ChevronDown, ChevronUp } from "lucide-react";
 import Link from "next/link";
 
 interface MobileNavbarProps {
   setNavbarState: (state: boolean) => void;
 }
 
+const eventList = [
+  "Research Talks",
+  "SI Talks",
+  "Placement Talks",
+  "Academics Talks",
+  "PS Talks",
+  "Quantaculus Talks",
+  "Off-Campus Talks",
+  "Thesis Talks",
+  "Cold Mailing and CV Building Talks",
+];
+
+const resourceList = [
+  "Project Courses Chronicles-Economics-CSIS",
+  "Project Type Courses",
+  "Study Abroad Document",
+  "Notion Dashboard",
+  "Minor Course Document",
+  "GSoC",
+  "Elective Review",
+  "Summer Courses",
+  "Handout",
+  "Competitive Programming Document",
+];
+
 const MobileNavbar = ({ setNavbarState }: MobileNavbarProps) => {
+
+
   const closeSidebar = () => {
     setNavbarState(false);
   };
+
+  const slugify = (text: string) => text.toLowerCase().replace(/ /g, "-");
 
   return (
     <div className="w-[100vw] h-[100vh] bg-[#ebdcbc] fixed top-0 right-0 z-50 overflow-scroll">
       <div className="h-20 flex border-b-2 border-solid border-black items-center p-3">
         <div className="text-left text-xl font-medium">Menu</div>
-        <div onClick={closeSidebar} className="ml-auto">
+        <div onClick={closeSidebar} className="ml-auto cursor-pointer">
           <X className="h-8 w-8" />
         </div>
       </div>
+
       <div className="flex flex-col text-lg font-medium">
-        <Link
-          href="/"
-          className="h-14 flex items-center p-2"
-          onClick={closeSidebar}
-        >
+        <Link href="/" className="h-14 flex items-center p-2" onClick={closeSidebar}>
           <Dot /> Home
         </Link>
-        <div className="min-h-14 flex flex-col p-2 w-full">
-          <Link href="/events" onClick={closeSidebar}>
-            <div className="font-semibold mb-2 flex">
-              <Dot /> Events
+
+        {/* EVENTS DROPDOWN */}
+        <div className="p-2">
+          <Link href="/events"     onClick={closeSidebar} >
+            <div
+              className="font-semibold mb-2 flex items-center justify-between cursor-pointer"
+
+            >
+              <span className="flex items-center">
+                <Dot /> Events
+              </span>
             </div>
-            {/* <div className="flex flex-col gap-2 pl-4">
-                    {eventList.map((ele, key) => (
-                        <div key={key} className="flex items-center">
-                            <Dot /> {ele}
-                        </div>
-                    ))}
-                </div> */}
           </Link>
+
+          <div className="flex flex-col gap-3 pl-6">
+            {eventList.map((ele, idx) => (
+              <Link
+                key={idx}
+                href={`/events/${slugify(ele)}`}
+                onClick={closeSidebar}
+                className="hover:underline flex"
+              >
+                <Dot className="text-xs" /> {ele}
+              </Link>
+            ))}
+          </div>
+
         </div>
-        <div className="min-h-14 flex flex-col p-2 w-full">
-          <Link href="/resources" onClick={closeSidebar}>
-            <div className="font-semibold mb-2 flex">
-              <Dot /> Resources
+
+        {/* RESOURCES DROPDOWN */}
+        <div className="p-2">
+          <Link href="/resources"     onClick={closeSidebar}>
+            <div
+              className="font-semibold mb-2 flex items-center justify-between cursor-pointer"
+
+            >
+              <span className="flex items-center">
+                <Dot /> Resources
+              </span>
+
             </div>
-            {/* <div className="flex flex-col gap-2 pl-4">
-                    {resourceList.map((ele, key) => (
-                        <div key={key} className="flex items-center">
-                            <Dot /> {ele}
-                        </div>
-                    ))}
-                </div> */}
           </Link>
+
+          <div className="flex flex-col gap-3 pl-6">
+            {resourceList.map((ele, idx) => (
+              <Link
+                key={idx}
+                href={`/resources/${slugify(ele)}`}
+                onClick={closeSidebar}
+                className="hover:underline flex"
+              >
+                <Dot className="text-xs" /> {ele}
+              </Link>
+            ))}
+          </div>
+
         </div>
-        <Link
-          href="/gallery"
-          className="h-14 flex items-center p-2"
-          onClick={closeSidebar}
-        >
-          <Dot /> Gallery
-        </Link>
-        <Link
-          href="/members"
-          className="h-14 flex items-center p-2"
-          onClick={closeSidebar}
-        >
-          <Dot /> Members
-        </Link>
-        <Link
-          href="/blogs"
-          className="h-14 flex items-center p-2"
-          onClick={closeSidebar}
-        >
-          <Dot /> Blogs
-        </Link>
-        <Link
-          href="/ri"
-          className="h-14 flex items-center p-2"
-          onClick={closeSidebar}
-        >
-          <Dot /> RI
-        </Link>
-        <Link
-          href="/database"
-          className="h-14 flex items-center p-2"
-          onClick={closeSidebar}
-        >
-          <Dot /> Competition Database
-        </Link>
-        <Link
-          href="/quantaculus"
-          className="h-14 flex items-center p-2"
-          onClick={closeSidebar}
-        >
-          <Dot /> Quantaculus
-        </Link>
-        <Link
-          href="/contact"
-          className="h-14 flex items-center p-2"
-          onClick={closeSidebar}
-        >
-          <Dot /> Contact
-        </Link>
+
+        {/* Rest of the Links */}
+        {[
+          { href: "/gallery", label: "Gallery" },
+          { href: "/members", label: "Members" },
+          { href: "/blogs", label: "Blogs" },
+          { href: "/ri", label: "RI" },
+          { href: "/database", label: "Competition Database" },
+          { href: "/quantaculus", label: "Quantaculus" },
+          { href: "/contact", label: "Contact" },
+        ].map((item, idx) => (
+          <Link
+            key={idx}
+            href={item.href}
+            className="h-14 flex items-center p-2"
+            onClick={closeSidebar}
+          >
+            <Dot /> {item.label}
+          </Link>
+        ))}
       </div>
-    </div>
+    </div >
   );
 };
 

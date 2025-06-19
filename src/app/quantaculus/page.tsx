@@ -52,7 +52,7 @@ const Page = () => {
   const yearData = {
     2025: {
       title: "2025",
-      description: "Shaping",
+      description: "",
       images: imageItems2025
     },
     2024: {

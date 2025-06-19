@@ -135,6 +135,9 @@ export default async function IndividualResearchInternPage({ params }: { params:
                 </Card>
               )}
             </div>
+         {
+          application.type_of_internship_2 === "nan" ? "" : (
+               
             <div className="lg:col-span-2 space-y-6">
               <Card>
                 <CardHeader>
@@ -195,6 +198,8 @@ export default async function IndividualResearchInternPage({ params }: { params:
               </Card>
 
             </div>
+          )
+         }
 
        
           </div>
