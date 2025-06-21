@@ -23,14 +23,14 @@ const ResearchInternshipDatabase = () => {
     },
     staleTime: 0,
   })
-
-  // Convert domain string to array
   const convertAPIToResearchIntern = (apiData: APIResearchIntern[]): ResearchIntern[] => {
     return apiData.map((item) => ({
       ...item,
-      domain_classification: item.domain_classification
-        .split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/)
-        .map(domain => domain.replace(/^"|"$/g, "").trim()),
+      domain_classification: item.domain_classification && item.domain_classification !== 'nan'
+        ? item.domain_classification
+            .split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/)
+            .map(domain => domain.replace(/^"|"$/g, "").trim())
+        : [],
     }))
   }
 
@@ -39,19 +39,25 @@ const ResearchInternshipDatabase = () => {
       setInternshipData(convertAPIToResearchIntern(data))
     }
   }, [data])
-
   const findInternships = () => {
     const response = new Set<string>()
     internshipData.forEach((item) => {
-      if (item.type_of_internship_1) response.add(item.type_of_internship_1)
+      if (item.type_of_internship_1 && item.type_of_internship_1 !== 'nan') {
+        response.add(item.type_of_internship_1)
+      }
     })
     return Array.from(response).sort()
   }
-
   const findDomains = () => {
     const domainSet = new Set<string>()
     internshipData.forEach((data) => {
-      data.domain_classification.forEach((domain) => domainSet.add(domain))
+      if (data.domain_classification && Array.isArray(data.domain_classification)) {
+        data.domain_classification.forEach((domain) => {
+          if (domain && domain.trim() !== '') {
+            domainSet.add(domain)
+          }
+        })
+      }
     })
     return Array.from(domainSet).sort()
   }
@@ -59,13 +65,12 @@ const ResearchInternshipDatabase = () => {
   const listValues = useMemo(findInternships, [internshipData])
   const domainList = useMemo(findDomains, [internshipData])
   
-
   const filterByDomain = (domain: string) => {
     const present = internshipData.filter((item) =>
-      item.domain_classification.includes(domain)
+      item.domain_classification && item.domain_classification.includes(domain)
     )
     const notPresent = internshipData.filter((item) =>
-      !item.domain_classification.includes(domain)
+      !item.domain_classification || !item.domain_classification.includes(domain)
     )
     setInternshipData([...present, ...notPresent])
   }
@@ -116,12 +121,13 @@ const ResearchInternshipDatabase = () => {
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-muted-foreground" />
                       <span className="text-sm font-medium">{application.university_1}</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
+                    </div>                    <div className="flex items-center gap-2">
                       <GraduationCap className="w-4 h-4 text-muted-foreground" />
                       <span className="text-sm">
-                        {application.domain_classification.join(", ")}
+                        {application.domain_classification && application.domain_classification.length > 0 
+                          ? application.domain_classification.join(", ")
+                          : "Not specified"
+                        }
                       </span>
                     </div>
 

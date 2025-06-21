@@ -77,9 +77,18 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
                 <div className="bg-[#edd299] clip-path-triangle w-7 h-5 absolute left-[20%] -top-5"></div>
               </div>
             </NavigationMenuContent>
-          </div>
+          </div>        </NavigationMenuItem>
+        <NavigationMenuItem className="bg-transparent text-lg">
+          <Link href={`/resources`} passHref>
+            <NavigationMenuLink
+              className={cn(isActive("/resources") && "font-bold")}
+            >
+              Resources
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
-        {/* <NavigationMenuItem className="bg-transparent relative">
+        {/* Resources dropdown - commented out for later use
+        <NavigationMenuItem className="bg-transparent relative">
           <NavigationMenuTrigger className="bg-transparent text-lg p-0 font-normal">
             <Link href={"/resources"} passHref>
               <span className={cn(isActive("/resources") && "font-bold")}>
