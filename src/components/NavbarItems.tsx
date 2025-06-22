@@ -40,11 +40,9 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
   const [open, setOpen] = useState(false);
 
 
-  return (
-
-    <div className="hidden lg:block">
-      <NavigationMenuList className="flex gap-6 xl:gap-10 ml-auto my-auto w-full ">
-        <NavigationMenuItem className="bg-transparent text-lg">
+  return (    <div className="hidden lg:block">
+      <NavigationMenuList className="flex gap-3 xl:gap-6 ml-auto my-auto w-full ">
+        <NavigationMenuItem className="bg-transparent text-base">
           <Link href={`/home`} passHref>
             <NavigationMenuLink
               className={cn(isActive("/home") && "font-bold")}
@@ -55,7 +53,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
         </NavigationMenuItem>
         <NavigationMenuItem className="bg-transparent">
           <div className={cn("relative ")}>
-            <NavigationMenuTrigger className="bg-transparent text-lg p-0 font-normal hover:bg-none" onClick={() => setOpen(!open)}>
+            <NavigationMenuTrigger className="bg-transparent text-base p-0 font-normal hover:bg-none" onClick={() => setOpen(!open)}>
               <Link href={"/events"} passHref>
                 <span className={cn(isActive("/events") && "font-bold")}>
                   Events
@@ -78,7 +76,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
               </div>
             </NavigationMenuContent>
           </div>        </NavigationMenuItem>
-        <NavigationMenuItem className="bg-transparent text-lg">
+        <NavigationMenuItem className="bg-transparent text-base">
           <Link href={`/resources`} passHref>
             <NavigationMenuLink
               className={cn(isActive("/resources") && "font-bold")}
@@ -116,7 +114,7 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
         {navbarList.slice(3).map((ele, key) => {
           return (
             <div key={key}>
-              <NavigationMenuItem className="bg-transparent text-lg cursor-pointer">
+              <NavigationMenuItem className="bg-transparent text-base cursor-pointer">
                 <Link href={`/${ele.toLowerCase()}`} passHref>
                   <NavigationMenuLink
                     className={cn(

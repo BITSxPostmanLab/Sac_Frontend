@@ -78,12 +78,15 @@ const MobileNavbar = ({ setNavbarState }: MobileNavbarProps) => {
                 <Dot className="text-xs" /> {ele}
               </Link>
             ))}
-          </div>
+          </div>        </div>
 
-        </div>
+        {/* RESOURCES */}
+        <Link href="/resources" className="h-14 flex items-center p-2" onClick={closeSidebar}>
+          <Dot /> Resources
+        </Link>
 
-        {/* RESOURCES DROPDOWN */}
-        {/* <div className="p-2">
+        {/* Resources dropdown - commented out for later use
+        <div className="p-2">
           <Link href="/resources"     onClick={closeSidebar}>
             <div
               className="font-semibold mb-2 flex items-center justify-between cursor-pointer"
