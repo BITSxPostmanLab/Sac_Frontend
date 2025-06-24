@@ -30,7 +30,7 @@ export const resources: ResourceType[] = [
         postId: 103,
         imageUrl: "/resources/project_dom.png",
         paragraphs: [
-          "This is the 2nd Edition of our department-wise initiative, continuing with the Department of Mathematics",
+          "This is the 3rd Edition of our department-wise initiative, continuing with the Department of Mathematics",
         ],
         resourceLink:
           "https://drive.google.com/file/d/1gHjrJWGX8Mo1Kn48darEFT4ZRSCqvFQ1/view",
