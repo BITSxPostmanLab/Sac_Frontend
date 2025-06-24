@@ -224,6 +224,8 @@ const Paragraph = ({ label, text }: { label: string; text: string }) => (
   </div>
 )
 
-const formatValue = (value: string | null | undefined): string => {
-  return !value || value.trim().toLowerCase() === "nan" ? "-" : value.trim()
+const formatValue = (value: string | number | null | undefined): string => {
+  if (!value && value !== 0) return "-"
+  const stringValue = String(value)
+  return stringValue.trim().toLowerCase() === "nan" ? "-" : stringValue.trim()
 }

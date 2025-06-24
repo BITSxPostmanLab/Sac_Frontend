@@ -43,25 +43,26 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
   return (    <div className="hidden lg:block">
       <NavigationMenuList className="flex gap-3 xl:gap-6 ml-auto my-auto w-full ">
         <NavigationMenuItem className="bg-transparent text-base">
-          <Link href={`/home`} passHref>
-            <NavigationMenuLink
-              className={cn(isActive("/home") && "font-bold")}
-            >
+          <NavigationMenuLink asChild>
+            <Link href={`/home`} className={cn(isActive("/home") && "font-bold")}>
               Home
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem className="bg-transparent">
           <div className={cn("relative ")}>
             <NavigationMenuTrigger className="bg-transparent text-base p-0 font-normal hover:bg-none" onClick={() => setOpen(!open)}>
-              <Link href={"/events"} passHref>
-                <span className={cn(isActive("/events") && "font-bold")}>
-                  Events
-                </span>
-              </Link>
+              <span className={cn(isActive("/events") && "font-bold")}>
+                Events
+              </span>
             </NavigationMenuTrigger>
             <NavigationMenuContent className="absolute -left-1/2 top-14 flex justify-center">
               <div className="w-[300px] bg-[#edd299] relative">
+                <Link href={"/events"}>
+                  <div className="p-2 cursor-pointer hover:bg-[#e6c27c] transition-colors font-semibold border-b border-gray-300">
+                    All Events
+                  </div>
+                </Link>
                 {eventList.map((ele, key) => {
                   const path = ele.toLowerCase().replace(/ /g, '-');
                   return (
@@ -77,13 +78,11 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
             </NavigationMenuContent>
           </div>        </NavigationMenuItem>
         <NavigationMenuItem className="bg-transparent text-base">
-          <Link href={`/resources`} passHref>
-            <NavigationMenuLink
-              className={cn(isActive("/resources") && "font-bold")}
-            >
+          <NavigationMenuLink asChild>
+            <Link href={`/resources`} className={cn(isActive("/resources") && "font-bold")}>
               Resources
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
         {/* Resources dropdown - commented out for later use
         <NavigationMenuItem className="bg-transparent relative">
@@ -115,15 +114,13 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
           return (
             <div key={key}>
               <NavigationMenuItem className="bg-transparent text-base cursor-pointer">
-                <Link href={`/${ele.toLowerCase()}`} passHref>
-                  <NavigationMenuLink
-                    className={cn(
+                <NavigationMenuLink asChild>
+                  <Link href={`/${ele.toLowerCase()}`} className={cn(
                       isActive(`/${ele.toLowerCase()}`) && "font-bold"
-                    )}
-                  >
+                    )}>
                     {ele.charAt(0).toUpperCase() + ele.slice(1)}
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
             </div>
           );
