@@ -18,7 +18,7 @@ const BlogSkeleton = ({ cards }: { cards: number }) => {
                         <Skeleton className="text-3xl font-semibold h-10 full mt-5" />
 
                         <Skeleton
-                            className="text-[#6a6c6e] overflow-y-hidden h-full w-full hidden sm:block"
+                            className="prose prose-lg max-w-none overflow-y-hidden h-full w-full hidden sm:block"
                             style={{
                                 maxHeight: "500px",
                                 WebkitMaskImage:

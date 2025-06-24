@@ -50,7 +50,7 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
       <div className="px-5 sm:px-10 md:col-span-2 text-xl my-auto flex flex-col gap-5 h-full ">
         <div className="text-3xl font-semibold">{title}</div>
         <div
-          className="text-[#6a6c6e] overflow-y-hidden h-full"
+          className="prose prose-lg max-w-none overflow-y-hidden h-full"
           style={{
             maxHeight: "500px",
             WebkitMaskImage:
@@ -63,7 +63,6 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
          <div
       className="w-full mr-auto"
       dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
-      // dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }}
          />
         </div>
       </div>
