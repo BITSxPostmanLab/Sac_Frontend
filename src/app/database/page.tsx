@@ -2,7 +2,7 @@
 import CompetitionDatabaseEntries from '@/components/database/CompetitionDatabaseEntries'
 import { ProgramData } from '@/types'
 import React, { useEffect, useMemo, useState } from 'react'
-import { ALargeSmall, Divide } from 'lucide-react';
+import { ALargeSmall, Divide, RotateCcw } from 'lucide-react';
 import { AlignLeft } from 'lucide-react';
 import { Calendar } from 'lucide-react';
 import { CircleChevronDown } from 'lucide-react';
@@ -12,6 +12,8 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import InternshipFilterComponent from '@/components/ri/internship-filter';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+
 const title = [
   "Program",
   "Org",
@@ -192,6 +194,11 @@ const CompetitionDatabasePage = () => {
     },
   ];
 
+  const resetFilters = () => {
+    if (data) {
+      setFieldData([...data])
+    }
+  }
 
   return (
     <div className="w-full min-h-screen flex justify-center text-xs overflow-x-scroll ">
@@ -214,6 +221,20 @@ const CompetitionDatabasePage = () => {
               )}
             </div>
           ))}
+        </div>
+
+        {/* Reset Button Row */}
+        <div className="grid grid-cols-10 min-w-[1400px] mb-4">
+          <div className="col-span-10 p-2 border border-slate-300 bg-gray-50">
+            <Button
+              onClick={resetFilters}
+              variant="outline"
+              className="flex items-center gap-2"
+            >
+              <RotateCcw className="w-4 h-4" />
+              Reset All Filters
+            </Button>
+          </div>
         </div>
 
         {/* Data Rows */}

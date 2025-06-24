@@ -4,7 +4,8 @@ import React, { useEffect, useMemo, useState } from 'react'
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, GraduationCap, MapPin, Star, User } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Calendar, GraduationCap, MapPin, Star, User, RotateCcw } from "lucide-react"
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import DomainFilterComponent from '@/components/database/DomainFilterComponent'
@@ -13,7 +14,7 @@ import { APIResearchIntern, ResearchIntern } from '@/types'
 
 const ResearchInternshipDatabase = () => {
   const [internshipData, setInternshipData] = useState<ResearchIntern[]>([])
-
+  const [originalData, setOriginalData] = useState<ResearchIntern[]>([])
 
   const { data } = useQuery<APIResearchIntern[]>({
     queryKey: ['comp-database'],
@@ -36,7 +37,9 @@ const ResearchInternshipDatabase = () => {
 
   useEffect(() => {
     if (data) {
-      setInternshipData(convertAPIToResearchIntern(data))
+      const convertedData = convertAPIToResearchIntern(data)
+      setInternshipData(convertedData)
+      setOriginalData(convertedData)
     }
   }, [data])
   const findInternships = () => {
@@ -82,6 +85,10 @@ const ResearchInternshipDatabase = () => {
     setInternshipData([...matched, ...unmatched])
   }
 
+  const resetFilters = () => {
+    setInternshipData([...originalData])
+  }
+
   return (
     <div className='w-full min-h-screen flex justify-center text-sm'>
       <div className="w-full max-w-[1780px] h-full py-10">
@@ -99,7 +106,16 @@ const ResearchInternshipDatabase = () => {
             <div className='flex gap-5 items-center'>
               Filter Domain of Internship
               <DomainFilterComponent sortField={filterByDomain} listValues={domainList} />
-
+            </div>
+            <div className='flex gap-5 items-center'>
+              <Button
+                onClick={resetFilters}
+                variant="outline"
+                className="flex items-center gap-2"
+              >
+                <RotateCcw className="w-4 h-4" />
+                Reset Filters
+              </Button>
             </div>
           </div>
 
