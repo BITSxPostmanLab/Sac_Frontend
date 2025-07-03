@@ -55,11 +55,11 @@ const ImageCarousel: React.FC<CarouselProps> = ({
     return () => clearInterval(interval);
   }, [api, autoPlayInterval, isHovered]);
 
-  // Preload images for smoother transitions
+  // Preload only the first few images for better performance
   React.useEffect(() => {
-    // Using Image.preload API instead of window.Image
     if (typeof window !== 'undefined') {
-      images.forEach((image) => {
+      // Only preload first 3 images to avoid overwhelming the network
+      images.slice(0, 3).forEach((image) => {
         const imgSrc = image.src;
         if (imgSrc && typeof imgSrc === 'string') {
           const link = document.createElement('link');
@@ -93,15 +93,16 @@ const ImageCarousel: React.FC<CarouselProps> = ({
               <Card className="relative w-full h-[70vh] overflow-hidden">
                 {typeof image.link === 'string' || typeof image.link === 'object' ? (
                   <Link href={image.link}>
-                    <Image
-                      src={image.src || ""}
-                      alt={`Slide ${index + 1}`}
-                      fill
-                      priority={index === 0}
-                      className="transition-transform duration-500 hover:scale-105 object-contain cursor-pointer"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-                      quality={90}
-                    />
+                                      <Image
+                    src={image.src || ""}
+                    alt={`Slide ${index + 1}`}
+                    fill
+                    priority={index === 0}
+                    loading={index < 2 ? "eager" : "lazy"}
+                    className="transition-transform duration-500 hover:scale-105 object-contain cursor-pointer"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                    quality={85}
+                  />
                   </Link>
                 ) : (
                   <Image
@@ -109,9 +110,10 @@ const ImageCarousel: React.FC<CarouselProps> = ({
                     alt={`Slide ${index + 1}`}
                     fill
                     priority={index === 0}
+                    loading={index < 2 ? "eager" : "lazy"}
                     className="transition-transform duration-500 hover:scale-105 object-contain"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-                    quality={90}
+                    quality={85}
                   />
                 )}
               </Card>

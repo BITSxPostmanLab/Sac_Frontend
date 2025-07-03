@@ -7,8 +7,7 @@ const GalleryPage = () => {
     return (
         <div className="w-full flex min-h-full items-center justify-center mb-32">
             <div className=" w-full max-w-[1000px] flex items-center flex-col justify-center px-3">
-                <ResourceNavbar />
-                <div className="text-4xl">Gallery</div>
+                <div className="text-4xl pt-8">Gallery</div>
 
                 <div className="max-w-7xl mx-auto px-4 py-8">
                     <h1 className="text-3xl font-bold mb-1">Quantaculus 2024</h1>

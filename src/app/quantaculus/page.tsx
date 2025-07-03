@@ -16,38 +16,28 @@ import Link from "next/link";
 const Page = () => {
   const [, setActiveTab] = useState("2022");
 
-  // Convert Google Drive URLs to viewable format
-  const convertGoogleDriveUrl = (url: string) => {
-    if (url.includes("drive.google.com/file/d/")) {
-      const fileId = url.split("/file/d/")[1].split("/")[0];
-      return `https://drive.google.com/uc?export=view&id=${fileId}`;
-    }
-    return url;
-  };
-
-  // Specific images for each year
+  // Use local images for better performance
+  // Note: For 2025 images, you'll need to download them from Google Drive and add them to public/gallery/
+  // For now, using available 2024 images as placeholders
   const images2025 = [
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1zHTD3hzoDp-Ffe42xpa2kR0btQ2GpjMH/view?usp=sharing"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1kfqerU0wiBInHsaFyw5iCvCsNKdH4E3G/view?usp=drive_link"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/11bfLJUzZJx2h3pzQixubg3cteBwd2nsT/view?usp=drive_link"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1qrKGRXpiDUBvEQaQ5nVf2tMQGW-vKBx2/view?usp=drive_link"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1QqHnaA1NBWgYrgda8DlbeZFxU9qJPQjh/view?usp=drive_link"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1svInwilG6h23QgEHp0wrpVyWILzcRyX-/view?usp=drive_link")
-
+    "/gallery/quant20251.jpg",
+    "/gallery/quant20252.jpg", 
+    "/gallery/quant20253.jpg",
+    "/gallery/quant20254.jpg",
+    "/gallery/quant20255.jpg"
   ];
 
   const images2024 = [
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1mYer61t8Lpdg7800Tl9PSunITXZTPI35/view?usp=sharing"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1R9daI1Ns2_T3jY8SITF0397ZuQpXtpOu/view?usp=sharing"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1_wEpcI_bzIqpHtfnnFDHvBQzDR7jVvX_/view?usp=sharing"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1TeXzZQgOE2w-CKK_qpyYcBDEP-n2iJjF/view?usp=sharing"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1_2Vu7lsjoWikdyBdVtRCDdrz9WDjcz42/view?usp=sharing"),
+    "/gallery/quant2024-1.webp",
+    "/gallery/quant2024-2.webp",
+    "/gallery/quant2024-3.webp",
+    "/gallery/quant2024-4.webp"
   ];
 
   const images2023 = [
-    convertGoogleDriveUrl("https://drive.google.com/file/d/15eFUoH7s8g0m4F32lmnRR-VCi9YWwpaN/view?usp=sharing"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/19pDYBI0tQutjNQiKwXxzXpeMLCfhZoVG/view?usp=sharing"),
-    convertGoogleDriveUrl("https://drive.google.com/file/d/1iKM9461X0UC0ulGIq-JcSw1uwxQuud-h/view?usp=sharing"),
+    "/gallery/q2023-1.webp",
+    "/gallery/q2023-2.webp",
+    "/gallery/q2023-3.webp"
   ];
 
   // Convert to format needed by ImageCarousel
@@ -58,7 +48,7 @@ const Page = () => {
   const yearData = {
     2025: {
       title: "2025",
-      description: `This year the Students’ Academic Cell introduced its first ever APOGEE event. Quantaculus is a Problem Solving/Analytical Event which took place in 4 rounds:
+      description: `This year the Students' Academic Cell introduced its first ever APOGEE event. Quantaculus is a Problem Solving/Analytical Event which took place in 4 rounds:
   
   • Round 1: QuantQuest – A quantitative aptitude quiz which judged the speed and accuracy of participants
   
@@ -86,7 +76,7 @@ const Page = () => {
     },
     2023: {
       title: "2023",
-      description: `This year the Students’ Academic Cell introduced its first ever APOGEE event.
+      description: `This year the Students' Academic Cell introduced its first ever APOGEE event.
   Quantaculus is a Problem Solving/Analytical Event which took place in 3 rounds:
   
   • Round 1: QuantQuest – A quantitative aptitude quiz which judged the speed and accuracy of participants

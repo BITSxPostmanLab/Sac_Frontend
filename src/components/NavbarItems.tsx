@@ -20,7 +20,6 @@ const NavbarItems = ({ navbarList }: { navbarList: string[] }) => {
     "Placement Talks",
     "Academics Talks",
     "PS Talks",
-    "Quantaculus Talks",
     "Off-Campus Talks",
     "Thesis Talks",
     "Cold Mailing and CV Building Talks",

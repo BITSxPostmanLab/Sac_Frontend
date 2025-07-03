@@ -36,8 +36,7 @@ const BlogsPage = () => {
   return (
     <div className="w-full flex min-h-full items-center justify-center ">
       <div className=" w-full max-w-[1000px] flex items-center flex-col justify-center px-3">
-        <ResourceNavbar />
-        <div className="text-4xl">Blogs</div>
+        <div className="text-4xl pt-8">Blogs</div>
         <div className="w-full mt-10">
           {blogPosts
             ? blogPosts.map((ele) => (

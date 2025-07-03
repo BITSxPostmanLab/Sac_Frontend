@@ -16,7 +16,7 @@ const ContactPage = () => {
             TOUCH
           </h1>
           <p className="text-xl text-gray-600 max-w-md mx-auto lg:mx-0">
-            Connect with the Student's Academic Cell for any academic guidance, queries, or collaboration opportunities.
+            Connect with the Students' Academic Cell for any academic guidance, queries, or collaboration opportunities.
           </p>
         </div>
 

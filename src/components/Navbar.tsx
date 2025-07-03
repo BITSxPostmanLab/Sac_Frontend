@@ -38,10 +38,10 @@ const Navbar = () => {
     >
       <Link href="/" className="my-auto flex gap-3 sm:gap-4 cursor-pointer">
         <div>
-          <Image src={"/sac-logo.jpeg"} alt="Sac-logo" width={1000} height={1000} className="h-12 w-12" />
+          <Image src={"/sac-logo.jpeg"} alt="Sac-logo" width={1200} height={1200} className="h-12 w-12 mt-1" />
         </div>
         <div className="">
-          <div className=" navbartext:text-base text-lg sm:text-2xl -mb-1 sm:mb-0">Student &apos;s Academic Cell</div>
+          <div className=" navbartext:text-base text-lg sm:text-2xl -mb-2 sm:mb-0">Students' Academic Cell</div>
           <div className="text-sm navbartext:text-base sm:text-xl italic">BITS Pilani</div>
         </div>
       </Link>
