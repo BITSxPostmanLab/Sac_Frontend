@@ -8,14 +8,24 @@ export const resources: ResourceType[] = [
     posts: [
       {
         postId: 101,
-        imageUrl: "/resources/DEL-Guide.png",
+        imageUrl: "/resources/DEL-guide.png",
         paragraphs: [
           "Introducing the DEL Guide by the Students' Academic Cell—a student-driven initiative to help you navigate disciplinary electives across departments. It compiles peer insights on course content, assessments, workload, and classroom experiences.",
           "Traditionally shared informally, this guide offers structured and consistent feedback to aid informed decision-making. We’re excited to release the first edition for the Department of Physics—explore and choose electives that truly suit you!"
         ],
         resourceLink:
           "https://drive.google.com/file/d/1Sp44gamQHTx3Q2rNOeD9zM_LKtYwlXY5/view?usp=sharing",
-        linkText: "DEL Guide",
+        linkText: "DEL Guide - Physics",
+      },
+      {
+        postId: 102,
+        imageUrl: "/resources/DEL-GuideMeth.png",
+        paragraphs: [
+          "This is the 2nd Edition of our department-wise DEL guide initiative, continuing with the Department of Mathematics"
+        ],
+        resourceLink:
+          "https://drive.google.com/file/d/1NaFhzaSeHc2M_LGyPRL7E017jnSDxl3E/view?usp=sharing",
+        linkText: "DEL Guide - Mathematics",
       },
     ],
   },
@@ -58,7 +68,7 @@ export const resources: ResourceType[] = [
         postId: 204,
         imageUrl: "/resources/EEE-Chronicles.png",
         paragraphs: [
-          "This is the 4th Edition of our department-wise initiative, continuing with the Department of Mathematics",
+          "This is the 4th Edition of our department-wise initiative, continuing with the Department of Electronics and Electrical Engineering",
         ],
         resourceLink:
           "https://drive.google.com/file/d/1kDT6YwpLi12IeBh7lwVa2drxVR-rgs1E/view?usp=sharing",
