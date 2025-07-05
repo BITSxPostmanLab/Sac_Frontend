@@ -48,7 +48,7 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
       </div>
 
       <div className="px-5 sm:px-10 md:col-span-2 text-xl my-auto flex flex-col gap-5 h-full ">
-        <div className="text-3xl font-semibold">{title}</div>
+        <div className="text-3xl font-bold text-blue-700">{title}</div>
         <div
           className="prose prose-lg max-w-none overflow-y-hidden h-full"
           style={{

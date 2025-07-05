@@ -1,12 +1,30 @@
 import { ResourceType } from "./types";
 
+
 export const resources: ResourceType[] = [
   {
     id: 1,
-    title: "Project Courses: Chronicles",
+    title: "DEL Guide",
     posts: [
       {
         postId: 101,
+        imageUrl: "/resources/DEL-Guide.png",
+        paragraphs: [
+          "Introducing the DEL Guide by the Students' Academic Cell—a student-driven initiative to help you navigate disciplinary electives across departments. It compiles peer insights on course content, assessments, workload, and classroom experiences.",
+          "Traditionally shared informally, this guide offers structured and consistent feedback to aid informed decision-making. We’re excited to release the first edition for the Department of Physics—explore and choose electives that truly suit you!"
+        ],
+        resourceLink:
+          "https://drive.google.com/file/d/1Sp44gamQHTx3Q2rNOeD9zM_LKtYwlXY5/view?usp=sharing",
+        linkText: "DEL Guide",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Project Courses: Chronicles",
+    posts: [
+      {
+        postId: 201,
         imageUrl: "/resources/chronicles1.jpg",
         paragraphs: [
           "Project Courses: Chronicles, offers in-depth accounts of students' experiences working under specific professors in project-based courses. This resource highlights the expectations professors have from their students and provides detailed insights into the dynamics of these collaborations. By documenting these firsthand experiences, the Chronicles serve as a valuable guide for students to make informed decisions when selecting mentors and courses.",
@@ -17,7 +35,7 @@ export const resources: ResourceType[] = [
         linkText: "Project Courses Chronicles – Economics and Finance",
       },
       {
-        postId: 102,
+        postId: 202,
         imageUrl: "/resources/project_csis.png",
         paragraphs: [
           "This is the 2nd Edition of our department-wise initiative, continuing with the Department of Computer Science & Information Systems",
@@ -27,7 +45,7 @@ export const resources: ResourceType[] = [
         linkText: "Project Courses Chronicles -CSIS",
       },
       {
-        postId: 103,
+        postId: 203,
         imageUrl: "/resources/project_dom.png",
         paragraphs: [
           "This is the 3rd Edition of our department-wise initiative, continuing with the Department of Mathematics",
@@ -36,14 +54,24 @@ export const resources: ResourceType[] = [
           "https://drive.google.com/file/d/1gHjrJWGX8Mo1Kn48darEFT4ZRSCqvFQ1/view",
         linkText: "Project Courses Chronicles-Mathematics",
       },
+      {
+        postId: 204,
+        imageUrl: "/resources/EEE-Chronicles.png",
+        paragraphs: [
+          "This is the 4th Edition of our department-wise initiative, continuing with the Department of Mathematics",
+        ],
+        resourceLink:
+          "https://drive.google.com/file/d/1kDT6YwpLi12IeBh7lwVa2drxVR-rgs1E/view?usp=sharing",
+        linkText: "Project Courses Chronicles-EEE",
+      },
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Project Type Courses",
     posts: [
       {
-        postId: 201,
+        postId: 301,
         imageUrl: "/resources/project_type.jpg",
         paragraphs: [
           "Choosing SOP/LOP/DOP courses opens a gateway to fuel your passion for research, going beyond lectures under the guidance of experienced professors.",
@@ -56,11 +84,11 @@ export const resources: ResourceType[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Study Abroad Document",
     posts: [
       {
-        postId: 301,
+        postId: 401,
         imageUrl: "/resources/study_abroad.png",
         paragraphs: [
           "The Study abroad document provides insightful information and a roadmap to students regarding off-campus thesis opportunities, masters abroad programmes, and exchange programmes. It highlights the advantages of conducting research abroad, allowing students to acquire a global perspective and broaden their academic horizons. With a concentration on fostering cross-cultural collaboration and intellectual development, this extensive resource serves as a valuable guide for students seeking academically enriching experiences abroad.",
@@ -72,11 +100,11 @@ export const resources: ResourceType[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Competitive Programming Document",
     posts: [
       {
-        postId: 401,
+        postId: 501,
         imageUrl: "/resources/compcode1.jpg",
         paragraphs: [
           "In this interview, we delve deep into the realm of Competitive Programming, exploring what it entails and who should consider venturing into this challenging yet rewarding field. This conversation is also beneficial for students eyeing summer internships (SI) and those aiming to enhance their coding skills for competitive scenarios like the ICPC.Anish also discusses a range of resources that can aid in mastering Data Structures and Algorithms (DSA) as well as excelling in Competitive Programming.This interview promises to be a comprehensive guide for anyone at any stage of their CP journey, packed with practical advice, resource recommendations, and personal anecdotes from one of the most accomplished coders of BITS Pilani.",
@@ -88,11 +116,11 @@ export const resources: ResourceType[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "Minor Courses Document",
     posts: [
       {
-        postId: 501,
+        postId: 601,
         imageUrl: "/resources/minor.png",
         paragraphs: [
           "Minor programs in specific areas are being offered as options for integrated first-year students with the goal of encouraging them to add focus to their supplemental learning (outside of a major area) as well as recognizing and certifying knowledge obtained in an area that is outside of their major area.",
@@ -101,6 +129,23 @@ export const resources: ResourceType[] = [
         resourceLink:
           "https://sacbitspilani.wordpress.com/wp-content/uploads/2022/12/minor-doc-1.pdf",
         linkText: "Minor Courses Document",
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "GSOC QnA",
+    posts: [
+      {
+        postId: 701,
+        imageUrl: "/resources/gsoc.png",
+        paragraphs: [
+          "This document contains a collection of Q&A addressing various aspects of Google Summer of Code (GSoC), including the application process and student experiences.",
+          "It also highlights useful resources and guidance available to help students navigate and prepare effectively for GSoC."
+        ],
+        resourceLink:
+          "https://sacbitspilani.wordpress.com/wp-content/uploads/2021/03/gsoc_qna_sac.pdf",
+        linkText: "GSOC QnA",
       },
     ],
   },
