@@ -34,7 +34,7 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
 
 
   return (
-    <div className="grid md:grid-cols-3 w-full mb-20 max-h-[600px] overflow-y-hidden">
+    <div className="grid md:grid-cols-3 w-full mb-20 min-h-[600px]">
       <div className="w-fit md:ml-auto mx-auto md:mx-0 mb-10 mt-5">
         <Image
           src={safeImageUrl}
@@ -48,11 +48,11 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
       </div>
 
       <div className="px-5 sm:px-10 md:col-span-2 text-xl my-auto flex flex-col gap-5 h-full ">
-        <div className="text-3xl font-bold text-blue-700">{title}</div>
+        <div className="font-bold text-blue-800 text-3xl leading-tight break-words">{title}</div>
         <div
           className="prose prose-lg max-w-none overflow-y-hidden h-full"
           style={{
-            maxHeight: "500px",
+            maxHeight: "420px",
             WebkitMaskImage:
               "linear-gradient(to bottom, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 0))",
             maskImage:
