@@ -61,7 +61,7 @@ export const resources: ResourceType[] = [
           "This is the 3rd Edition of our department-wise initiative, continuing with the Department of Mathematics",
         ],
         resourceLink:
-          "https://drive.google.com/file/d/1gHjrJWGX8Mo1Kn48darEFT4ZRSCqvFQ1/view",
+          "https://drive.google.com/file/d/1lZ_jmjSvWOYwO6YY3stlr3l-_tA1WWjH/view?usp=sharing",
         linkText: "Project Courses Chronicles-Mathematics",
       },
       {
