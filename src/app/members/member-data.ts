@@ -1,34 +1,55 @@
 export const LEADERS = [
   {
-    name: "Mehul Srivastava",
+    name: "Krish",
     designation: "Member Secretary",
-    imageUrl: "/production/members/PORS/mehul_srivastava.jpg",
-    description: "Students’ Academic Cell has always aimed to enhance the academic and research culture of BITS Pilani. Being one of the reputed institutions of the country its our responsibility to uphold this rich culture of scholastic excellence. As the Member Secretary of this Cell, my aim is to remove all potential academic or career oriented doubts that a student may confront during their engineering life. Our Core team has always been instrumental in providing innovative ideas and impactful initiatives which can help in the all round development of the students. I have always valued perfection over anything and will try to build an organization which will act as a guiding body for all the students aiding them to excel in academics as well as in their career. Leading such a prestigious organization is a matter of great honor for me and I believe that eventually we will be able to create a positive impact on our students so that they have a successful and prosperous life ahead."
+    imageUrl: "/production/members/PORS/Krish.jpeg",
+    description:
+      "Among all student-led bodies on campus, the Students’ Academic Cell occupies a unique role in supporting students in ways no other organization does. Under the direct guidance of the Director, the Core Committee consistently delivers meaningful initiatives for the student community. As Member Secretary, it is both an honour and a responsibility to lead this team towards creating greater value for students seeking clarity and guidance. More importantly, my objective is to ensure that our work creates a lasting and positive impact on the student community at BITS Pilani."
   },
   {
-    name: "Arnav Dham",
-    designation: "Member Secretary",
-    imageUrl: "/production/members/PORS/arnav_dham.jpg",
-    description: "Amongst all organisations and student-led clubs on campus, the Students’ Academic Cell emerges at a unique position, aiding students and researchers in ways no other organization does. With the direct support and supervision of the Director, BITS Pilani, the ever-enthusiastic and hardworking Core-Committee always comes up with new ideas, initiatives and events on a consistent basis to aid the upcoming and current batches. Being the leader of such a Core Committee, as a Member Secretary of the cell is a matter of high honor, prestige, and responsibility. Assuming this position, I intend to lead the Cell towards creating higher value for students seeking information and guidance for any and all academic, research and career-related prospects. More importantly, the major objective would be to create an actual impact in the BITSian education system through our work for the future BITSians to leverage, and build themselves even better."
+    name: "Jairam",
+    designation: "Outreach Head",
+    imageUrl: "/production/members/PORS/Jairam.jpg",
+    description:
+      "As Outreach Head, my focus is largely on refining the bridge between BITS Pilani’s rigorous academic traditions and the evolving needs of its students. It is a privilege to facilitate transparent discussions on academic policy, aiming to improve the campus environment through constructive feedback and the dissemination of important information. Ultimately, SAC will always try to act as a strategic link between policy and student aspirations, fostering a collaborative culture that ensures a more impactful educational experience for the community as a whole."
   },
   {
-    name: "Shreyas Mishra",
-    designation: "Events and Outreach Head",
-    imageUrl: "/production/members/PORS/shreyas.jpg",
-    description: "As the Outreach Head of the Students’ Academic Cell, it is both a privilege and a responsibility to spread awareness about our organization and the myriad benefits it offers to the BITSian community. My role revolves around bridging the gap between students and the wealth of resources available within the Cell, from career guidance to course selection assistance and major events like ‘Quantaculus’. Through proactive outreach efforts, I strive to ensure that every student is aware of the opportunities at their disposal and can make informed decisions about their academic and career paths. At the heart of our mission lies a commitment to enhancing the academic and research culture of BITS Pilani. With a focus on holistic development, we aim to equip students with the knowledge, skills, and guidance necessary to excel not only academically but also in their future careers. Together, we strive to create a tangible impact on the BITSian education system, providing future generations with the tools and resources they need to thrive."
+    name: "Arnav",
+    designation: "Member Secretary",
+    imageUrl: "/production/members/PORS/Arnav.jpg",
+    description:
+      "The Students’ Academic Cell exists to ensure that academic processes at BITS Pilani remain transparent, responsive, and student-focused. As Member Secretary, my role involves coordinating the Cell’s internal functioning while helping translate student concerns into constructive academic initiatives. I am particularly interested in building systems that make academic information easier to access and discussions around policy more structured and effective. Through collaboration with the Core Committee and continuous engagement with the student body, I hope to contribute to an environment where students are better equipped to navigate the academic landscape and feel confident that their voices are meaningfully represented."
+  },
+  {
+    name: "Garvit",
+    designation: "Apogee Coordinator",
+    imageUrl: "/production/members/PORS/Garvit.JPG",
+    description:
+      "As the APOGEE Coordinator for the Students’ Academic Cell, I oversee the planning and execution of Quantaculus, the Cell’s flagship event during APOGEE. My responsibilities include pitching the event to stakeholders, securing the prize pool, and procuring the necessary inventory to ensure smooth on-ground execution. Alongside this, I coordinate with student teams and internal verticals to deliver a high-quality academic experience. Through structured planning and effective resource management, I aim to uphold the Cell’s vision of fostering academic rigor and research-oriented thinking. Ultimately, my role contributes to strengthening APOGEE as a platform for meaningful academic engagement."
+  },
+  {
+    name: "Avichal",
+    designation: "Tech Operations Lead",
+    imageUrl: "/production/members/PORS/avichal.jpg",
+    description:
+      "As the Tech Operations Lead for the Students’ Academic Cell, I am responsible for managing the Cell’s digital infrastructure and ensuring that all technical operations run reliably and efficiently. This includes overseeing the website, internal tools, and event-related technical systems that support the Cell’s initiatives throughout the year. My focus is on building and maintaining platforms that are clear, accessible, and dependable for the student community. By strengthening the technical backbone of the Cell, I aim to enable smoother coordination, better information flow, and a more effective delivery of SAC’s academic and outreach efforts, ultimately enhancing the experience and impact for students at BITS Pilani."
   }
 ];
 
+
 export const MEMBERS = [
-  { name: "Sanghmitra Maheshwari", designation: "Core Committee Member", imageUrl: "/production/members/normal/sangh.jpg" },
-  { name: "Prakriti Manocha", designation: "Core Committee Member", imageUrl: "/production/members/normal/Prakriti_Manocha.jpg" },
-  { name: "Mridul Harsh", designation: "Core Committee Member", imageUrl: "/production/members/normal/mridulharsh.jpg" },
-  { name: "Kushi Arun", designation: "Core Committee Member", imageUrl: "/production/members/normal/Kushi_AK.jpeg" },
-  { name: "Krish Bhatnagar", designation: "Core Committee Member", imageUrl: "/production/members/normal/krish-B.jpg" },
-  { name: "Jairam Ayyar", designation: "Core Committee Member", imageUrl: "/production/members/normal/jairam.jpg" },
-  { name: "Garvit Budhania", designation: "Core Committee Member", imageUrl: "/production/members/normal/garvit_b.jpg" },
-  { name: "Christo Alex", designation: "Core Committee Member", imageUrl: "/production/members/normal/christo_ale.jpeg" },
-  { name: "Avichal Dwivedi", designation: "Core Committee Member", imageUrl: "/production/members/normal/avichal.jpg" },
-  { name: "Arnav Bhardwaj", designation: "Core Committee Member", imageUrl: "/production/members/normal/arnav_bhard.jpg" },
-  { name: "Anoushka Singhi", designation: "Core Committee Member", imageUrl: "/production/members/normal/anoushka_s.jpg" },
+  { name: "Arya Karanjkar", designation: "Core Committee Member", imageUrl: "/production/members/normal/Arya_Karanjkar.JPG" },
+  { name: "Aaditya Nair", designation: "Core Committee Member", imageUrl: "/production/members/normal/nair.jpg" },
+  { name: "Chaitanya Goyal", designation: "Core Committee Member", imageUrl: "/production/members/normal/Chaitanya_Goyal.jpeg" },
+  { name: "Darsh Patel", designation: "Core Committee Member", imageUrl: "/production/members/normal/Darsh_Patel.jpg" },
+  { name: "Dhruv Goswami", designation: "Core Committee Member", imageUrl: "/production/members/normal/dhruv_goswami.png" },
+  { name: "Harsh Kumar", designation: "Core Committee Member", imageUrl: "/production/members/normal/Harsh_kumar.jpg" },
+  { name: "Ipsita Sharma", designation: "Core Committee Member", imageUrl: "/production/members/normal/Ipsita_sharma.jpg" },
+  { name: "Ishaan Lakhina", designation: "Core Committee Member", imageUrl: "/production/members/normal/Ishaan_Lakhina.png" },
+  { name: "Ishaan Sinha", designation: "Core Committee Member", imageUrl: "/production/members/normal/Ishaan_Sinha.jpg" },
+  { name: "Prachi Jain", designation: "Core Committee Member", imageUrl: "/production/members/normal/Prachi_Jain.jpg" },
+  { name: "Saumya Goyal", designation: "Core Committee Member", imageUrl: "/production/members/normal/Saumya_Goyal.jpeg" },
+  { name: "Siddharth Vivek", designation: "Core Committee Member", imageUrl: "/production/members/normal/Siddharth_Vivek.jpg" },  
+  { name: "Vanyea V Yagwin", designation: "Core Committee Member", imageUrl: "/production/members/normal/muskan_bhagotra.png" },
+  { name: "Yug Sachdeva", designation: "Core Committee Member", imageUrl: "/production/members/normal/Yug_Sachdeva.jpg" },  
 ];
