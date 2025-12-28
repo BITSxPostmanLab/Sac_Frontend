@@ -50,18 +50,8 @@ const ContactPage = () => {
                       <FaPhone className="text-gray-800" size={20} />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600 font-medium">Mehul</p>
-                      <p className="text-lg font-semibold text-gray-800">9608283485</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                    <div className="bg-[#d7c99e] p-3 rounded-full">
-                      <FaPhone className="text-gray-800" size={20} />
-                    </div>
-                    <div>
                       <p className="text-sm text-gray-600 font-medium">Arnav</p>
-                      <p className="text-lg font-semibold text-gray-800">9315583656</p>
+                      <p className="text-lg font-semibold text-gray-800">8792890852</p>
                     </div>
                   </div>
 
@@ -70,10 +60,42 @@ const ContactPage = () => {
                       <FaPhone className="text-gray-800" size={20} />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600 font-medium">Shreyas</p>
-                      <p className="text-lg font-semibold text-gray-800">7387526136</p>
+                      <p className="text-sm text-gray-600 font-medium">Krish</p>
+                      <p className="text-lg font-semibold text-gray-800">9910627905</p>
                     </div>
                   </div>
+
+                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                    <div className="bg-[#d7c99e] p-3 rounded-full">
+                      <FaPhone className="text-gray-800" size={20} />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600 font-medium">Jairam</p>
+                      <p className="text-lg font-semibold text-gray-800">9137483837</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                    <div className="bg-[#d7c99e] p-3 rounded-full">
+                      <FaPhone className="text-gray-800" size={20} />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600 font-medium">Avichal</p>
+                      <p className="text-lg font-semibold text-gray-800">9279700314</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                    <div className="bg-[#d7c99e] p-3 rounded-full">
+                      <FaPhone className="text-gray-800" size={20} />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600 font-medium">Garvit</p>
+                      <p className="text-lg font-semibold text-gray-800">9309350000</p>
+                    </div>
+                  </div>
+
+
                 </div>
 
                 {/* Social Media */}
