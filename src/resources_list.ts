@@ -27,6 +27,17 @@ export const resources: ResourceType[] = [
           "https://drive.google.com/file/d/1NaFhzaSeHc2M_LGyPRL7E017jnSDxl3E/view?usp=sharing",
         linkText: "DEL Guide - Mathematics",
       },
+      {
+        postId: 103,
+        imageUrl: "/resources/DEL-GuideMech.jpg",
+        paragraphs: [
+          "This is the 3rd Edition of our department-wise DEL guide initiative, continuing with the Department of Mechanical Engineering"
+        ],
+        resourceLink:
+          "https://drive.google.com/file/d/1qTyMKXWhIZdwLrpItVIqIQ441d5FWIRv/view?usp=sharing",
+        linkText: "DEL Guide - Mechanical Engineering",
+      },
+
     ],
   },
   {

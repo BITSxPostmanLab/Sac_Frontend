@@ -16,7 +16,7 @@ const SingleResourcePage = async ({
     .find((post) => post.postId.toString() === resourceId);
 
   if (!resource) {
-    return null;
+    return null
   }
 
   return (
