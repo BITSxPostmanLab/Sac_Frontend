@@ -31,7 +31,7 @@ export const resources: ResourceType[] = [
         postId: 103,
         imageUrl: "/resources/DEL-GuideMech.jpg",
         paragraphs: [
-          "This is the 3rd Edition of our department-wise DEL guide initiative, continuing with the Department of Mechanical Engineering"
+          "Continuing the Department-wise DEL Guide initiative, the DEL Guide for the Department of Mechanical Engineering has been prepared by ASME."
         ],
         resourceLink:
           "https://drive.google.com/file/d/1qTyMKXWhIZdwLrpItVIqIQ441d5FWIRv/view?usp=sharing",
