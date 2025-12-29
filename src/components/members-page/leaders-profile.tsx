@@ -28,7 +28,6 @@ const LeadersProfile = ({
         className
       )}
     >
-      {/* Image Container - Slightly reduced height to keep card compact in 2-col layout */}
       <div className="relative w-full h-64 overflow-hidden group">
         <Image
           src={imageUrl}
@@ -53,7 +52,7 @@ const LeadersProfile = ({
         <div className="text-sm text-gray-600 leading-relaxed text-justify relative flex flex-col flex-grow">
             <p className={cn(
                 "transition-all duration-300 ease-in-out",
-                isExpanded ? "" : "line-clamp-3" // Reduced clamp to 3 lines for compactness
+                isExpanded ? "" : "line-clamp-3" 
             )}>
                 {description}
             </p>
