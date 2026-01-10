@@ -26,11 +26,13 @@ export type BlogPostType = {
   title: string;
   content: string;
   image: string;
+  category: "SI/Placement" | "Campus Life" | "Alumni" | "Miscellaneous";
   created_at: string;
   updated_at: string;
   display_author_name: string;
   comments_enabled: boolean;
   comments: CommentType[] | null;
+  categories?: string[];
 };
 
 export type EventType = {
@@ -75,7 +77,7 @@ export type ProgramData = {
 };
 
 
-export type APIResearchIntern = 
+export type APIResearchIntern =
   {
     id: number;
     timestamp: string | null;
@@ -94,33 +96,33 @@ export type APIResearchIntern =
     lor_requirement_1: string;
     funding_status_1: string;
     publication_status_1: string;
-    type_of_internship_2: string ;
-    university_2: string ;
-    intern_name_2: string ;
-    domain_2: string ;
-    remote_or_onsite_2: string ;
-    start_end_date_2: string ;
-    cgpa_2: string  ;
-    relevant_courses_2: string ;
-    research_experience_2: string ;
-    lor_requirement_2: string ;
-    funding_status_2: string ;
-    publication_status_2: string ;
+    type_of_internship_2: string;
+    university_2: string;
+    intern_name_2: string;
+    domain_2: string;
+    remote_or_onsite_2: string;
+    start_end_date_2: string;
+    cgpa_2: string;
+    relevant_courses_2: string;
+    research_experience_2: string;
+    lor_requirement_2: string;
+    funding_status_2: string;
+    publication_status_2: string;
     academic_career_impact: string;
-    contact_permission: string ;
-    additional_info: string ;
+    contact_permission: string;
+    additional_info: string;
     created_at: string;
     updated_at: string;
   }
 
-  export type ResearchIntern = 
+export type ResearchIntern =
   {
     id: number;
     timestamp: string | null;
     name: string;
     bits_id: string;
     domain_classification: string[];
-    type_of_internship_1: string ;
+    type_of_internship_1: string;
     university_1: string;
     domain_1: string;
     intern_name_1: string;
@@ -132,21 +134,21 @@ export type APIResearchIntern =
     lor_requirement_1: string;
     funding_status_1: string;
     publication_status_1: string;
-    type_of_internship_2: string ;
-    university_2: string ;
-    intern_name_2: string ;
-    domain_2: string ;
-    remote_or_onsite_2: string ;
-    start_end_date_2: string ;
-    cgpa_2: string  ;
-    relevant_courses_2: string ;
-    research_experience_2: string ;
-    lor_requirement_2: string ;
-    funding_status_2: string ;
-    publication_status_2: string ;
+    type_of_internship_2: string;
+    university_2: string;
+    intern_name_2: string;
+    domain_2: string;
+    remote_or_onsite_2: string;
+    start_end_date_2: string;
+    cgpa_2: string;
+    relevant_courses_2: string;
+    research_experience_2: string;
+    lor_requirement_2: string;
+    funding_status_2: string;
+    publication_status_2: string;
     academic_career_impact: string;
-    contact_permission: string ;
-    additional_info: string ;
+    contact_permission: string;
+    additional_info: string;
     created_at: string;
     updated_at: string;
   }

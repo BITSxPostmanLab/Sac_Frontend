@@ -1,12 +1,12 @@
 import React, { ReactNode, useState } from "react";
 import Image from "next/image";
-import { defaultImageUrl } from "../../../constants";
-import DOMPurify  from "dompurify";
+import DOMPurify from "dompurify";
+import { getSafeImageUrl } from "@/lib/utils";
 
 
 interface SingularBlogPostProps {
   imageUrl: string;
-  content:  string;
+  content: string;
   title: string;
 }
 
@@ -17,20 +17,7 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
 }) => {
   const [imgError, setImgError] = useState(false);
 
-  // Validate URL to ensure it's properly formatted
-  const isValidUrl = (urlString: string): boolean => {
-    try {
-      return Boolean(new URL(urlString));
-    } catch (error) {
-      console.log("Invalid URL:", error);
-      return false;
-    }
-  };
-
-  // Default image URL to use when image is invalid or fails to load
-
-  // Determine which image URL to use
-  const safeImageUrl = imgError || !isValidUrl(imageUrl) ? defaultImageUrl : imageUrl;
+  const safeImageUrl = getSafeImageUrl(imageUrl, imgError);
 
 
   return (
@@ -60,10 +47,10 @@ const SingularBlogPost: React.FC<SingularBlogPostProps> = ({
             paddingRight: "10px",
           }}
         >
-         <div
-      className="w-full mr-auto"
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
-         />
+          <div
+            className="w-full mr-auto"
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
+          />
         </div>
       </div>
     </div>
