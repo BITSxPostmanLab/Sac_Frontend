@@ -44,10 +44,8 @@ const SingleResourcePage = ({ params }: PageProps) => {
 
   return (
     <article className="w-full min-h-full bg-white">
-      {/* Hero Section */}
       <div className="w-full bg-slate-50 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-5 py-16 md:py-24 text-center">
-          {/* Category Tag */}
           <div className="flex flex-wrap justify-center gap-2 mb-4">
             {currentBlogPost.categories && currentBlogPost.categories.length > 0 ? (
               currentBlogPost.categories.map((cat, idx) => (
@@ -64,11 +62,9 @@ const SingleResourcePage = ({ params }: PageProps) => {
           <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
             {currentBlogPost.title}
           </h1>
-          {/* Optional: Add Author/Date here if available */}
         </div>
       </div>
 
-      {/* Content Section */}
       <div className="max-w-3xl mx-auto px-5 py-12">
         <div
           className="prose prose-lg prose-blue max-w-none 

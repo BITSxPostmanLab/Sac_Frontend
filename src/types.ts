@@ -33,6 +33,7 @@ export type BlogPostType = {
   comments_enabled: boolean;
   comments: CommentType[] | null;
   categories?: string[];
+  category_name?: string;
 };
 
 export type EventType = {
